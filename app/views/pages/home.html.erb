@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container container_home">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= image_tag "logo-3nclouds.svg", class:"img-fluid pt-4 pr-4 pl-4" %>
+      <p class="logo text-center">OnePlanet</p>
+      <p>Reduce your footprint,</p>
+      <p>one challenge at a time</p>
+      <p class="text-center">Do you feel like you could do more to reduce your environmental footprint ? Do you feel like you do not know where to start ? We have the solution for you. First take the quiz below to find out how much you are consuming today.</p>
+      <%= link_to quiz_path, class: "btn custom"%>
+    </div>
+  </div>
+</div>
