@@ -4,6 +4,7 @@
   font-weight: 300;
   font-size: 45px;
   color: $darkestgreen;
+  margin-bottom: 0;
 }
 
 .home {
@@ -13,4 +14,14 @@
 .text-home {
     height: 431px;
     padding-bottom: 3%;
+}
+
+.tagline {
+  font-size: 19px;
+}
+
+.text-detail {
+  font-weight: 100;
+  width: 80%;
+  text-align: center;
 }
