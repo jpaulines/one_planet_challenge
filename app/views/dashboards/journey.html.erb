@@ -1,0 +1,42 @@
+<%= render 'shared/navbar' %>
+
+<%= render 'profile-header' %>
+
+  <nav>
+    <ul class="Tabs">
+      <li class="Tabs__tab Tab"><%= link_to "DASHBOARD", dashboard_path %></li>
+      <li class="Tabs__tab Tab"><%= link_to "CHALLENGES", my_challenges_path %></li>
+      <li class="Tabs__tab active Tab"><%= link_to "JOURNEY", journey_path %></li>
+      <li class="Tabs__presentation-slider" role="presentation"></li>
+    </ul>
+  </nav>
+</div>
+
+
+
+ <div class="container">
+   <div class="row">
+    <div class="col-11 m-2 ml-4">
+         <div class="card-event-company-connection mb-1 mt-1 start">
+          <%= image_tag "logo-3nclouds.svg", class: "logo-journey-start" %>
+        </div>
+         <div class="card-event-company-connection mb-1 mt-1">
+        </div>
+        <div class="card-event-company">
+          <div class="d-flex">
+             <%# image_tag event.event_image, class: "avatar-large mr-2" %>
+            <div class="card-event-company-content">
+              <p><span class="p-question">Reusable Mug Challenge</p></span>
+              <p><span class="p-question">Completed: </span>29. Aug 2019</p>
+              <p><span class="p-question">GPs earned </span>3</p>
+              <p><span class="p-question">Badge </span>3</p>
+            </div>
+            <div class="card-event-company-actions">
+            </div>
+        </div>
+      <!-- Would need a joined table to sort for date -->
+      </div>
+    </div>
+  </div>
+</div>
+
