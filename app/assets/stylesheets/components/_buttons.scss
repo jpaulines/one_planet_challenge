@@ -1,0 +1,36 @@
+
+.btn.customgreen {
+  background-color: $green;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.btn.customgrey {
+  background-color: $grey;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+
+.btn-index {
+  background-color: $green;
+  color: white;
+  width: 150px;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.button_to {
+  background-color: white;
+}
