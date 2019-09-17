@@ -1,24 +1,21 @@
-<div class="container">
+<div class="container  ">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <h3 class="text-center">You're almost ready</h3>
+      <h3 class="text-center">You're almost ready -</h3>
       <h3 class="text-center">just 2 more steps to go!</h3>
-      <br>
       <h3>2. Your preferences</h3>
-      <br>
-      <p>We taylor our challenges to your preferences, please answer the questions below</p>
-      <br>
-        <div class="Form preferences">
+      <p class="form-p">We taylor our challenges to your preferences, please answer the questions below</p>
+      <div class="form preferences d-flex flex-column justify-content-between form-page">
         <label for="Preferences">How much time are you willing to spend per week on the challenges ?</label>
         <input type="range" class="custom-range" id="customRange1" name=user[time_level] min="1" max="3">
         <label for="Preferences">How much effort are you willing to put in ?</label>
         <input type="range" class="custom-range" id="customRange1" name=user[effort_level] min="1" max="3">
         <label for="Preferences">What amount of money would you be willing to spend on challenges ?</label>
         <input type="range" class="custom-range" id="customRange1" name=user[money_level] min="1" max="3">
-        <form action="/users/id/user_interest/new">
+        <form action="/user_interests/new">
           <button id="" class="btn customgreen">Submit</button>
         </form>
-        </div>
+      </div>
     </div>
   </div>
 </div>
