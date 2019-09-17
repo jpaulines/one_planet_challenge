@@ -1,17 +1,22 @@
 
-.btn.customgreen {
+.btn.custom {
   background-color: $green;
   color: white;
+  border-radius: 6px;
   width: 80%;
   margin: 0 auto;
+  padding: 10px;
+  font-weight: 600;
   display: block;
   &:hover {
     opacity: 0.7;
   }
 }
 
-.btn.customgrey {
-  background-color: $grey;
+
+
+.btn.custom.grey {
+  background-color: $light-gray;
   color: white;
   width: 80%;
   margin: 0 auto;
