@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     serialized = File.read(filepath)
     countries = JSON.parse(serialized)
     earth_counter = nil
+
     score = params[:quiz][:food].to_i + params[:quiz][:home].to_i + params[:quiz][:mobility1].to_i + params[:quiz][:mobility2].to_i + params[:quiz][:product].to_i
     countries.each do |country|
       if country["isoa2"] == params[:quiz][:country_code]
@@ -34,10 +35,16 @@ class PagesController < ApplicationController
     @result = params[:result]
     @resulti = @result.to_i
     @resultf = @result.to_f - @result.to_i
-    @score = params[:score].to_i
+    @score = params[:score].to_i - 10
     country_code = params[:country]
     country = ISO3166::Country[country_code]
     @country = country.translations[I18n.locale.to_s] || country.name
+  end
+
+  private
+
+  def convert_to_score(param)
+
   end
 
 end
