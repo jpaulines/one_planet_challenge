@@ -1,19 +1,45 @@
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-6 col-lg-3">
-          <% if @result != nil %>
-            <p>People living in <%= @country %> need
+          <div class="text">
+            <% if @result != nil %>
+              <p class="text_center"> People living in <span class="bold_text"><%= @country %></span> need approximatly  <span class="bold_text"><%=  @result %> Earths</span> to sustain their lifestyle </p>
               <br>
-              <%  @result_complete.times do %>
-                <%= image_tag "logo-nocircles.svg" %>
-              <%  end %>
-              <%= @result %>
-              <span> earths </span>
-            </p>
-          <% else %>
-            <%= "This country is not supported by the calcultor at the moment" %>
-          <% end %>
+
+              <div class="container_small">
+                <%  @resulti.times do %>
+                  <%= image_tag "logo-nocircles.svg", class: "little_logo" %>
+                <%  end %>
+                <% if @resultf != 0 %>
+                  <%= image_tag "logo-half.svg", class: "little_logo" %>
+                  <% (8 - @resulti).times do  %>
+                    <%= image_tag "logo-transparent.svg", class: "little_logo" %>
+                  <% end %>
+                <% else %>
+                  <% (9 - @resulti).times do  %>
+                    <%= image_tag "logo-transparent.svg", class: "little_logo" %>
+                  <% end %>
+                <% end %>
+                <p class="mb-4"></p>
+              </div>
+
+              <span> Based on your answers, we estimate that your current lifestyle is </span>
+              <% if @score < 0 %>
+                <span> <span class="bold_text">worse</span> vs. your home country...</span>
+              <% elsif @score > 0 %>
+                <span> <span class="bold_text">better</span> vs. your home country 🥳 </span>
+              <% elsif @score = 0 %>
+                <span> <span class="bold_text">matching</span> your home country. </span>
+              <% end %>
+            <% else %>
+              <p> We are sorry, but there is no data avalable for <%= @country %> at the moment</p>
+            <% end %>
+            <p class="mt-5 mb-4 text_final">Wanna get better while having fun?</p>
+          </div>
+
+          <%= link_to "Challenge Accepted", new_user_registration_path, class: "btn custom "%>
 
     </div>
+
   </div>
 </div>
