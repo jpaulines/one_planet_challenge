@@ -18,13 +18,15 @@
   <p><i id="greenpoint-level" class="fas fa-award"> </i><%= @challenge.greenpoint %></p>
   <p class="challenge-description"><%= @challenge.content %></p>
   <h4 class="challenge-steps-title">Steps to completion</h4>
-  <% @challenge.challenge_steps.each_with_index do |step, index|  %>
-    <% unless step.content.nil? %>
-      <div class="d-flex">
-        <div class="challenge-step mr-2"><%= index + 1 %></div>
-        <p><%=  step.content %></p>
-      </div>
+  <div class="div-steps">
+    <% @challenge.challenge_steps.each_with_index do |step, index|  %>
+      <% unless step.content.nil? %>
+        <div class="d-flex">
+          <div class="challenge-step mr-2"><%= index + 1 %></div>
+          <p><%=  step.content %></p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <%= link_to "Challenge Accepted", challenge_user_challenges_path(@challenge), method: :post, class: "btn custom "%>
