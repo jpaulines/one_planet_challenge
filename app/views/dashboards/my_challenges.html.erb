@@ -13,26 +13,31 @@
 </div>
 
 
+<h1 class="challenges">Ongoing Challenges</h1>
 <div class="row">
+    <% @challenges.each do |challenge| %>
     <div class="col-6">
         <div class="challenge-card">
-          <div class="challenge-card-image" style="background-image: url(https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+          <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
           <div class="challenge-card-content">
             <!-- if statement & checkbox image -->
             <div class="challenge-card-title">
-              <p class="category-tag">Mobility<i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
-              <h4>Challenge Title</h4>
+              <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+              <h4> <%= challenge.name %></h4>
                 <div class="challenge-tags">
                   <div class="challenge-tag-pair">
-                    <p><i class="fas fa-trophy"></i> 1</p>
+                    <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
                   </div>
                   <div class="challenge-tag-pair">
-                    <p><i class="fas fa-stopwatch"></i> 1</p>
+                    <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
                   </div>
                 </div>
                 </div>
             </div>
           </div>
         </div>
+        <% end %>
     </div>
+
+<h1 class="challenges">Suggested Challenges</h1>
 
