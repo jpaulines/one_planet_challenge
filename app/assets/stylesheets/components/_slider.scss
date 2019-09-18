@@ -1,0 +1,14 @@
+#slider.custom-range::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-image: url(asset-path('nav-dashboard.png'));
+  height: 35px;
+  width: 35px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translateY(-5px);
+}
+
+#slider.custom-range::-webkit-slider-runnable-track{
+  background-color: #46c190;
+}
