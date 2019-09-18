@@ -1,0 +1,48 @@
+  .form-quiz {
+    input[type='radio'] {
+      display: none;
+    }
+    input[type='radio']:checked + label {
+      border-bottom: 3px $green solid;
+    }
+    margin-bottom: 0;
+  }
+
+.label_question {
+  margin-bottom: 0;
+}
+
+.title {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  font-size: 34px;
+  text-align: center;
+  margin-top: 20px;
+  color: $darkestgreen;
+  margin-bottom: 15px;
+  line-height: 38px;
+}
+
+.subtitle {
+  font-size: 18px;
+}
+
+.image_tag {
+  height: 95px;
+}
+
+.text-example {
+  font-size: 15px;
+  font-weight: 100;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.question_buttons {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+
+

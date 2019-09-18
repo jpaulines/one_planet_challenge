@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+# One Planet
+gem 'country_select', '~> 4.0'
+# End
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'pundit'
