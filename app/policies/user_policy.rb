@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def edit?
     record == user
   end
+
+  def update?
+    record == user
+  end
 end

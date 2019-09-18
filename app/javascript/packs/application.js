@@ -1,4 +1,9 @@
 import "bootstrap";
+
+
+import { initAutocomplete } from '../plugins/init_autocomplete';
+initAutocomplete();
+
 var tabs = document.getElementsByClassName('Tab');
 
 Array.prototype.forEach.call(tabs, function(tab) {
@@ -12,3 +17,4 @@ function setActiveClass(evt) {
 
   evt.currentTarget.classList.add('active');
 }
+
