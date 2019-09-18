@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'journey', to: "dashboards#journey", as: 'journey'
   get "quiz", to: "pages#quiz", as: :quiz
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, only: [:edit] do
-    resources :user_interest, only: [:new]
-  end
+
+  resources :user_interests, only: [:new, :create]
+  resources :users, only: [:edit, :update]
 
   resources :challenges do
     resources :user_challenges, only: [:create]
