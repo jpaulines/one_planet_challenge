@@ -73,3 +73,13 @@ h1.challenges {
   padding-left: 4px;
   padding-top: 10px;
 }
+
+.challenges-scroll {
+  position: fixed;
+  top: 180px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+

@@ -1,0 +1,30 @@
+ <h1 class="h1-challenge-show"><%= @challenge.name %></h1>
+  <p>Difficulty
+    <% @challenge.effort.times do %>
+      <i id="actual-level" class="fas fa-trophy mr-1"></i>
+    <% end %>
+    <% (5 - @challenge.effort).times do %>
+      <i id="total-level" class="fas fa-trophy mr-1"></i>
+    <% end %>
+  </p>
+  <p>Time
+    <% @challenge.time.times do %>
+      <i id="actual-level" class="fas fa-stopwatch"></i>
+    <% end %>
+    <% (5 - @challenge.time).times do %>
+      <i id="total-level" class="fas fa-stopwatch"></i>
+    <% end %>
+  </p>
+  <p><i id="greenpoint-level" class="fas fa-award"> </i><%= @challenge.greenpoint %></p>
+  <p class="challenge-description"><%= @challenge.content %></p>
+  <h4 class="challenge-steps-title">Steps to completion</h4>
+  <% @challenge.challenge_steps.each_with_index do |step, index|  %>
+    <% unless step.content.nil? %>
+      <div class="d-flex">
+        <div class="challenge-step mr-2"><%= index + 1 %></div>
+        <p><%=  step.content %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Challenge Accepted", challenge_user_challenges_path(@challenge), method: :post, class: "btn custom "%>
