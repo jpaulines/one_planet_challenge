@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit] do
     resources :user_interest, only: [:new]
   end
+
+  resources :challenges
 end

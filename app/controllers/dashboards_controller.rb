@@ -5,9 +5,11 @@ class DashboardsController < ApplicationController
   end
 
   def my_challenges
+    authorize :dashboard, :my_challenges?
   end
 
   def journey
+    authorize :dashboard, :journey?
   end
 
 end
