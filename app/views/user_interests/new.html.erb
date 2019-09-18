@@ -1,96 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <h3 class="text-center">Yay - now it’s only about your interests and then we are ready to GO!</h3>
+      <h3 class="text-center" style="margin-bottom: 35px">One last step to go !</h3>
       <div class="row">
-      <%= image_tag "three.svg", class: 'sign up icons'%>
-      <h4>Your interests</h4>
-    </div>
+        <%= image_tag "three.svg", class: 'sign up icons'%>
+        <h4>Your interests</h4>
+      </div>
       <p>We also select challenges based on your favorite categories, Pick 3 or more where you would like to start your journey:</p>
 
-      <div class="row">
-        <div class="col-6">
+      <%= form_tag user_interests_url do %>
+      <div class="form-group">
+        <input type="hidden" name="category_ids" value="">
+        <div class="row category-choices">
+          <% Category.all.each do |category| %>
+          <div class="category-checkbox col-xs-5">
+          <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>">
+          <label for="interests_id_<%= category.id %>">
+
           <div class="category-card">
             <div>
-              <%= image_tag "fashion.jpg", class: "category-card-image" %>
+              <%= image_tag "#{category.name.downcase}.jpg", class: "category-card-image" %>
             </div>
             <div class="category-card-content">
               <!-- if statement & checkbox image -->
               <div class="category-card-title">
-                <h4>Products</h4>
+                <h4> <%= category.name %></h4>
                 <i class="fas fa-gift"></i>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="category-card">
-            <div>
-              <%= image_tag "food.jpg", class: "category-card-image" %>
-            </div>
-            <div class="category-card-content">
-              <!-- if statement & checkbox image -->
-              <div class="category-card-title">
-                <h4>Food</h4>
-                <i class="fas fa-gift"></i>
-              </div>
-            </div>
+
+          </label>
           </div>
+          <% end %>
+        <% end %>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="category-card">
-            <div>
-              <%= image_tag "home.jpg", class: "category-card-image" %>
-            </div>
-            <div class="category-card-content">
-              <!-- if statement & checkbox image -->
-              <div class="category-card-title">
-                <h4>Home</h4>
-                <i class="fas fa-gift"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="category-card">
-            <div>
-              <%= image_tag "investment.jpg", class: "category-card-image" %>
-            </div>
-            <div class="category-card-content">
-              <!-- if statement & checkbox image -->
-              <div class="category-card-title">
-                <h4>Investment</h4>
-                <i class="fas fa-gift"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6 offset-3">
-          <div class="category-card">
-            <div>
-              <%= image_tag "mobility.jpg", class: "category-card-image" %>
-            </div>
-            <div class="category-card-content">
-              <!-- if statement & checkbox image -->
-              <div class="category-card-title">
-                <h4>Mobility</h4>
-                <i class="fas fa-gift"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class ="mt-2">
-        <form action="/dashboard">
           <button id="" class="btn custom">Submit</button>
-        </form>
-
       </div>
-    </div>
-  </div>
-
 
