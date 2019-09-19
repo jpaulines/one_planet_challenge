@@ -1,26 +1,29 @@
-<div class="home">
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <%= image_tag "logo-3nclouds.svg", class:"img-fluid pt-4 pr-4 pl-4" %>
-        <p class="logo text-center">OnePlanet</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-3">
 
-        <div class="d-flex flex-column justify-content-between text-home">
-          <p class="tagline text-center font-weight-lighter">Reduce your footprint, <br> one challenge at a time.</p>
+      <%= image_tag "logo-3nclouds.svg", class:"img-fluid pr-4 pl-4" %>
+      <p class="logo text-center">OnePlanet</p>
 
+      <div class="d-flex flex-column justify-content-between text-home">
 
-          <div class="d-flex justify-content-center"><p class="text-detail">Do you feel like you could do more to reduce your environmental footprint? Do you feel like you do not know where to start? We have the solution for you. First take our quiz to find out how much you are consuming today.</p></div>
+        <p class="tagline text-center font-weight-lighter">Reduce your footprint, <br> one challenge at a time.</p>
 
-          <%= link_to "Take Quiz", quiz_path, class: "btn custom "%>
-          <%= link_to "Login", new_user_session_path, class: "btn custom grey mt-2 mb-4" %>
+        <div class="d-flex justify-content-center">
+          <p class="text-detail">Do you feel like you could do more to reduce your environmental footprint? Do you feel like you do not know where to start? We have the solution for you. First take our quiz to find out how much you are consuming today.</p>
         </div>
 
+        <%= link_to "Take Quiz", quiz_path, class: "btn custom "%>
+        <%= link_to "Login", new_user_session_path, class: "btn custom grey mt-2 mb-4" %>
+
       </div>
+
     </div>
   </div>
-
 </div>
+
+
 
 <!-- make log in button go to bottom of page -->
 <!-- make the button less wide  -->
