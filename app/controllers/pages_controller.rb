@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def compute_result
-    filepath = "#{Rails.root}/storage/countries.json"
+    filepath = "#{Rails.root}/lib/assets/countries.json"
     serialized = File.read(filepath)
     countries = JSON.parse(serialized)
     earth_counter = nil
