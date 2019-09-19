@@ -83,7 +83,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
-    faker (2.2.2)
+    faker (2.3.0)
       i18n (~> 1.6.0)
     ffi (1.11.1)
     font-awesome-sass (5.6.1)
@@ -168,7 +168,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.1.2)
+    redis (4.1.3)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -177,7 +177,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    sassc (2.2.0)
+    sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -209,13 +209,10 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-<<<<<<< HEAD
-    unicode_utils (1.4.0)
-=======
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
->>>>>>> master
+    unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -237,12 +234,9 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-
-  country_select (~> 4.0)
-
   carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
-
+  country_select (~> 4.0)
   devise
   dotenv-rails
   faker
