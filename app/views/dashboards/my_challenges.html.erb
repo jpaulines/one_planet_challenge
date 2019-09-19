@@ -12,32 +12,63 @@
   </nav>
 </div>
 
-
-<h1 class="challenges">Ongoing Challenges</h1>
-<div class="row">
-    <% @challenges.each do |challenge| %>
-    <div class="col-6">
-        <div class="challenge-card">
-          <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
-          <div class="challenge-card-content">
-            <!-- if statement & checkbox image -->
-            <div class="challenge-card-title">
-              <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
-              <h4> <%= challenge.name %></h4>
-                <div class="challenge-tags">
-                  <div class="challenge-tag-pair">
-                    <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+<div class="challenges-scroll">
+  <h1 class="challenges">Ongoing Challenges</h1>
+   <div class="row justify-content-center" style="margin: 0 -15px;">
+      <% current_user.challenges.each_with_index do |challenge, index| %>
+      <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
+        <%= link_to challenge_path(challenge) do  %>
+          <div class="challenge-card">
+            <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+            <div class="challenge-card-content">
+              <!-- if statement & checkbox image -->
+              <div class="challenge-card-title">
+                <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+                  <div class="challenge-tags">
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+                    </div>
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+                    </div>
                   </div>
-                  <div class="challenge-tag-pair">
-                    <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
                   </div>
-                </div>
-                </div>
+              </div>
             </div>
+            <% end %>
           </div>
-        </div>
-        <% end %>
-    </div>
+          <% end %>
+      </div>
 
-<h1 class="challenges">Suggested Challenges</h1>
+
+  <h1 class="challenges">Suggested Challenges</h1>
+
+   <div class="row justify-content-center" style="margin: 0 -15px;">
+      <% @challenges.each_with_index do |challenge, index| %>
+      <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
+        <%= link_to challenge_path(challenge) do  %>
+          <div class="challenge-card">
+            <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+            <div class="challenge-card-content">
+              <!-- if statement & checkbox image -->
+              <div class="challenge-card-title">
+                <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+                  <div class="challenge-tags">
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+                    </div>
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+      </div>
+</div>
 

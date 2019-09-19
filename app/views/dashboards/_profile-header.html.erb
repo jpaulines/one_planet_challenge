@@ -1,5 +1,5 @@
 <div class="profile-header">
-    <%= image_tag "default_avatar.jpg", class: "avatar-profile" %>
-    <h1 class="h1-profile-wm">Welcome Mila!</h1>
+    <%= cl_image_tag current_user.image, class: "avatar-profile" %>
+    <h1 class="h1-profile-wm">Welcome <%= current_user.first_name %>!</h1>
 </div>
 <div class="Panel">

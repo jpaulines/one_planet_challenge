@@ -1,8 +1,11 @@
-<%= @challenge.name %>
-<%= @challenge.content %>
-<%= @challenge.category.name %>
-<%= @challenge.greenpoint %>
-
 <div class="challenge-show-banner" style="background-image: url(<%= @challenge.image %>)">
+</div>
+<div class="container">
+
+  <% if current_user.challenges.pluck(:id).include?(@challenge.id) %>
+    <%= render 'ongoing-challenge-show'%>
+  <% else %>
+    <%= render 'new-challenge-show'%>
+  <% end %>
 
 </div>
