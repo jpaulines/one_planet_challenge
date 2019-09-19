@@ -14,8 +14,14 @@
           <p class="text-detail">Do you feel like you could do more to reduce your environmental footprint? Do you feel like you do not know where to start? We have the solution for you. First take our quiz to find out how much you are consuming today.</p>
         </div>
 
-        <%= link_to "Take Quiz", quiz_path, class: "btn custom "%>
-        <%= link_to "Login", new_user_session_path, class: "btn custom grey mt-2 mb-4" %>
+
+        <% if current_user %>
+          <%= link_to "Dashboard", dashboard_path, class: "btn custom" %>
+          <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn custom grey mt-2 mb-4" %>
+        <% else %>
+          <%= link_to "Take Quiz", quiz_path, class: "btn custom "%>
+          <%= link_to "Login", new_user_session_path, class: "btn custom grey mt-2 mb-4" %>
+        <% end %>
 
       </div>
 

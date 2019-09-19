@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_interests_path
+      redirect_to new_user_interest_path
     else
       render :edit
     end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def event_params
-   params.require(:user).permit(:first_name, :last_name, :email, :address, :image)
+  def user_params
+   params.require(:user).permit(:first_name, :last_name, :username, :address, :money_level, :effort_level, :time_level, :greenpoint_score, :planet_country, :planet_user, :image)
   end
 end

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def quiz
-
+    # @country = fetch_local_events
   end
 
   def compute_result
@@ -15,7 +15,6 @@ class PagesController < ApplicationController
     serialized = File.read(filepath)
     countries = JSON.parse(serialized)
     earth_counter = nil
-
     score = params[:quiz][:food].to_i + params[:quiz][:home].to_i + params[:quiz][:mobility1].to_i + params[:quiz][:mobility2].to_i + params[:quiz][:product].to_i
     countries.each do |country|
       if country["isoa2"] == params[:quiz][:country_code]
@@ -41,10 +40,14 @@ class PagesController < ApplicationController
     @country = country.translations[I18n.locale.to_s] || country.name
   end
 
-  private
-
-  def convert_to_score(param)
-
-  end
+  # def fetch_local_events
+  #   ip = "82.80.45.122"
+  #   # request.remote_ip
+  #   coordinates = Geocoder.search(ip)
+  #   # => [30.267153, -97.7430608]
+  #   @country = coordinates.first.country
+  #   raise
+  #   # => "United States"
+  # end
 
 end

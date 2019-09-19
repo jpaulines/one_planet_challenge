@@ -3,7 +3,7 @@
       <div class="col-sm-12 col-md-6 col-lg-3">
           <div class="text">
             <% if @result != nil %>
-              <p class="text_center"> People living in <span class="bold_text"><%= @country %></span> need approximatly  <span class="bold_text"><%=  @result %> Earths</span> to sustain their lifestyle </p>
+              <p class="text_center"> If we all lead the same lifestyle as people living in <span class="bold_text"><%= @country %></span> we would need approximatly  <span class="bold_text"> <br> <%=  @result %> Earths</span></p>
               <br>
 
               <div class="container_small">
@@ -23,23 +23,23 @@
                 <p class="mb-4"></p>
               </div>
 
-              <span> Based on your answers, we estimate that your current lifestyle is </span>
+              <span> We estimate that your current lifestyle is </span>
               <% if @score < 0 %>
-                <span> <span class="bold_text">worse</span> vs. your home country...</span>
+                <span> <span class="bold_text">less sustainable</span> compared to that of your home country...</span>
               <% elsif @score > 0 %>
-                <span> <span class="bold_text">better</span> vs. your home country 🥳 </span>
+                <span> <span class="bold_text">more sustainable</span> compared to that of your home country 🥳.</span>
               <% elsif @score = 0 %>
-                <span> <span class="bold_text">matching</span> your home country. </span>
+                <span> <span class="bold_text">matching</span> that of your home country. </span>
               <% end %>
             <% else %>
               <p> We are sorry, but there is no data avalable for <%= @country %> at the moment</p>
             <% end %>
-            <p class="mt-5 mb-4 text_final">Wanna get better while having fun?</p>
+            <p class="mt-5 mb-4 text_final">Wanna improve while having fun? Sign up! </p>
           </div>
 
-          <%= link_to "Challenge Accepted", new_user_registration_path, class: "btn custom "%>
+          <%= link_to "Challenge Accepted", new_user_registration_path(greenpoint_score: @score, planet_country: @result), class: "btn custom "%>
+
 
     </div>
-
   </div>
 </div>
