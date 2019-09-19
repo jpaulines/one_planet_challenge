@@ -8,10 +8,6 @@
     margin-bottom: 0;
   }
 
-.label_question {
-  margin-bottom: 0;
-}
-
 .title {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
@@ -24,7 +20,9 @@
 }
 
 .subtitle {
-  font-size: 18px;
+  font-weight: 100;
+  // width: 80%;
+  text-align: justify;
 }
 
 .image_tag {
@@ -36,12 +34,27 @@
   font-weight: 100;
   padding-top: 0;
   margin-top: 0;
+  font-style: italic;
 }
 
 .question_buttons {
   text-align: center;
   margin: 0 auto;
   margin-top: 1rem;
+}
+
+
+
+.label_question {
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+#quiz_country_code {
+  color: $green;
+  width: 300px;
 }
 
 
