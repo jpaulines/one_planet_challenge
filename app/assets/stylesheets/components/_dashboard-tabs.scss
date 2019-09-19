@@ -66,15 +66,18 @@ h1.h1-profile-wm {
   font-weight: 300;
   > a {
     display: block;
-    padding: 10px 12px;
+    padding: 10px 0px;
     text-decoration: none;
     color: #666;
     transition: color .15s;
+
   }
   &.active {
     > a {
       color: $green;
       font-weight: 600;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   &:hover {

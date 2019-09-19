@@ -36,15 +36,17 @@ h1.h1-challenge-show {
   text-align: justify;
   font-family: "Open Sans";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .challenge-steps-title {
   font-family: "Noto Sans";
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
-  color: black;
-  margin-top: 15px;
+  color: $green;
+  // color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .challenge-step {
@@ -61,4 +63,20 @@ h1.h1-challenge-show {
 .div-steps {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.challenge-levels-indicator {
+  width: 250px;
+}
+
+.challenge-levels-param {
+  width: 30px;
+}
+
+.challenge-levels-diff {
+  width: 70px;
+}
+
+.challenge-levels-time {
+  width: 64px;
 }

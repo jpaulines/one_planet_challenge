@@ -13,4 +13,12 @@ class UserChallengesController < ApplicationController
     authorize :user_challenge, :create?
   end
 
+  def update
+    @challenge = Challenge.find(params[:challenge_id])
+    @user_challenge = UserChallenge.find(params[:id])
+    @user_challenge.update(completed: true)
+    redirect_to my_challenges_path
+    authorize :user_challenge, :update?
+  end
+
 end

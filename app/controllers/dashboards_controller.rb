@@ -5,9 +5,9 @@ class DashboardsController < ApplicationController
   end
 
   def my_challenges
-    authorize :dashboard, :my_challenges?
     @challenges = policy_scope(Challenge)
     @user_challenges = current_user.user_challenges
+    authorize :dashboard, :my_challenges?
   end
 
   def journey

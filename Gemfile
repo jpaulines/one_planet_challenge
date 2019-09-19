@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 # One Planet
-gem 'country_select', '~> 4.0'
 # End
 gem 'bootsnap', require: false
 gem 'devise'
@@ -22,7 +21,7 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'faker'
-
+gem 'country_select', '~> 4.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

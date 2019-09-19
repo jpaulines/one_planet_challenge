@@ -9,7 +9,11 @@
 @import "slider";
 @import "dashboard-tabs";
 
-a {
+a{
   text-decoration: none;
   color: black;
+  &:active {
+    color: $green;
+    text-decoration: none;
+  }
 }

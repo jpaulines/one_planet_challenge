@@ -1,33 +1,95 @@
  <h1 class="h1-challenge-show"><%= @challenge.name %></h1>
-  <p>Difficulty
-    <% @challenge.effort.times do %>
-      <i id="actual-level" class="fas fa-trophy mr-1"></i>
-    <% end %>
-    <% (5 - @challenge.effort).times do %>
-      <i id="total-level" class="fas fa-trophy mr-1"></i>
-    <% end %>
-  </p>
-  <p>Time
-    <% @challenge.time.times do %>
-      <i id="actual-level" class="fas fa-stopwatch"></i>
-    <% end %>
-    <% (5 - @challenge.time).times do %>
-      <i id="total-level" class="fas fa-stopwatch"></i>
-    <% end %>
-  </p>
+  <div class="d-flex justify-content-between challenge-levels-indicator">
+    <p class="challenge-levels-param">Difficulty
+    <div class="d-flex justify-content-between challenge-levels-diff">
+      <% @challenge.effort.times do %>
+        <i id="actual-level" class="fas fa-trophy mr-1"></i>
+      <% end %>
+      <% (3 - @challenge.effort).times do %>
+        <i id="total-level" class="fas fa-trophy mr-1"></i>
+      <% end %>
+    </div>
+   </p>
+  </div>
+  <div class="d-flex justify-content-between challenge-levels-indicator">
+    <p style="width:30px">Time
+      <div class="d-flex justify-content-between challenge-levels-time">
+        <% @challenge.time.times do %>
+          <i id="actual-level" class="fas fa-stopwatch"></i>
+        <% end %>
+        <% (3 - @challenge.time).times do %>
+          <i id="total-level" class="fas fa-stopwatch"></i>
+        <% end %>
+      </div>
+    </p>
+  </div>
   <p><i id="greenpoint-level" class="fas fa-award"> </i><%= @challenge.greenpoint %></p>
-  <p>Commited on <%= @challenge.created_at %></p>
+  <p>Commited on <%= @challenge.created_at.strftime('%F') %></p>
+
+
   <h4 class="challenge-steps-title">Steps to completion</h4>
   <% @challenge.challenge_steps.each_with_index do |step, index|  %>
     <% unless step.content.nil? %>
       <div class="d-flex">
-        <div class="challenge-step mr-2"><%= index + 1 %></div>
-        <p><%=  step.content %></p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="<%= index %>">
+          <label class="form-check-label" for="<%= index %>">
+            <p class="challenge-step-content"><%=  step.content %></p>
+          </label>
+        </div>
       </div>
     <% end %>
   <% end %>
 
-  <%= link_to "Challenge Completed", challenge_user_challenges_path(@challenge), method: :post, class: "btn custom "%>
+  <%= button_to "Challenge Completed", challenge_user_challenge_path(@challenge, UserChallenge.where(challenge: @challenge, user: current_user).first), method: :patch, class: "btn custom my-3 complete-button", disabled: true %>
 
   <h4 class="challenge-steps-title mt-4">Description</h4>
   <p class="challenge-description"><%= @challenge.content %></p>
+
+<script>
+
+  const checkBoxes = ((boxes) => {
+    let result = true;
+    boxes.forEach((ch) =>{
+      result = result && ch.checked;
+    })
+    return result;
+  })
+
+  const complete = document.querySelector(".complete-button");
+  let boxes = document.querySelectorAll(".form-check-input");
+  boxes.forEach((check) => {
+    check.addEventListener("change", (event) => {
+      // console.log(check.checked);
+
+      if(checkBoxes(boxes)){
+        complete.disabled = false;
+      } else {
+      complete.disabled = true;
+      }
+    })
+  })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

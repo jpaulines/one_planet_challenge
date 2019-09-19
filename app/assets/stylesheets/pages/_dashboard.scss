@@ -75,8 +75,12 @@ h1.challenges {
   font-weight: 300;
   font-size: 18px;
   text-transform: uppercase;
-  padding-left: 4px;
+  margin-left: 9px;
   padding-top: 10px;
+}
+
+h1.challenges.suggested {
+  margin-top: 10px;
 }
 
 .challenges-scroll {
@@ -96,5 +100,9 @@ h1.challenges {
   left: 0;
   right: 0;
   overflow: auto;
+}
+
+.challenge-step-content {
+  max-width: 300px;
 }
 
