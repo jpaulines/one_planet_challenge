@@ -1,6 +1,7 @@
 <div class="profile-header">
   <div class="thumbnail">
     <%= cl_image_tag current_user.image, class: "avatar-profile" %>
+  </div>
     <h1 class="h1-profile-wm">Welcome <%= current_user.first_name %>!</h1>
     <% if current_user.money_level.nil? %>
       <%= link_to "Finish registration", edit_user_path(current_user) %>
@@ -8,4 +9,5 @@
     <%= link_to "Fill in your interests", new_user_interest_path(current_user) %>
       <% end %>
 </div>
-<div class="Panel">
+
+<!-- <div class="Panel"> -->
