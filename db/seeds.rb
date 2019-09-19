@@ -31,7 +31,7 @@ end
 
 require 'csv'
 
-csv_text = Rails.root.join('lib', 'seeds', 'seeds2.csv')
+csv_text = Rails.root.join('lib', 'seeds', 'seeds3.csv')
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = csv_text
@@ -46,7 +46,7 @@ CSV.foreach(filepath, csv_options) do |row|
     money: row["Money (1-2-3)"].to_i,
     image: row["Image"],
     category: cat,
-    greenpoint: [2, 5, 10].sample
+    greenpoint: row["Greenpoints"]
     )
   ChallengeStep.create!(
     content: row["Step 1"],

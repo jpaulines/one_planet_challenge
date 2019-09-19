@@ -5,7 +5,7 @@
   <nav>
     <ul class="Tabs">
       <li class="Tabs__tab Tab"><%= link_to "DASHBOARD", dashboard_path %></li>
-      <li class="Tabs__tab active Tab"><%= link_to "CHALLENGES", my_challenges_path %></li>
+      <li class="Tabs__tab active Tab"><%= link_to "MY CHALLENGES", my_challenges_path%></li>
       <li class="Tabs__tab Tab"><%= link_to "JOURNEY", journey_path %></li>
       <li class="Tabs__presentation-slider" role="presentation"></li>
     </ul>
@@ -43,9 +43,9 @@
 
 
   <h1 class="challenges suggested">Suggested Challenges</h1>
-
    <div class="row justify-content-center" style="margin: 0 -15px;">
       <% @challenges.each_with_index do |challenge, index| %>
+        <% if !@user_challenges.pluck(:id).include?(challenge.id) %>
       <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
         <%= link_to challenge_path(challenge) do  %>
           <div class="challenge-card">
@@ -67,8 +67,38 @@
               </div>
             </div>
             <% end %>
+        </div>
+      <%end%>
+    <% end %>
+  </div>
+
+ <h1 class="challenges suggested">Completed Challenges</h1>
+   <div class="row justify-content-center" style="margin: 0 -15px;">
+      <% @user_challenges.where(completed: true).each_with_index do |uc, index| %>
+      <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
+        <%= link_to challenge_path(uc.challenge) do  %>
+          <div class="challenge-card">
+            <div class="challenge-card-image" style="background-image: url(<%= uc.challenge.image %>)"></div>
+            <div class="challenge-card-content">
+              <!-- if statement & checkbox image -->
+              <div class="challenge-card-title">
+                <p class="category-tag"><%=  uc.challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                <h4 class="challenge-card-name"> <%= uc.challenge.name %></h4>
+                  <div class="challenge-tags">
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-trophy"></i><%= uc.challenge.effort %></p>
+                    </div>
+                    <div class="challenge-tag-pair">
+                      <p><i class="fas fa-stopwatch"></i><%= uc.challenge.time %></p>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <% end %>
           </div>
           <% end %>
       </div>
 </div>
+
 
