@@ -1,11 +1,17 @@
 .signup{
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 30px;
+  color: $darkestgreen;
+  font-family: 'Noto Sans TC', sans-serif;
+  margin-top: 20px;
 }
+
 
 .signup-header{
   width: 75%;
   margin: 10px auto;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 .container{
@@ -16,9 +22,14 @@
   height: 50vh;
 }
 
-//.form-p{
- // margin: 2rem 0;
-//}
+.signup.form-inputs{
+  margin-top: auto;
+  color: $gray;
+}
+
+.form-p{
+ text-align:justify;
+}
 
 .icons{
   height: 30px;
@@ -32,4 +43,6 @@
   margin-left: 50px;
   margin-top: 10px;
 }
+
+
 

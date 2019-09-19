@@ -3,39 +3,41 @@
     <div class="col-sm-12 col-md-6 col-lg-3 box_center">
 
       <p class="title">How sustainable is your lifestyle?</h1>
-      <p class="subtitle">Fill in the form below to find out your result compared to your country...</p>
+      <p class="subtitle">Fill in the quiz below to find out how many Earths would be needed if everbody lived like the average person in the country you live in, and how well you are doing against that benchmark. For more info <%= link_to 'click here', 'https://www.overshootday.org', target: '_blank' %>.</p>
       <!-- <p>How many planets does it take to support your country's lifestyle?</p> -->
       <!-- To select country, used https://github.com/stefanpenner/country_select -->
       <div class="form-quiz">
        <%= form_for :quiz, url: compute_result_path do |f| %>
-         <%= f.label :country_code,  'I currently live in...', class: 'label-quiz' %>
-         <br>
-         <%= f.country_select :country_code %>
-         <br>
+
+         <div class="country_bar">
+         <%= f.label :country_code,  'Where are you currently living?', class: 'label-quiz label_question' %>
+         <%= f.country_select(:country_code, include_blank: 'Pick a country', class: 'country')%>
+         </div>
          <br>
 
          <%= f.label :food, 'How often do you consume animal-based products per week?', class: 'label_question'  %>
          <p class="text-example"> (e.g. beef, pork, chicken, fish, eggs, dairy products)</p>
             <div class="question_buttons">
-             <%= radio_button("quiz", "food", "0" ) %>
-             <%= f.label :food_0 do %>
-              <%= image_tag 'Q12_-10.svg', class: 'image_tag' %>
+             <%= radio_button("quiz", "food", "20" ) %>
+             <%= f.label :food_20 do %>
+              <%= image_tag 'Q12_10.svg', class: 'image_tag' %>
+
              <% end %>
              <%= radio_button("quiz", "food", "10" ) %>
              <%= f.label :food_10 do %>
               <%= image_tag 'Q12_0.svg', class: 'image_tag' %>
              <% end %>
-             <%= radio_button("quiz", "food", "20" ) %>
-             <%= f.label :food_20 do %>
-              <%= image_tag 'Q12_10.svg', class: 'image_tag' %>
+             <%= radio_button("quiz", "food", "0" ) %>
+             <%= f.label :food_0 do %>
+              <%= image_tag 'Q12_-10.svg', class: 'image_tag' %>
              <% end %>
             </div>
 
          <%= f.label :home, 'How big is your home?', class: 'label_question' %>
           <div class="question_buttons">
-           <%= radio_button("quiz", "home", "0" ) %>
-           <%= f.label :home_0 do %>
-            <%= image_tag 'Q2_-10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "home", "20" ) %>
+           <%= f.label :home_20 do %>
+            <%= image_tag 'Q2_10.svg', class: 'image_tag' %>
            <% end %>
 
            <%= radio_button("quiz", "home", "10" ) %>
@@ -43,17 +45,17 @@
             <%= image_tag 'Q2_0.svg', class: 'image_tag' %>
            <% end %>
 
-           <%= radio_button("quiz", "home", "20" ) %>
-           <%= f.label :home_20 do %>
-            <%= image_tag 'Q2_10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "home", "0" ) %>
+           <%= f.label :home_0 do %>
+            <%= image_tag 'Q2_-10.svg', class: 'image_tag' %>
            <% end %>
           </div>
 
          <%= f.label :mobility1, 'How often do you fly on average each year?', class: 'label_question' %>
           <div class="question_buttons">
-           <%= radio_button("quiz", "mobility1", "0" ) %>
-           <%= f.label :mobility1_0 do %>
-            <%= image_tag 'Q32_-10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "mobility1", "20" ) %>
+           <%= f.label :mobility1_20 do %>
+            <%= image_tag 'Q3_10.svg', class: 'image_tag' %>
            <% end %>
 
            <%= radio_button("quiz", "mobility1", "10" ) %>
@@ -61,36 +63,36 @@
             <%= image_tag 'Q32_0.svg', class: 'image_tag' %>
            <% end %>
 
-           <%= radio_button("quiz", "mobility1", "20" ) %>
-           <%= f.label :mobility1_20 do %>
-            <%= image_tag 'Q3_10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "mobility1", "0" ) %>
+           <%= f.label :mobility1_0 do %>
+            <%= image_tag 'Q32_-10.svg', class: 'image_tag' %>
            <% end %>
           </div>
 
-         <%= f.label :mobility2, 'What is your usual mode of transportation?', class: 'label_question' %>
+         <%= f.label :mobility2, 'What is your main mode of transportation?', class: 'label_question' %>
           <div class="question_buttons">
-           <%= radio_button("quiz", "mobility2", "0" ) %>
-           <%= f.label :mobility2_0 do %>
-            <%= image_tag 'Q4_-10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "mobility2", "20" ) %>
+           <%= f.label :mobility2_20 do %>
+            <%= image_tag 'Q4_10.svg', class: 'image_tag' %>
            <% end %>
 
            <%= radio_button("quiz", "mobility2", "10" ) %>
            <%= f.label :mobility2_10 do %>
-            <%= image_tag 'Q4_0.svg', class: 'image_tag' %>
+            <%= image_tag 'Q42_0.svg', class: 'image_tag' %>
            <% end %>
 
-           <%= radio_button("quiz", "mobility2", "20" ) %>
-           <%= f.label :mobility2_20 do %>
-            <%= image_tag 'Q4_10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "mobility2", "0" ) %>
+           <%= f.label :mobility2_0 do %>
+            <%= image_tag 'Q4_-10.svg', class: 'image_tag' %>
            <% end %>
           </div>
 
          <%= f.label :product, 'How often do you buy locally sourced products?', class: 'label_question' %>
          <p class="text-example"> (e.g. clothes, furniture, etc.)</p>
           <div class="question_buttons">
-           <%= radio_button("quiz", "product", "0" ) %>
-           <%= f.label :product_0 do %>
-            <%= image_tag 'Q5_-10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "product", "20" ) %>
+           <%= f.label :product_20 do %>
+            <%= image_tag 'Q5_10.svg', class: 'image_tag' %>
            <% end %>
 
            <%= radio_button("quiz", "product", "10" ) %>
@@ -98,9 +100,9 @@
             <%= image_tag 'Q5_0.svg', class: 'image_tag' %>
            <% end %>
 
-           <%= radio_button("quiz", "product", "20" ) %>
-           <%= f.label :product_20 do %>
-            <%= image_tag 'Q5_10.svg', class: 'image_tag' %>
+           <%= radio_button("quiz", "product", "0" ) %>
+           <%= f.label :product_0 do %>
+            <%= image_tag 'Q5_-10.svg', class: 'image_tag' %>
            <% end %>
           </div>
           <!-- 🌊 🏖 🌞 -->
@@ -109,6 +111,7 @@
          <br>
          <%= f.submit "Submit", class: "btn custom" %>
        <% end %>
+       <br>
       </div>
 
     </div>
