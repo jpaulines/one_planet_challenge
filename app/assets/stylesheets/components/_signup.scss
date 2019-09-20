@@ -7,6 +7,9 @@
   margin-top: 20px;
 }
 
+.progress{
+  border-radius: 50px;
+}
 
 .signup-header{
   width: 75%;
@@ -21,10 +24,8 @@
 .form-page {
   height: 50vh;
 }
-
-.signup.form-inputs{
-  margin-top: auto;
-  color: $gray;
+.form-signup{
+  margin-top: 25px;
 }
 
 .form-p{

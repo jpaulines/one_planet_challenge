@@ -2,19 +2,20 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <h3 class="signup text-center">OnePlanet is happy to have you on board!</h3>
-      <p class="text-center">Please complete the next 3 steps to register</p>
+      <div class="signup progress mb-3" style="width: 80%; margin: 0 auto;">
+        <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
       <div class="row">
         <%= image_tag "one.svg", class: 'sign up icons first'%>
         <h4 class="signup-header">About you</h4>
       </div>
 
+
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="signup form-inputs">
+      <div class="signup form-signup">
         <%= f.input :first_name, required: true, label: false, placeholder: 'First name' %>
-        <%= f.input :last_name, required: true, label: false, placeholder: 'Last name' %>
-        <%= f.input :username, required: true, label: false, placeholder: 'Username' %>
         <%= f.input :email,
         required: true,
         autofocus: true,
