@@ -1,22 +1,25 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-3 box_center">
+    <div class="col-sm-12 col-md-6 col-lg-3">
 
-      <p class="title">How sustainable is your lifestyle?</h1>
-      <p class="subtitle">Fill in the quiz below to find out how many Earths would be needed if everbody lived like the average person in the country you live in, and how well you are doing against that benchmark. For more info <%= link_to 'click here', 'https://www.overshootday.org', target: '_blank' %>.</p>
+      <p class="title"> OnePlanet Quiz</p>
+        <!-- How sustainable is your lifestyle? -->
+      <!-- <p class="subtitle">Fill in the quiz below to find out how many Earths would be needed if everbody lived like the average person in the country you live in, and how well you are doing against that benchmark. For more info <%#= link_to 'click here', 'https://www.overshootday.org', target: '_blank' %>.</p> -->
       <!-- <p>How many planets does it take to support your country's lifestyle?</p> -->
       <!-- To select country, used https://github.com/stefanpenner/country_select -->
       <div class="form-quiz">
-       <%= form_for :quiz, url: compute_result_path do |f| %>
+       <%= simple_form_for :quiz, url: compute_result_path do |f| %>
 
          <div class="country_bar">
-         <%= f.label :country_code,  'Where are you currently living?', class: 'label-quiz label_question' %>
-         <%= f.country_select(:country_code, include_blank: 'Pick a country', class: 'country')%>
+         <%= f.label :country_code,  'Current location:', class: 'label-quiz label_question' %>
+         <!-- Where are you currently living? -->
+         <%= f.country_select(:country_code, class: 'country_field', required: true, prompt: "Select your country") %>
          </div>
          <br>
 
-         <%= f.label :food, 'How often do you consume animal-based products per week?', class: 'label_question'  %>
-         <p class="text-example"> (e.g. beef, pork, chicken, fish, eggs, dairy products)</p>
+         <%= f.label :food, 'Weekly animal food consumption:', class: 'label_question'  %>
+         <!-- How often do you consume animal-based products per week? -->
+         <p class="text-example"> (e.g. beef, pork, chicken, fish, eggs, dairy)</p>
             <div class="question_buttons">
              <%= radio_button("quiz", "food", "20" ) %>
              <%= f.label :food_20 do %>
@@ -33,7 +36,9 @@
              <% end %>
             </div>
 
-         <%= f.label :home, 'How big is your home?', class: 'label_question' %>
+         <%= f.label :home, 'Home size:', class: 'label_question' %>
+          <p class="text-example"> (i.e. medium: 70-120m<sup>2</sup>)</p>
+         <!-- How big is your home? -->
           <div class="question_buttons">
            <%= radio_button("quiz", "home", "20" ) %>
            <%= f.label :home_20 do %>
@@ -51,7 +56,9 @@
            <% end %>
           </div>
 
-         <%= f.label :mobility1, 'How often do you fly on average each year?', class: 'label_question' %>
+         <%= f.label :mobility1, 'Yearly flight frequency:', class: 'label_question' %>
+         <p class="text-example"> (i.e. occasionally: <2 long haul or <4 short haul)</p>
+         <!-- How often do you fly on average each year? -->
           <div class="question_buttons">
            <%= radio_button("quiz", "mobility1", "20" ) %>
            <%= f.label :mobility1_20 do %>
@@ -69,7 +76,8 @@
            <% end %>
           </div>
 
-         <%= f.label :mobility2, 'What is your main mode of transportation?', class: 'label_question' %>
+         <%= f.label :mobility2, 'Main mode of transportation:', class: 'label_question' %>
+         <!-- What is your main mode of transportation? -->
           <div class="question_buttons">
            <%= radio_button("quiz", "mobility2", "20" ) %>
            <%= f.label :mobility2_20 do %>
@@ -87,8 +95,9 @@
            <% end %>
           </div>
 
-         <%= f.label :product, 'How often do you buy locally sourced products?', class: 'label_question' %>
-         <p class="text-example"> (e.g. clothes, furniture, etc.)</p>
+         <%= f.label :product, 'Purchase of locally sourced goods:', class: 'label_question' %>
+         <!-- How often do you buy locally sourced products? >80%, ~50%, <20% <-->
+         <p class="text-example"> (e.g. furniture made locally from local forest)</p>
           <div class="question_buttons">
            <%= radio_button("quiz", "product", "20" ) %>
            <%= f.label :product_20 do %>

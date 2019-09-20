@@ -3,7 +3,7 @@
       display: none;
     }
     input[type='radio']:checked + label {
-      border-bottom: 3px $green solid;
+      border-bottom: 5px $darkgreen solid;
     }
     margin-bottom: 0;
   }
@@ -13,7 +13,7 @@
   font-weight: 300;
   font-size: 34px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   color: $darkestgreen;
   margin-bottom: 15px;
   line-height: 38px;
@@ -43,19 +43,25 @@
   margin-top: 1rem;
 }
 
+.tiny_logo {
+  width: 30px;
+}
+
 
 
 .label_question {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 20px;
   margin-bottom: 0;
   width: 100%;
 }
 
 #quiz_country_code {
   color: $green;
-  width: 300px;
+  width: 273px;
+  margin-left: 35px;
 }
+
 
 
 
