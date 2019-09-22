@@ -1,31 +1,226 @@
 <%= render 'shared/navbar' %>
 
-<div class="challenges-scroll-index">
-  <h1 class="challenges suggested">All Challenges</h1>
-     <div class="row justify-content-center" style="margin: 0 -15px;">
-        <% @challenges.each_with_index do |challenge, index| %>
-        <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
-          <%= link_to challenge_path(challenge) do  %>
-            <div class="challenge-card">
-              <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
-              <div class="challenge-card-content">
-                <!-- if statement & checkbox image -->
-                <div class="challenge-card-title">
-                  <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
-                  <h4 class="challenge-card-name"> <%= challenge.name %></h4>
-                    <div class="challenge-tags">
-                      <div class="challenge-tag-pair">
-                        <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
-                      </div>
-                      <div class="challenge-tag-pair">
-                        <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
-                      </div>
-                    </div>
-                    </div>
-                </div>
-              </div>
-              <% end %>
-          </div>
-      <% end %>
-    </div>
+
+<h1 class="challenges suggested" style="text-align: center">Discover</h1>
+
+<div class="slider-challenge-index">
+  <%= form_tag challenges_path, method: :get do %>
+  <label for="">Effort</label>
+  <input type="range" class="custom-range" id="slider-index" name=challenge[effort] min="1" max="3">
+  <div class="d-inline-block">
+    <label for="">Money</label>
+    <input type="range" class="custom-range" id="slider-index" name=challenge[money] min="1" max="3">
+  </div>
+  <div class="d-inline-block">
+    <label for="">Time</label>
+    <input type="range" class="custom-range" id="slider-index" name=challenge[time] min="1" max="3">
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 </div>
+
+<h1 class="challenges suggested">Popular Challenges</h1>
+<div class="challenges-index-scroll-index">
+  <% @challenges.each do |challenge| %>
+  <%= link_to challenge_path(challenge) do  %>
+  <div class="challenge-index-card">
+    <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+    <div class="challenge-card-content">
+      <!-- if statement & checkbox image -->
+      <div class="challenge-card-title">
+        <p class="category-tag"><%=  challenge.category.name%>
+          <% img_path = display_category(challenge.category.name) %>
+          <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+          <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+          <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Recent Challenges</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Category Shopping</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <% if challenge.category.name == "Shopping" %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Category Home</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <% if challenge.category.name == "Home" %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Category Mobility</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <% if challenge.category.name == "Mobility" %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Category Investments</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <% if challenge.category.name == "Investments" %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <h1 class="challenges suggested">Category Food</h1>
+  <div class="challenges-index-scroll-index">
+    <% @challenges.each do |challenge| %>
+    <% if challenge.category.name == "Food" %>
+    <%= link_to challenge_path(challenge) do  %>
+    <div class="challenge-index-card">
+      <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
+      <div class="challenge-card-content">
+        <!-- if statement & checkbox image -->
+        <div class="challenge-card-title">
+          <p class="category-tag"><%=  challenge.category.name%>
+           <% img_path = display_category(challenge.category.name) %>
+           <%= image_tag img_path, alt: "alttext", :class => "icon-index" %></p>
+           <h4 class="challenge-card-name"> <%= challenge.name %></h4>
+           <div class="challenge-tags">
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
+            </div>
+            <div class="challenge-tag-pair">
+              <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
