@@ -2,39 +2,46 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <h3 class="signup text-center" style="margin-bottom: 35px">One last step to go!</h3>
+      <div class="signup progress mb-3">
+        <div class="progress-bar" role="progressbar" style="width: 100%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
       <div class="row">
         <%= image_tag "three.svg", class: 'sign up icons'%>
         <h4>Your interests</h4>
       </div>
-      <p style="text-align:justify">We also select challenges based on your favorite categories, Pick 3 or more where you would like to start your journey:</p>
+      <p>Pick 3 or more:</p>
 
       <%= form_tag user_interests_url do %>
       <div class="form-group">
         <input type="hidden" name="category_ids" value="">
-        <div class="row category-choices">
-          <% Category.all.each do |category| %>
-          <div class="category-checkbox col-xs-5">
-          <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>">
-          <label for="interests_id_<%= category.id %>">
+        <div class="row justify-content-center">
+          <% Category.all.each_with_index do |category, index| %>
+          <!-- <div class="category-checkbox col-xs-5 p"> -->
+            <div class="category-checkbox col-5 p-0 mx-2">
+              <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>">
+              <label for="interests_id_<%= category.id %>">
 
-          <div class="category-card">
-            <div>
-              <%= image_tag "#{category.name.downcase}.jpg", class: "category-card-image" %>
-            </div>
-            <div class="category-card-content">
-              <!-- if statement & checkbox image -->
-              <div class="category-card-title">
-                <h4> <%= category.name %></h4>
-                <i class="fas fa-gift"></i>
-              </div>
-            </div>
-          </div>
+                <div class="category-card">
+                  <div>
+                    <%= image_tag "#{category.name.downcase}.jpg", class: "category-card-image" %>
+                  </div>
+                  <div class="category-card-content">
 
-          </label>
+                    <!-- if statement & checkbox image -->
+                    <div class="category-card-title">
+                      <h4> <%= category.name %></h4>
+                      <% img_path = display_category(category.name) %>
+                      <%= image_tag img_path, alt: "alttext" %>
+
+                    </div>
+                  </div>
+                </div>
+
+              </label>
+            </div>
+            <% end %>
+            <% end %>
           </div>
-          <% end %>
-        <% end %>
-        </div>
           <button id="" class="btn custom">Submit</button>
-      </div>
+        </div>
 
