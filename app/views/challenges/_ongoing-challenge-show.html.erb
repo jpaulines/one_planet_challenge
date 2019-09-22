@@ -32,49 +32,36 @@
     <% unless step.content.nil? %>
       <div class="d-flex">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="<%= index %>">
-          <label class="form-check-label" for="<%= index %>">
-            <p class="challenge-step-content"><%=  step.content %></p>
+          <label class="si si-checkbox" for="<%= index %>">
+            <p class="challenge-step-content si-label"><%=  step.content %></p>
+            <input type="checkbox" value="" id="<%= index %>">
           </label>
         </div>
       </div>
     <% end %>
   <% end %>
 
-  <%= button_to "Challenge Completed", challenge_user_challenge_path(@challenge, UserChallenge.where(challenge: @challenge, user: current_user).first), method: :patch, class: "btn custom my-3 complete-button", disabled: true %>
+  <%= simple_form_for([@challenge, current_user.user_challenges.find_by(challenge: @challenge)], html: {id: "challenge-completed-sweet"}) do |f| %>
+     <%= f.input :image, required: false, :label => "Upload optional photo"%>
+     <%= f.submit "Challenge Completed", class: "btn custom my-3 complete-button", disabled: true %>
+
+  <% end %>
 
   <h4 class="challenge-steps-title mt-4">Description</h4>
   <p class="challenge-description"><%= @challenge.content %></p>
 
-<script>
-
-  const checkBoxes = ((boxes) => {
-    let result = true;
-    boxes.forEach((ch) =>{
-      result = result && ch.checked;
-    })
-    return result;
-  })
-
-  const complete = document.querySelector(".complete-button");
-  let boxes = document.querySelectorAll(".form-check-input");
-  boxes.forEach((check) => {
-    check.addEventListener("change", (event) => {
-      // console.log(check.checked);
-
-      if(checkBoxes(boxes)){
-        complete.disabled = false;
-      } else {
-      complete.disabled = true;
-      }
-    })
-  })
+<%= javascript_pack_tag 'check_boxes_completed' %>
 
 
-</script>
+<!--
+  we need to get the picture sent over to the controller
+  problem: there isnt really a form
 
+  1. create a form
+  2. have a file upload input, and a submit btn
+  3. (make sure the disable script works still)
 
-
+ -->
 
 
 

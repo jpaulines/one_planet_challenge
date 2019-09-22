@@ -1,43 +1,53 @@
 
+
 <div class="container  container-signup">
+
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <h3 class="signup text-center">You're almost there, just 2 more steps!</h3>
+      <div class="signup progress mb-3">
+        <div class="progress-bar" role="progressbar" style="width: 66%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
       <div class="row">
         <%= image_tag "two.svg", class: 'sign up icons'%>
         <h4>Your preferences</h4>
       </div>
       <%= form_tag user_path(current_user), method: :patch do %>
 <!--         <form action="/users/<%= current_user.id %>" method="patch">
- -->      <p class="form-p">We taylor our challenges to your preferences, please answer the questions below:</p>
-
-      <div class="form preferences d-flex flex-column justify-content-between form-page">
-        <label for="Preferences" class="label_question">How much time are you willing to spend per week on the challenges?</label>
-        <div class="d-flex justify-content-between my-3">
-          <p class="slider">A litte</p>
-          <p class="slider">A lot</p>
-        </div>
-        <input type="range" class="custom-range mt-4" id="slider" name=user[time_level] min="1" max="3">
-        <label for="Preferences" class="label_question">How much effort are you willing to put in?</label>
-        <div class="d-flex justify-content-between my-3">
-          <p class="slider">A litte</p>
-          <p class="slider">A lot</p>
-        </div>
-        <input type="range" class="custom-range mt-4" id="slider" name=user[effort_level] min="1" max="3">
-        <label for="Preferences" class="label_question">What amount of money would you be willing to spend on challenges?</label>
-        <div class="d-flex justify-content-between my-3">
-          <p class="slider">A litte</p>
-          <p class="slider">A lot</p>
-        </div>
-        <input type="range" class="custom-range mt-4" id="slider" name=user[money_level] min="1" max="3">
-        <br>
-          <button id="" class="btn custom mb-5">Submit</button>
-<!--         </form>
- -->        <% end %>
-        <br>
-
-      </div>
-    </div>
+-->
+<div class="form preferences d-flex flex-column justify-content-between form-page">
+  <label for="Preferences" class="label_question">How much time are you willing to spend per week on the challenges?</label>
+  <div class="wrapping-slider">
+  <div class="d-flex justify-content-between my-3">
+    <p class="slider">A litte</p>
+    <p class="slider">A lot</p>
   </div>
+  <input type="range" class="custom-range mt-4" id="slider" name=user[time_level] min="1" max="3">
+</div>
+  <label for="Preferences" class="label_question">How much effort are you willing to put in?</label>
+  <div class="wrapping-slider">
+  <div class="d-flex justify-content-between my-3">
+    <p class="slider">A litte</p>
+    <p class="slider">A lot</p>
+  </div>
+  <input type="range" class="custom-range mt-4" id="slider" name=user[effort_level] min="1" max="3">
+  </div>
+  <label for="Preferences" class="label_question">What amount of money would you be willing to spend on challenges?</label>
+  <div class="wrapping-slider">
+  <div class="d-flex justify-content-between my-3">
+    <p class="slider">A litte</p>
+    <p class="slider">A lot</p>
+  </div>
+  <input type="range" class="custom-range mt-4" id="slider" name=user[money_level] min="1" max="3">
+  </div>
+  <br>
+  <button id="" class="btn custom mb-5">Submit</button>
+<!--         </form>
+-->        <% end %>
+<br>
+
+</div>
+</div>
+</div>
 </div>
 

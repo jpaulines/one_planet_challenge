@@ -8,14 +8,28 @@
 @import "card-category";
 @import "slider";
 @import "dashboard-tabs";
+
 @import "setting";
 
-a{
+@import "dashboard-card";
+@import "checkboxes";
+
+
+a {
   text-decoration: none;
   color: black;
   &:active {
     color: $green;
     text-decoration: none;
   }
+  &:hover {
+    color: $green;
+    text-decoration: none;
+  }
+  // &:visited {
+  //   color: $green;
+  //   text-decoration: none;
+  // }
+
 }
 
