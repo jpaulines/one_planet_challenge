@@ -1,3 +1,8 @@
 <div class="dashboard-card">
-
+  <h1 class="h1-reward">Your country benchmark: <%=  @result %> Earths</h1>
+  <canvas id="lineChart"></canvas>
+  <h1 class="h1-reward">Greenpoints: <%= @greenpoints_score %></h1>
+  <h1 class="h1-reward">Challenges: <%= @user_challenges.count %></h1>
 </div>
+
+<%= javascript_pack_tag 'mdb' %>

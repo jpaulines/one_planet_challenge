@@ -37,8 +37,8 @@ initSweetalert('#challenge-completed-sweet', {
 });
 
 initSweetalert('#challenge-accepted-sweet', {
-  title: "Yay let's do this!",
-  text: "Go and earn some greenpoints! 🤩💪🌍 ",
+  title: "Let's do this!",
+  text: "Go and earn some greenpoints. ",
   showCloseButton: true,
   confirmButtonText:
     '<i class="fa fa-thumbs-up"></i> I am ready!',

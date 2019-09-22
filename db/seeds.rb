@@ -153,23 +153,57 @@ end
   )
 end
 
-# create events and assign a user to each
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "junior-shopper.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Shopper",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
 
-# 60.times do
-#   ev_cat = EventCategory.all.sample
-#   Event.create!(
-#     name: EVENT_NAMES_PREFIX.sample + ev_cat.name,
-#     address: CITIES.sample + " " + rand(1...90).to_s + " Tel Aviv-Yafo",
-#     event_category: ev_cat,
-#     date: Date.today + rand(10...30),
-#     amenities: AMENITIES.sample,
-#     event_description: "This is going to be a really enjoyable #{ev_cat.name}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
-#     wishlist: WISHLIST.sample,
-#     event_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
-#     user_id: User.all.sample.id,
-#     cost: ["0", "50", "75", "100", "150", "250"].sample,
-#   )
-# end
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "junior-shopper.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Senior Shopper",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "junior-shopper.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Expert Shopper",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "senior-mobilizer.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Senior Mobilizer",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "expert-investor.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Expert Investor",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
 
 puts "Finished seeding!"
 
