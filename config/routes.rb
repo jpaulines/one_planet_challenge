@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'my_challenges', to: "dashboards#my_challenges", as: 'my_challenges'
   get 'journey', to: "dashboards#journey", as: 'journey'
   get "quiz", to: "pages#quiz", as: :quiz
+  get "about", to: "pages#about", as: :about
   get "result", to: "pages#result", as: :result
   post "compute_result", to: "pages#compute_result"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,9 +1,15 @@
 .little_logo {
-  width: 70px;
+  width: 50px;
+}
+
+.greenp_logo {
+  width: 40px;
 }
 
 .container_small {
   text-align: center;
+  width: 200px;
+  margin: 0 auto;
 }
 
 // .container_main {
@@ -24,7 +30,7 @@
 }
 
 .text_center {
-  margin-top: 50px;
+
   text-align: center;
   font-size: 20px;
 }
@@ -36,3 +42,21 @@
 
 }
 
+.container-result {
+  margin-top: 20px;
+}
+
+.answer_text {
+  font-size: 20px;
+}
+
+.fa-info-circle {
+  width: 20px;
+  color: $gray;
+}
+
+.info-point {
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+}

@@ -1,16 +1,19 @@
-<div class="container">
+<div class="container container-result">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-6 col-lg-3">
+         <p class="title"> Results</p>
           <div class="text">
             <% if @result != nil %>
               <!-- <span>Your current lifestyle is </span> -->
               <% if @score < 0 %>
-                <span> <span class="bold_text">Oh no...</span>you are worse than <%= @country%>'s average.</span>
+                <p class="answer_text"> <span class="bold_text">Oh no!</span> Your lifestyle is worse than <%= @country%>'s average.</p>
               <% elsif @score > 0 %>
-                <span class="bold_text">Congrats🥳!</span> <p>You're better than <%= @country%>'s average.</p>
-                <p>You've earned yourself <%= @score %> greenpoints</p>
+                <p class="answer_text"> <span class="bold_text">Congrats🥳!</span> Your lifestyle is better than <%= @country%>'s average.</p>
+                <p class="text_center">You've earned yourself<br>
+                  <%= image_tag "greenpoints.png", class: "greenp_logo" %>
+                  <span class="bold_text"><%= @score %> greenpoints!</span></p>
               <% elsif @score = 0 %>
-                <span> <span class="bold_text">Room for improvement,</span>you match the average of <%= @country%></span>
+                <p class="answer_text"> <span class="bold_text">There is room for improvement, </span>your lifestyle matches <%= @country%>'s average</p>
               <% end %>
 
               <!-- If we all lead the same lifestyle as people living in we would need approximatl-->
@@ -33,25 +36,66 @@
                 <p class="mb-4"></p>
               </div>
 
-              <p class="text_center">Average lifestyle in <span class="bold_text"><%= @country %></span> requires  <span class="bold_text"><%=  @result %> Earths</span></p>
+              <p class="text_center">Average lifestyle in<br>
+                <span class="bold_text"><%= @country %></span> requires<span class="bold_text"><br><%= @result %> Earths</span>
+               <!--  <span data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-info-circle"></i></span> -->
+                <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+              </p>
+              <!-- Button trigger modal -->
+
+             <!-- Tooltip boostrap + also check app/javascript/packs/application.js-->
+             <!--  <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Explain...">
+                ?
+              </button> -->
+
             <% else %>
-              <p> We are sorry, but there is no data avalable for <%= @country %> at the moment</p>
+              <p>We are sorry, but there is no data avalable about the ecological footprint in terms of Earths <%= @country %> at the moment.
+              <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+              </p>
               <% if @score < 0 %>
-                <span> <span class="bold_text">Oh no...</span>you are worse than <%= @country%>'s average.</span>
+                <span> <span class="bold_text">Oh no!</span> Based on your answers we think you could redue your lifestyle's footprint</span>
               <% elsif @score > 0 %>
-                <span class="bold_text">Congrats🥳!</span> <p>You're better than <%= @country%>'s average.</p>
-                <p>You've earned yourself <%= @score %> greenpoints</p>
+                <span class="bold_text">Congrats🥳!</span> <p> Your lifestyle's footprint is already low.</p>
+                <p class="text_center">You've earned yourself<br>
+                  <%= image_tag "greenpoints.png", class: "greenp_logo" %>
+                  <span class="bold_text"><%= @score %> greenpoints!</span></p>
               <% elsif @score = 0 %>
-                <span> <span class="bold_text">There is room for improvement, </span>you match the average of <%= @country%></span>
+                <span> <span class="bold_text">There is room for improvement, </span>your lifestyle's footprint could be reduced!</span>
               <% end %>
             <% end %>
 
             <!-- <p class="mt-5 mb-4 text_final">You can do better! </p> -->
           </div>
 
-          <%= link_to "Get challenged!", new_user_registration_path(greenpoint_score: @score, planet_country: @result), class: "btn custom "%>
+          <%= link_to "Get Challenged!", new_user_registration_path(greenpoint_score: @score, planet_country: @result), class: "btn custom mt-4"%>
 
 
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ecological Footprint & Planet Equivalent</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Today, more than 80 percent of the world’s population lives in countries that are running ecological deficits, using more resources than what their ecosystems can renew. The country information we display here is coming from the Ecological Footprint Explorer of the Footprint network.
+        Every individual and country’s Ecological Footprint has a corresponding planet equivalent, or the number of Earths it would take to support humanity’s Footprint if everyone lived like that individual or residents of a given country. It is the ratio of an individual’s (or country’s per capita) Footprint to the per capita biological capacity available on Earth (1.6 gha in 2019). In 2019, the world average Ecological Footprint of 2.7 gha equals 1.75 planet equivalents.
+      </div>
+      <div class="modal-footer">
+      <p>For even more info <%= link_to 'click here', 'https://www.overshootday.org', target: '_blank' %>.</p>
+      </div>
     </div>
   </div>
 </div>

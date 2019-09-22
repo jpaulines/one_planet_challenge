@@ -8,7 +8,9 @@ class PagesController < ApplicationController
 
   def quiz
     # @country = fetch_local_events
+  end
 
+  def about
   end
 
   def compute_result
@@ -26,8 +28,8 @@ class PagesController < ApplicationController
       end
     end
 
-    if params[:quiz][:country_code] == "" || score == nil
-
+    if params[:quiz][:country_code] == "" || params[:quiz][:food] == nil || params[:quiz][:home] == nil || params[:quiz][:mobility1] == nil || params[:quiz][:mobility2] == nil || params[:quiz][:product] == nil
+      flash[:alert] = "Please fill in all fields of the quiz"
       render :quiz
     else
     redirect_to result_path(result: earth_counter, country: params[:quiz][:country_code], score: score)

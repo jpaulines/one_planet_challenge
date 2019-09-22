@@ -18,3 +18,13 @@ function setActiveClass(evt) {
   evt.currentTarget.classList.add('active');
 }
 
+// Tooltip with bootstrap https://getbootstrap.com/docs/4.1/components/tooltips/
+// $(function () {
+//   $('[data-toggle="tooltip"]').tooltip()
+// })
+
+// Modal with bootstrap
+$('#exampleModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+

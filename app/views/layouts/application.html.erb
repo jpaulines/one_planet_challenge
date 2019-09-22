@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag asset_path('logo-nomargin.png') %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- https://kitt.lewagon.com/knowledge/tutorials/from_web_app_to_pwa -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable"  content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <!-- https://www.favicon-generator.org/ -->
+    <%= render 'shared/ios_pwa_links' %>
+    <!-- end -->
     <title>OnePlanet</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <%= favicon_link_tag asset_path('logo-nomargin.png') %>
+
   </head>
   <body>
 
