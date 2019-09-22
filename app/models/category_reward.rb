@@ -1,4 +1,4 @@
 class CategoryReward < ApplicationRecord
   belongs_to :category
-  has_many :user_rewards
+  has_many :users_rewards
 end
