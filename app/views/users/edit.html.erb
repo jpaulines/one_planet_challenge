@@ -15,23 +15,29 @@
 -->
 <div class="form preferences d-flex flex-column justify-content-between form-page">
   <label for="Preferences" class="label_question">How much time are you willing to spend per week on the challenges?</label>
+  <div class="wrapping-slider">
   <div class="d-flex justify-content-between my-3">
     <p class="slider">A litte</p>
     <p class="slider">A lot</p>
   </div>
   <input type="range" class="custom-range mt-4" id="slider" name=user[time_level] min="1" max="3">
+</div>
   <label for="Preferences" class="label_question">How much effort are you willing to put in?</label>
+  <div class="wrapping-slider">
   <div class="d-flex justify-content-between my-3">
     <p class="slider">A litte</p>
     <p class="slider">A lot</p>
   </div>
   <input type="range" class="custom-range mt-4" id="slider" name=user[effort_level] min="1" max="3">
+  </div>
   <label for="Preferences" class="label_question">What amount of money would you be willing to spend on challenges?</label>
+  <div class="wrapping-slider">
   <div class="d-flex justify-content-between my-3">
     <p class="slider">A litte</p>
     <p class="slider">A lot</p>
   </div>
   <input type="range" class="custom-range mt-4" id="slider" name=user[money_level] min="1" max="3">
+  </div>
   <br>
   <button id="" class="btn custom mb-5">Submit</button>
 <!--         </form>

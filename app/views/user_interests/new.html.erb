@@ -30,7 +30,9 @@
                     <!-- if statement & checkbox image -->
                     <div class="category-card-title">
                       <h4> <%= category.name %></h4>
-                      <i class="fas <%= display_category(category.name) %>"></i>
+                      <% img_path = display_category(category.name) %>
+                      <%= image_tag img_path, alt: "alttext" %>
+
                     </div>
                   </div>
                 </div>

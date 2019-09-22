@@ -15,19 +15,19 @@
       <%= f.error_notification %>
 
       <div class="signup form-signup">
-        <%= f.input :first_name, required: true, label: false, placeholder: 'First name' %>
+        <%= f.input :first_name, required: true, label: false, placeholder: '*First name' %>
         <%= f.input :email,
         required: true,
         autofocus: true,
-        input_html: { autocomplete: "email" }, label: false, placeholder: 'email'%>
+        input_html: { autocomplete: "email" }, label: false, placeholder: '*Email'%>
         <%= f.input :password,
         required: true,
         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-        input_html: { autocomplete: "new-password" }, label: false, placeholder: 'Password' %>
+        input_html: { autocomplete: "new-password" }, label: false, placeholder: '*Password' %>
         <%= f.input :password_confirmation,
         required: true,
-        input_html: { autocomplete: "new-password" },label: false, placeholder: 'Confirm your password' %>
-        <%= f.input :address, required: true, label: false, placeholder: 'Address' %>
+        input_html: { autocomplete: "new-password" },label: false, placeholder: '*Confirm your password' %>
+        <%= f.input :address, required: true, label: false, placeholder: '*Address' %>
         <%= f.input :image, required: false, :label => "Your profile image"%>
 
         <%= f.hidden_field :greenpoint_score, value: params[:greenpoint_score] %>
