@@ -11,29 +11,10 @@
   </nav>
 
 <%= render 'dashboard-board' %>
-
-<div class="reward-card d-flex ">
-  <div class="reward-icon text-center">
-    <%= image_tag "gift.svg" %>
-    <div class="earth-scale d-flex">
-      <i class="fas fa-globe-americas"></i>
-      <i class="fas fa-globe-americas"></i>
-      <i class="fas fa-globe-americas"></i>
-    </div>
-  </div>
-  <div class="reward-content">
-    <h1 class="h1-reward">HARVESTING HOMIE</h1>
-    <p class="p-reward">Complete 9 challenges of the home category</p>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress">3 / 9</span>
-    </div>
-  </div>
-</div>
-
-<% current_user.users_rewards.where(shown: true).each do |ur| %>
+<div class="challenges-scroll-dashboard">
   <div class="reward-card d-flex ">
     <div class="reward-icon text-center">
-      <%= image_tag ur.category_reward.icon %>
+      <%= image_tag "gift.svg" %>
       <div class="earth-scale d-flex">
         <i class="fas fa-globe-americas"></i>
         <i class="fas fa-globe-americas"></i>
@@ -41,12 +22,32 @@
       </div>
     </div>
     <div class="reward-content">
-      <h1 class="h1-reward"><%=  ur.category_reward.name %></h1>
-      <p class="p-reward"><%=  ur.category_reward.description %> </p>
+      <h1 class="h1-reward">HARVESTING HOMIE</h1>
+      <p class="p-reward">Complete 9 challenges of the home category</p>
       <div class="progress">
-
         <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress">3 / 9</span>
       </div>
     </div>
   </div>
-<% end %>
+
+  <% current_user.users_rewards.where(shown: true).each do |ur| %>
+    <div class="reward-card d-flex ">
+      <div class="reward-icon text-center">
+        <%= image_tag ur.category_reward.icon %>
+        <div class="earth-scale d-flex">
+          <i class="fas fa-globe-americas"></i>
+          <i class="fas fa-globe-americas"></i>
+          <i class="fas fa-globe-americas"></i>
+        </div>
+      </div>
+      <div class="reward-content">
+        <h1 class="h1-reward"><%=  ur.category_reward.name %></h1>
+        <p class="p-reward"><%=  ur.category_reward.description %> </p>
+        <div class="progress">
+
+          <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress">3 / 9</span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -111,6 +111,15 @@ h1.challenges.suggested {
   overflow: auto;
 }
 
+.challenges-scroll-dashboard {
+  position: fixed;
+  top: 466px;
+  bottom: 84px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+
 .challenges-scroll-journey {
   padding: 12px;
   position: fixed;

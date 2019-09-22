@@ -13,8 +13,11 @@ puts "Seeding now..."
 
 ChallengeStep.destroy_all
 Challenge.destroy_all
+CategoryReward.destroy_all
+UsersReward.destroy_all
 Category.destroy_all
 User.destroy_all
+
 
 CATEGORIES = [
   "Shopping",
@@ -153,9 +156,21 @@ end
   )
 end
 
+# Shopping rewards
+
 CategoryReward.create!(
   category: Category.find_by(name: "Shopping"),
-  icon: "junior-shopper.svg",
+  icon: "shopping-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Shopper",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "shopping-junior.svg",
   description: "Complete 9 challenges of the shopping category",
   name: "Junior Shopper",
   colour: "#46c190",
@@ -165,17 +180,17 @@ CategoryReward.create!(
 
 CategoryReward.create!(
   category: Category.find_by(name: "Shopping"),
-  icon: "junior-shopper.svg",
+  icon: "shopping-senior.svg",
   description: "Complete 9 challenges of the shopping category",
   name: "Senior Shopper",
-  colour: "#888888",
+  colour: "#676767",
   min_challenges: 6,
   max_challenges: 9
   )
 
 CategoryReward.create!(
   category: Category.find_by(name: "Shopping"),
-  icon: "junior-shopper.svg",
+  icon: "shopping-expert.svg",
   description: "Complete 9 challenges of the shopping category",
   name: "Expert Shopper",
   colour: "#BF9B30",
@@ -183,10 +198,31 @@ CategoryReward.create!(
   max_challenges: 100
   )
 
+# Mobility rewards
 
 CategoryReward.create!(
   category: Category.find_by(name: "Mobility"),
-  icon: "senior-mobilizer.svg",
+  icon: "mobility-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Mobilizer",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-junior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Mobilizer",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-senior.svg",
   description: "Complete 9 challenges of the mobility category",
   name: "Senior Mobilizer",
   colour: "#888888",
@@ -194,11 +230,142 @@ CategoryReward.create!(
   max_challenges: 9
   )
 
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-expert.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Expert Mobilizer",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+
+# Investment rewards
+
 CategoryReward.create!(
   category: Category.find_by(name: "Investments"),
-  icon: "expert-investor.svg",
+  icon: "investment-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Investor",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-junior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Investor",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-senior.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Senior Investor",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-expert.svg",
   description: "Complete 9 challenges of the investment category",
   name: "Expert Investor",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+# Food rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Foodie",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-junior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Foodie",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-senior.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Senior Foodie",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-expert.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Expert Foodie",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+# Home rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Homie",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-junior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Homie",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-senior.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Senior Homie",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-expert.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Expert Homie",
   colour: "#BF9B30",
   min_challenges: 9,
   max_challenges: 100

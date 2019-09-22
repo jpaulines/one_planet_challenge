@@ -15990,7 +15990,7 @@ var ctxL = document.getElementById("lineChart").getContext('2d');
 var myLineChart = new Chart(ctxL, {
 type: 'line',
 data: {
-labels: ["Start of Journey", "February", "March", "April", "May", "June", "July"],
+labels: ["A", "February", "March", "April", "May", "June", "July"],
 datasets: [{
 label: "Challenges Completed",
 data: [65, 59, 80, 81, 56, 55, 40],

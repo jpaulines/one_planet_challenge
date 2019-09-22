@@ -4,7 +4,7 @@ class UserChallenge < ApplicationRecord
   has_many :user_challenge_steps, dependent: :destroy
   mount_uploader :image, PhotoUploader
 
-  after_update :update_user_rewards if :will_save_change_to_completed?
+  after_update :update_user_rewards, if: :completed_previously_changed?
 
   def update_user_rewards
     category = self.challenge.category
