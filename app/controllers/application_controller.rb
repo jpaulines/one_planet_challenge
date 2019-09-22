@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     edit_user_path(resource)
   end
 
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
    private
 
   def skip_pundit?

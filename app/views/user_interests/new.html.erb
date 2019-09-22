@@ -12,9 +12,11 @@
       <div class="form-group">
         <input type="hidden" name="category_ids" value="">
         <div class="row category-choices">
+
+        <% category_ids = current_user.categories.pluck(:id) %>
           <% Category.all.each do |category| %>
           <div class="category-checkbox col-xs-5">
-          <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>">
+          <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>" <%= 'checked' if category_ids.include?(category.id) %>>
           <label for="interests_id_<%= category.id %>">
 
           <div class="category-card">
