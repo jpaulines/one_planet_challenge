@@ -2,6 +2,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = policy_scope(Post).order(created_at: :desc)
+    @user = current_user
+    @post = Post.new
   end
 
   def new
@@ -11,7 +13,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
     authorize @post
     # we need `user_id` to associate review with corresponding user

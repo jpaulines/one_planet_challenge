@@ -2,22 +2,82 @@
 
 <%= render 'shared/navbar' %>
 
-<div class="header-post">
+<div class="d-flex align-items-center justify-content-center header-post mt-4">
     <h1 class="title-post">Your Community</h1>
 </div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-3">
+<div class="container-post-bar">
+          <div class="flex-item">
+          <%= cl_image_tag current_user.image, class: "avatar-post", alt: "avatar" %>
+          </div>
+          <div class="flex-item">
+            <button type="button" class="input-field-post" data-toggle="modal" data-target="#exampleModal">
+            What's on your mind?</button>
+            <%#= link_to "What's on your mind?", new_post_path, class: "input-field-post"%>
+          </div>
+</div>
 
-      <div class="bar-post-wrap">
-        <div class="bar-post">
-          <%= cl_image_tag current_user.image, class: "avatar-profile" %>
-        </div>
-      <p><%= link_to "What's on your mind?", new_post_path, class: "input-field-post" %></p>
+<div class="post-scroll">
+
+<% @posts.each do |post| %>
+
+  <div class="d-flex justify-content-start">
+    <div>
+      <%= cl_image_tag current_user.image, class: "avatar-post", alt: "avatar" %>
+    </div>
+    <div class="d-flex flex-column bd-highlight">
+      <div class="p-2 bd-highlight">
+        <p><%=  current_user.first_name %></p>
       </div>
-
-
+      <div class="p-2 bd-highlight">
+        <p><%=  post.created_at%></p>
       </div>
+    </div>
+  </div>
+
+  <div class="container-post-content">
+    <div>
+      <p class="card-post-title"><%= post.title %></p>
+    </div>
+    <div>
+      <p class="card-post-content"><%= post.content %></p>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <i class="fas fa-heart"></i>
+    </div>
+    <div>
+      <% Link_to %>
+        <i class="fas fa-comment"></i>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= cl_image_tag current_user.image, class: "avatar-post mr-3", alt: "avatar" %>
+        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-justify">
+        <%= simple_form_for [@user, @post] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Create Post", class: "btn custom mt-5" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -8,7 +8,9 @@
     <% elsif current_user.user_interests.empty? %>
     <%= link_to "Fill in your interests", new_user_interest_path(current_user) %>
       <% end %>
-  <%= image_tag 'setting-dark.png', class: "setting dropdown-toggle ", id: "settingDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="setting wheel" id="settingDropdown" data-toggle="dropdown" aria-haspopup=true aria-expanded= false %>
+    <i class="fas fa-cog"></i>
+  </div>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "Edit Preferences", edit_user_path(current_user), class: "dropdown-item" %>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
