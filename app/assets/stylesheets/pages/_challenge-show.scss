@@ -32,6 +32,12 @@
   color: $darkgreen;
 }
 
+.image_tag.greenpoint-dashboard {
+  height: 25px;
+  margin-right: 2px;
+  color: $darkgreen;
+}
+
 .back-button {
   position: absolute;
   color: white;
@@ -155,6 +161,24 @@ span.commited-time {
 
 label {
     margin: 0;
+}
+
+.completed-congrats {
+  font-family: "Noto Sans";
+  font-weight: 300;
+  font-size: 24px;
+  background-color: $card-gray;
+  border-radius: 6px;
+  padding: 17px 23px;
+}
+
+.challenge-completed-img img{
+  height: 90px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 

@@ -1,5 +1,6 @@
 <div class="dashboard-card">
   <h1 class="h1-reward">VIEW YOUR PROGRESS</h1>
+   <%= image_tag "greenpoint-logo.svg", class: 'image_tag greenpoint-dashboard'%>
   <canvas id="lineChart"
       data-green="<%= @greenpoints_score.to_json %>"
       data-earned="<%= @earned_greens_arr.to_json %>"

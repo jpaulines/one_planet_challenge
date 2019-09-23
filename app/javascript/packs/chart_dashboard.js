@@ -26,7 +26,7 @@
     borderWidth: 2
   },
   {
-    label: "Greenpoints",
+    label: "Greens per challenge",
     data: [...earnedGreens],
     backgroundColor: [
     'rgba(70,193,144, .1)',
@@ -37,7 +37,7 @@
     borderWidth: 2
   },
              {
-    label: "Greens per challenge",
+    label: "Greenscore",
     data: [...greenpoints],
     backgroundColor: [
     'rgba(250, 218, 94, .2)',
