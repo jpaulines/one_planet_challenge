@@ -17,7 +17,7 @@
     <% end %>
   <% end %>
   <br>
-  <%= simple_form_for([@challenge, current_user.user_challenges.find_by(challenge: @challenge)], html: {id: "challenge-completed-sweet"}) do |f| %>
+  <%= simple_form_for(current_user.user_challenges.find_by(challenge: @challenge), html: {id: "challenge-completed-sweet"}) do |f| %>
      <%= f.input :image, required: false, input_html: { hidden: true }, :label => "Upload Photo", class: "user_challenge_image" %>
      <%= f.submit "Challenge Completed", class: "btn custom my-3 complete-button", disabled: true %>
 

@@ -39,7 +39,13 @@
 
 
   <% if current_user.challenges.pluck(:id).include?(@challenge.id) %>
-    <%= render 'ongoing-challenge-show'%>
+
+    <% if current_user.user_challenges.find_by(challenge_id: @challenge.id).completed == true %>
+       <%= render 'completed-challenge-show'%>
+    <% else %>
+      <%= render 'ongoing-challenge-show'%>
+    <% end %>
+
   <% else %>
     <%= render 'new-challenge-show'%>
   <% end %>

@@ -12,7 +12,11 @@ class User < ApplicationRecord
 
   def create_rewards
     CategoryReward.all.each do |reward|
-      UsersReward.create(user: self, category_reward: reward)
+      if reward.name.include?("Base")
+        UsersReward.create(user: self, category_reward: reward, shown: true)
+      else
+        UsersReward.create(user: self, category_reward: reward)
+      end
     end
   end
 end

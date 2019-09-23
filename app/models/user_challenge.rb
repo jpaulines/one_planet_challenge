@@ -8,8 +8,10 @@ class UserChallenge < ApplicationRecord
 
   def update_user_rewards
     category = self.challenge.category
-    user_reward = UsersReward.joins(category_reward: :category).find_by(category_rewards: { category: category }, user: self.user)
-    user_reward.completed_challenges += 1
-    user_reward.save
+    user_rewards = UsersReward.joins(category_reward: :category).where(category_rewards: { category: category }, user: self.user)
+    user_rewards.each do |user_reward|
+      user_reward.completed_challenges += 1
+      user_reward.save
+    end
   end
 end

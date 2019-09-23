@@ -9,6 +9,8 @@ class DashboardsController < ApplicationController
     end
     @greenpoints_score
 
+    @test = "Hello"
+
     authorize :dashboard, :dashboard?
   end
 

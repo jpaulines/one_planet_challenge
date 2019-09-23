@@ -1,5 +1,5 @@
 .dashboard-card {
-  height: 300px;
+  height: 250px;
   padding: 10px;
   background-color: rgba(248, 249, 250, .9);
   margin: 15px 10px;
@@ -26,6 +26,17 @@
 
 .earth-scale i {
   margin: 2px;
+}
+
+.empty-globe {
+  margin: 2px;
+  background-color: $gray;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -moz-box-shadow:    inset 1px 0px 5px #333333;
+  -webkit-box-shadow: inset 1px 0px 5px #333333;
+  box-shadow:         inset 1px 0px 5px #333333;
 }
 
 h1.h1-reward {

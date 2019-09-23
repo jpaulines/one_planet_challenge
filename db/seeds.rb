@@ -118,43 +118,6 @@ FEMALE_PHOTOS = [
 
 # Create male users
 
-5.times do
-  User.create!(
-    email: Faker::Internet.email,
-    username: Faker::Internet.unique.username,
-    password: '123456',
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    address: "Tel Aviv",
-    time_level: rand(1..3),
-    effort_level: rand(1..3),
-    money_level: rand(1..3),
-    greenpoint_score: rand(10..150),
-    planet_country: rand(1..9),
-    planet_user: rand(1..9),
-    image: MALE_PHOTOS.sample
-  )
-end
-
-# Create female users
-
-5.times do
-  User.create!(
-    email: Faker::Internet.email,
-    username: Faker::Internet.unique.domain_word,
-    password: '123456',
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    address: "Tel Aviv",
-    time_level: rand(1..3),
-    effort_level: rand(1..3),
-    money_level: rand(1..3),
-    greenpoint_score: rand(10..150),
-    planet_country: rand(1..9),
-    planet_user: rand(1..9),
-    image: FEMALE_PHOTOS.sample
-  )
-end
 
 # Shopping rewards
 
@@ -370,7 +333,57 @@ CategoryReward.create!(
   min_challenges: 9,
   max_challenges: 100
   )
+5.times do
+u = User.create!(
+    email: Faker::Internet.email,
+    username: Faker::Internet.unique.username,
+    password: '123456',
+    first_name: Faker::Name.male_first_name,
+    last_name: Faker::Name.last_name,
+    address: "Tel Aviv",
+    time_level: rand(1..3),
+    effort_level: rand(1..3),
+    money_level: rand(1..3),
+    greenpoint_score: rand(10..150),
+    planet_country: rand(1..9),
+    planet_user: rand(1..9),
+    image: MALE_PHOTOS.sample
+  )
+  CategoryReward.all.each do |reward|
+    if reward.name.include?("Base")
+      UsersReward.create!(user: u, category_reward: reward, shown: true)
+    else
+      UsersReward.create!(user: u, category_reward: reward)
+    end
+  end
+end
 
+# Create female users
+
+5.times do
+  u = User.create!(
+    email: Faker::Internet.email,
+    username: Faker::Internet.unique.domain_word,
+    password: '123456',
+    first_name: Faker::Name.female_first_name,
+    last_name: Faker::Name.last_name,
+    address: "Tel Aviv",
+    time_level: rand(1..3),
+    effort_level: rand(1..3),
+    money_level: rand(1..3),
+    greenpoint_score: rand(10..150),
+    planet_country: rand(1..9),
+    planet_user: rand(1..9),
+    image: FEMALE_PHOTOS.sample
+  )
+  CategoryReward.all.each do |reward|
+    if reward.name.include?("Base")
+      UsersReward.create!(user: u, category_reward: reward, shown: true)
+    else
+      UsersReward.create!(user: u, category_reward: reward)
+    end
+  end
+end
 
 puts "Finished seeding!"
 

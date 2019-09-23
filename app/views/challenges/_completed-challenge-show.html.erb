@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between challenge-levels-indicator-commited">
+    <p class="challenge-levels-param">Commited
+    <div class="d-flex justify-content-between challenge-levels-commited">
+       <span class="commited-time"><%= @challenge.created_at.strftime('%F') %></span>
+    </div>
+   </p>
+  </div>
+  <h2>Congratulations for completing this challenge!</h2>
+  <h4 class="challenge-steps-title mt-4">Description</h4>
+    <p class="challenge-description"><%= @challenge.content %></p>
+  <h4 class="challenge-steps-title">Steps to completion</h4>
+  <% @challenge.challenge_steps.each_with_index do |step, index|  %>
+    <% unless step.content.nil? %>
+      <div class="d-flex">
+          <label class="si si-checkbox" for="<%= index %>">
+            <input type="checkbox" class="checkbox-custom" value="" id="<%= index %>" checked>
+            <span class="challenge-step-content si-label"><%=  step.content %></span>
+          </label>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+   <div class="journey-img">
+    <% user_challenge = @challenge.user_challenges.find_by(user: current_user) %>
+    <% if user_challenge.image.url %>
+      <%= image_url user_challenge.image.url %>
+    <% else %>
+    nothing
+    <% end %>
+  </div>
+
+ <!--  set completed to false -->
+   <%= button_to "Retake Challenge", reactivate_challenge_user_challenge_path(user_challenge), method: :patch, :form => { :id => "challenge-accepted-sweet"}, class: "btn custom"%>
+
+    <h4 class="challenge-steps-title">Review Challenge</h4>
+

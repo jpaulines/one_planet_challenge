@@ -1,8 +1,15 @@
-<div class="dashboard-card">
+<div class="dashboard-card" onload="updateChart()">
   <h1 class="h1-reward">Your country benchmark: <%=  @result %> Earths</h1>
-  <canvas id="lineChart"></canvas>
+  <div id="lineChart"
+      style="width: 300px, height: 300px"
+      data-test="<%= @test.to_json %>">
+
+  </div>
   <h1 class="h1-reward">Greenpoints: <%= @greenpoints_score %></h1>
   <h1 class="h1-reward">Challenges: <%= @user_challenges.count %></h1>
 </div>
 
-<%= javascript_pack_tag 'mdb' %>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'chart_dashboard' %>
+<% end %>

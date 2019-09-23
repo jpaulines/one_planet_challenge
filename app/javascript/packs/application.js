@@ -29,6 +29,8 @@ initSweetalert('#challenge-completed-sweet', {
   text: "You completed another challenge for our planet!",
   imageUrl: Celebration,
   showCloseButton: true,
+  confirmButtonClass: "btn custom",
+  buttonsStyling: false,
   confirmButtonText:
     '<i class="fa fa-thumbs-up"></i> Yay!',
   confirmButtonAriaLabel: 'Thumbs up, yay!',
@@ -40,6 +42,8 @@ initSweetalert('#challenge-accepted-sweet', {
   title: "Let's do this!",
   text: "Go and earn some greenpoints. ",
   showCloseButton: true,
+  buttonsStyling: false,
+  confirmButtonClass: "btn custom",
   confirmButtonText:
     '<i class="fa fa-thumbs-up"></i> I am ready!',
   confirmButtonAriaLabel: 'Thumbs up, ready!',
