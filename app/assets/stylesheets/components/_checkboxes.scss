@@ -1,8 +1,8 @@
 /* custom properties (AKA css variables) */
 .si {
-  --color-label: #9aa6bf;
+  --color-label: $gray;
   --color-default: #dee5f2;
-  --color-active: #0069ff;
+  --color-active: #46c190;
   --rotate-default: 180deg;
   --rotate-active: 40deg;
   --border-size-checkmark: 2px;
@@ -32,11 +32,8 @@
   vertical-align: text-top;
 }
 
-.si > input { display: none; }
-/* OR */
 .si > input { opacity: 0; }
-/* OR */
-.si > input { visibility: hidden; }
+
 
 .si > input[type="checkbox"] {
   clip-path: polygon(0 0);

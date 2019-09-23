@@ -1,3 +1,81 @@
 .dashboard-card {
+  height: 280px;
+  padding: 10px;
+  background-color: rgba(248, 249, 250, .9);
+  margin: 15px 10px;
+  position: relative;
+}
 
+.badge-overview {
+  position: absolute;
+  /* justify-content: space-between; */
+  justify-content: space-between;
+  width: 330px;
+  bottom: 15px;
+}
+
+
+.reward-card {
+  border-bottom: 2px solid $green;
+  margin: 10px 10px;
+  padding: 15px 0px;
+}
+
+.reward-icon {
+  border: 1px solid $light-gray;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.22);
+  margin: 0px 15px;
+  padding: 15px 7px;
+}
+
+.reward-icon img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.earth-scale i {
+  margin: 2px;
+}
+
+.empty-globe {
+  margin: 2px;
+  background-color: $light-gray;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -moz-box-shadow:    inset 0px 0px 4px #333333;
+  -webkit-box-shadow: inset 0px 0px 4px #333333;
+  box-shadow:         inset 0px 0px 4px #333333;
+}
+
+h1.h1-reward {
+  font-size: 15px;
+  font-family: "Raleway";
+  text-transform: uppercase;
+}
+
+p.p-reward {
+  font-size: 14px;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+.reward-progress {
+  margin-left: 5px;
+  color: white;
+}
+
+#lineChart {
+  height: 210px!important;
+  width: 100%;
+}
+
+.image_tag.greenpoint-dashboard {
+  height: 22px;
+  margin-right: 2px;
+  color: $darkgreen;
+  position: absolute;
+  top: 72px;
+  right: 95px;
 }

@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   resources :user_interests, only: [:new, :create]
 
   resources :challenges do
-    resources :user_challenges, only: [:create, :update]
+    resources :user_challenges, only: [:create]
+  end
+  resources :user_challenges, only: [:update] do
+    member do
+      patch "reactivate_challenge"
+    end
   end
 end

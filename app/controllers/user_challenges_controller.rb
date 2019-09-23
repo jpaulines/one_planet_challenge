@@ -14,12 +14,21 @@ class UserChallengesController < ApplicationController
   end
 
   def update
-    @challenge = Challenge.find(params[:challenge_id])
     @user_challenge = UserChallenge.find(params[:id])
-    @user_challenge.update(image: params[:user_challenge][:image], completed: true)
+
+    @user_challenge.update(image: params[:user_challenge][:image]) if params[:user_challenge]
+    @user_challenge.update(completed: true)
     redirect_to my_challenges_path
     authorize :user_challenge, :update?
   end
+
+  def reactivate_challenge
+    @user_challenge = UserChallenge.find(params[:id])
+    @user_challenge.update(completed: false)
+    redirect_to my_challenges_path
+    authorize :user_challenge, :reactivate_challenge?
+  end
+
 
   private
 

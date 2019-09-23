@@ -1,29 +1,3 @@
- <h1 class="h1-challenge-show"><%= @challenge.name %></h1>
-<div class="d-flex justify-content-between challenge-levels-indicator">
-    <p class="challenge-levels-param">Difficulty
-    <div class="d-flex justify-content-between challenge-levels-diff">
-      <% @challenge.effort.times do %>
-        <i id="actual-level" class="fas fa-trophy mr-1"></i>
-      <% end %>
-      <% (3 - @challenge.effort).times do %>
-        <i id="total-level" class="fas fa-trophy mr-1"></i>
-      <% end %>
-    </div>
-   </p>
-  </div>
-  <div class="d-flex justify-content-between challenge-levels-indicator">
-    <p style="width:30px">Time
-      <div class="d-flex justify-content-between challenge-levels-time">
-        <% @challenge.time.times do %>
-          <i id="actual-level" class="fas fa-stopwatch"></i>
-        <% end %>
-        <% (3 - @challenge.time).times do %>
-          <i id="total-level" class="fas fa-stopwatch"></i>
-        <% end %>
-      </div>
-    </p>
-  </div>
-  <p><i id="greenpoint-level" class="fas fa-award"> </i><%= @challenge.greenpoint %></p>
   <p class="challenge-description"><%= @challenge.content %></p>
   <h4 class="challenge-steps-title">Steps to completion</h4>
   <div class="div-steps">

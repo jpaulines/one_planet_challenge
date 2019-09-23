@@ -8,12 +8,17 @@ class UserInterestsController < ApplicationController
 
   def create
     @user = current_user
-    params[:interests][:category_ids].each do |id|
+    @user_interest = UserInterest.new
+    authorize @user_interest
+    if params[:interests][:category_ids].blank? && params[:category_ids].blank?
+      redirect_to new_user_interest_path, alert: "Please choose your preferences"
+      return
+    end
+      params[:interests][:category_ids].each do |id|
       category = Category.find(id)
-      @user_interest = UserInterest.new(category:category, user: current_user)
+      @user_interest.update_attributes(category:category, user: current_user)
       @user_interest.save
     end
-    authorize @user_interest
     redirect_to dashboard_path
   end
 

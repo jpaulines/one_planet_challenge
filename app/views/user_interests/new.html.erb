@@ -13,7 +13,7 @@
 
       <%= form_tag user_interests_url do %>
       <div class="form-group">
-        <input type="hidden" name="category_ids" value="">
+        <input type="hidden" name="category_ids" value="" required>
         <div class="row justify-content-center">
           <% Category.all.each_with_index do |category, index| %>
           <!-- <div class="category-checkbox col-xs-5 p"> -->

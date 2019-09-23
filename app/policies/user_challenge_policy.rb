@@ -12,6 +12,11 @@ class UserChallengePolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def reactivate_challenge?
+    true
+  end
+
 end
 
 
