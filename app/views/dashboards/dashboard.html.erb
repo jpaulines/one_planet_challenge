@@ -13,8 +13,8 @@
 <%= render 'dashboard-board' %>
 
 <!-- bagde expample 1 -->
-<!-- <div class="challenges-scroll-dashboard">
-  <div class="reward-card d-flex ">
+
+  <!-- <div class="reward-card d-flex ">
     <div class="reward-icon text-center">
       <%#image_tag "gift.svg" %>
       <div class="earth-scale d-flex">
@@ -30,8 +30,8 @@
         <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress">3 / 9</span>
       </div>
     </div>
-  </div> -->
-
+  </div>
+ -->
 <!-- badge example 2 -->
 <!--
   <div class="reward-card d-flex ">
@@ -52,7 +52,7 @@
     </div>
   </div>
  -->
-
+<div class="challenges-scroll-dashboard">
   <% current_user.users_rewards.where(shown: true).each do |ur| %>
     <div class="reward-card d-flex ">
       <div class="reward-icon text-center">
@@ -71,7 +71,7 @@
         <p class="p-reward"><%=  ur.category_reward.description %> </p>
         <div class="progress">
 
-          <div class="progress-bar" role="progressbar" style="width: <%= (ur.completed_challenges /  ur.category_reward.total) %>; background-color: <%= ur.category_reward.colour %>;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress"><%= ur.completed_challenges %> / <%= ur.category_reward.total %></span>
+          <div class="progress-bar" role="progressbar" style="width: <%= (ur.completed_challenges.to_f /  ur.category_reward.total).round(2) * 100 %>%; background-color: <%= ur.category_reward.colour %>;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress"><%= ur.completed_challenges %> / <%= ur.category_reward.total %></span>
         </div>
       </div>
     </div>

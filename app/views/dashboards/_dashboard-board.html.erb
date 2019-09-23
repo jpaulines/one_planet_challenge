@@ -1,14 +1,17 @@
-<div class="dashboard-card" onload="updateChart()">
-  <h1 class="h1-reward">Your country benchmark: <%=  @result %> Earths</h1>
-  <div id="lineChart"
-      style="width: 300px, height: 300px"
-      data-test="<%= @test.to_json %>">
+<div class="dashboard-card">
+  <h1 class="h1-reward">VIEW YOUR PROGRESS</h1>
+  <canvas id="lineChart"
+      data-green="<%= @greenpoints_score.to_json %>"
+      data-earned="<%= @earned_greens_arr.to_json %>"
+      data-chall="<%= @challenges_score.to_json %>">
+  </canvas>
 
+  <div class="badge-overview d-flex">
+    <% current_user.users_rewards.where(shown: true).each do |ur| %>
+       <%= image_tag ur.category_reward.icon %>
+    <% end %>
   </div>
-  <h1 class="h1-reward">Greenpoints: <%= @greenpoints_score %></h1>
-  <h1 class="h1-reward">Challenges: <%= @user_challenges.count %></h1>
 </div>
-
 
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'chart_dashboard' %>

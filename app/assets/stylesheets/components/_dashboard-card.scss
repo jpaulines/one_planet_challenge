@@ -1,9 +1,19 @@
 .dashboard-card {
-  height: 250px;
+  height: 280px;
   padding: 10px;
   background-color: rgba(248, 249, 250, .9);
   margin: 15px 10px;
+  position: relative;
 }
+
+.badge-overview {
+  position: absolute;
+  /* justify-content: space-between; */
+  justify-content: space-between;
+  width: 330px;
+  bottom: 15px;
+}
+
 
 .reward-card {
   border-bottom: 2px solid $green;
@@ -30,13 +40,13 @@
 
 .empty-globe {
   margin: 2px;
-  background-color: $gray;
+  background-color: $light-gray;
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  -moz-box-shadow:    inset 1px 0px 5px #333333;
-  -webkit-box-shadow: inset 1px 0px 5px #333333;
-  box-shadow:         inset 1px 0px 5px #333333;
+  -moz-box-shadow:    inset 0px 0px 4px #333333;
+  -webkit-box-shadow: inset 0px 0px 4px #333333;
+  box-shadow:         inset 0px 0px 4px #333333;
 }
 
 h1.h1-reward {
@@ -54,4 +64,9 @@ p.p-reward {
 .reward-progress {
   margin-left: 5px;
   color: white;
+}
+
+#lineChart {
+  height: 210px!important;
+  width: 100%;
 }
