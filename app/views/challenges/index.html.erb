@@ -24,7 +24,7 @@
   <div class="discover-page-scroll">
     <h1 class="challenges suggested">Popular Challenges</h1>
       <div class="challenges-index-scroll-index">
-       <% @challenges.each do |challenge| %>
+       <% @popular_challenges.each do |challenge| %>
        <%= link_to challenge_path(challenge) do  %>
         <div class="challenge-index-card">
           <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
