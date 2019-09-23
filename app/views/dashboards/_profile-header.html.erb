@@ -11,7 +11,7 @@
     <%= link_to new_user_interest_path(current_user), class: "request-info" do%>
         <i class="fas fa-lightbulb ml-3"></i> Fill in your interests
       <% end %>
-
+    <% end %>
   <div class="setting wheel" id="settingDropdown" data-toggle="dropdown" aria-haspopup=true aria-expanded= false %>
     <i class="fas fa-cog"></i>
   </div>
@@ -21,7 +21,7 @@
     <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
 
-    <% end %>
+
 
 </div>
 
