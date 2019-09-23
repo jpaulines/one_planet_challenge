@@ -17,42 +17,59 @@
           </div>
 </div>
 
-<div class="post-scroll">
+<div class="post-scroll container">
 
 <% @posts.each do |post| %>
 
-  <div class="d-flex justify-content-start">
-    <div>
-      <%= cl_image_tag current_user.image, class: "avatar-post", alt: "avatar" %>
-    </div>
-    <div class="d-flex flex-column bd-highlight">
-      <div class="p-2 bd-highlight">
-        <p><%=  current_user.first_name %></p>
+<div class="card-post">
+
+  <div class="row justify-content-between">
+    <div class="col-6 row">
+      <div class="col-4">
+        <%= cl_image_tag current_user.image, class: "avatar-post", alt: "avatar" %>
       </div>
-      <div class="p-2 bd-highlight">
-        <p><%=  post.created_at%></p>
+      <div class="col-8">
+        <p class="post-user"><%=  current_user.first_name %></p>
+        <p class="post-user2"><%=  post.created_at.strftime("%d/%m/%Y") %></p>
+      </div>
+    </div>
+    <div class="col-3 p-0">
+      <!-- place tag later -->
+      <p class="post-user">General</p>
+      <div class="row m-0">
+        <div class="post-small-icons">
+          <i class="fas fa-heart"></i> <span>1</span>
+        </div>
+        <div class="post-small-icons">
+          <i class="fas fa-comment"></i> <span>1</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container-post-content">
+
+  <div class="col-12">
     <div>
       <p class="card-post-title"><%= post.title %></p>
     </div>
     <div>
-      <p class="card-post-content"><%= post.content %></p>
+      <p><%= post.content %></p>
     </div>
+    <p class="border-bottom"></p>
   </div>
 
-  <div>
+  <div class="row justify-content-around">
     <div>
       <i class="fas fa-heart"></i>
     </div>
     <div>
-      <% Link_to %>
+      <%= link_to post_path(post) do %>
         <i class="fas fa-comment"></i>
+      <% end %>
     </div>
   </div>
+
+</div>
 
 <% end %>
 
