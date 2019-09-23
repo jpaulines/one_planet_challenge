@@ -8,7 +8,45 @@
     // padding: 20px 0;
     margin: 0;
     justify-content: flex-end;
+    position: relative;
 }
+
+.greenpoint-level {
+  position: absolute;
+  right: 10px;
+  top: 180px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 58px;
+  background-color: rgba(250, 250, 250, .8);
+  padding: 10px;
+  padding-top: 15px;
+  border-radius: 50%;
+  color: $darkgreen;
+  border: 2px solid $darkgreen;
+}
+
+.image_tag.greenpoint {
+  height: 25px;
+  margin-right: 2px;
+  color: $darkgreen;
+}
+
+.back-button {
+  position: absolute;
+  color: white;
+  top: 10px;
+  // background-color: rgba(250, 250, 250, .8);
+  padding: 10px 18px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: rgba(250, 250, 250, .3);
+}
+
+.back-button i {
+  color: white;
+}
+
 
 h1.h1-challenge-show {
   font-family: "Noto Sans";
@@ -60,6 +98,11 @@ h1.h1-challenge-show {
   height: 30px;
 }
 
+span.commited-time {
+  color: $green;
+  font-weight: 400;
+}
+
 .div-steps {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -67,16 +110,69 @@ h1.h1-challenge-show {
 
 .challenge-levels-indicator {
   width: 250px;
+  line-height: 1;
+}
+
+.challenge-levels-indicator-commited {
+  width: 270px;
+  line-height: 1;
 }
 
 .challenge-levels-param {
   width: 30px;
+  font-weight: 200;
 }
 
 .challenge-levels-diff {
   width: 70px;
 }
 
+.challenge-levels-commited {
+  width: 90px;
+}
+
 .challenge-levels-time {
   width: 64px;
 }
+
+.user_challenge_image {
+  background-color: white;
+  border: 1px solid $light-gray;
+  color: $light-gray;
+  border-radius: 6px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  &:hover {
+    background-color: $light-gray;
+    border: 1px solid $light-gray;
+    color: $white;
+  }
+}
+
+label {
+    margin: 0;
+}
+
+.completed-congrats {
+  font-family: "Noto Sans";
+  font-weight: 300;
+  font-size: 24px;
+  background-color: $card-gray;
+  border-radius: 6px;
+  padding: 17px 23px;
+}
+
+.challenge-completed-img img{
+  height: 90px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+

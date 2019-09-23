@@ -13,8 +13,11 @@ puts "Seeding now..."
 
 ChallengeStep.destroy_all
 Challenge.destroy_all
+CategoryReward.destroy_all
+UsersReward.destroy_all
 Category.destroy_all
 User.destroy_all
+
 
 CATEGORIES = [
   "Shopping",
@@ -115,8 +118,223 @@ FEMALE_PHOTOS = [
 
 # Create male users
 
+
+# Shopping rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "shopping-base.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Base Shopper",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "shopping-junior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Junior Shopper",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "shopping-senior.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Senior Shopper",
+  colour: "#676767",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Shopping"),
+  icon: "shopping-expert.svg",
+  description: "Complete 9 challenges of the shopping category",
+  name: "Expert Shopper",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+# Mobility rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-base.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Base Mobilizer",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-junior.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Junior Mobilizer",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-senior.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Senior Mobilizer",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Mobility"),
+  icon: "mobility-expert.svg",
+  description: "Complete 9 challenges of the mobility category",
+  name: "Expert Mobilizer",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+
+# Investment rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-base.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Base Investor",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-junior.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Junior Investor",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-senior.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Senior Investor",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Investments"),
+  icon: "investment-expert.svg",
+  description: "Complete 9 challenges of the investment category",
+  name: "Expert Investor",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+# Food rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-base.svg",
+  description: "Complete 9 challenges of the food category",
+  name: "Base Foodie",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-junior.svg",
+  description: "Complete 9 challenges of the food category",
+  name: "Junior Foodie",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-senior.svg",
+  description: "Complete 9 challenges of the food category",
+  name: "Senior Foodie",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Food"),
+  icon: "food-expert.svg",
+  description: "Complete 9 challenges of the food category",
+  name: "Expert Foodie",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
+
+# Home rewards
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-base.svg",
+  description: "Complete 9 challenges of the home category",
+  name: "Base Homie",
+  colour: "#C4C4C4",
+  min_challenges: 0,
+  max_challenges: 3
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-junior.svg",
+  description: "Complete 9 challenges of the home category",
+  name: "Junior Homie",
+  colour: "#46c190",
+  min_challenges: 3,
+  max_challenges: 6
+  )
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-senior.svg",
+  description: "Complete 9 challenges of the home category",
+  name: "Senior Homie",
+  colour: "#888888",
+  min_challenges: 6,
+  max_challenges: 9
+  )
+
+
+CategoryReward.create!(
+  category: Category.find_by(name: "Home"),
+  icon: "home-expert.svg",
+  description: "Complete 9 challenges of the home category",
+  name: "Expert Homie",
+  colour: "#BF9B30",
+  min_challenges: 9,
+  max_challenges: 100
+  )
 5.times do
-  User.create!(
+u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.username,
     password: '123456',
@@ -131,12 +349,19 @@ FEMALE_PHOTOS = [
     planet_user: rand(1..9),
     image: MALE_PHOTOS.sample
   )
+  CategoryReward.all.each do |reward|
+    if reward.name.include?("Base")
+      UsersReward.create!(user: u, category_reward: reward, shown: true)
+    else
+      UsersReward.create!(user: u, category_reward: reward)
+    end
+  end
 end
 
 # Create female users
 
 5.times do
-  User.create!(
+  u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.domain_word,
     password: '123456',
@@ -151,25 +376,14 @@ end
     planet_user: rand(1..9),
     image: FEMALE_PHOTOS.sample
   )
+  CategoryReward.all.each do |reward|
+    if reward.name.include?("Base")
+      UsersReward.create!(user: u, category_reward: reward, shown: true)
+    else
+      UsersReward.create!(user: u, category_reward: reward)
+    end
+  end
 end
-
-# create events and assign a user to each
-
-# 60.times do
-#   ev_cat = EventCategory.all.sample
-#   Event.create!(
-#     name: EVENT_NAMES_PREFIX.sample + ev_cat.name,
-#     address: CITIES.sample + " " + rand(1...90).to_s + " Tel Aviv-Yafo",
-#     event_category: ev_cat,
-#     date: Date.today + rand(10...30),
-#     amenities: AMENITIES.sample,
-#     event_description: "This is going to be a really enjoyable #{ev_cat.name}. I know it starts kind of late, but be prepared to have a ton of fun. Keep an open mind!",
-#     wishlist: WISHLIST.sample,
-#     event_image: "https://res.cloudinary.com/dakarw0uq/image/upload/v1568110461/shct4ik7e0oqer86pfbh.jpg",
-#     user_id: User.all.sample.id,
-#     cost: ["0", "50", "75", "100", "150", "250"].sample,
-#   )
-# end
 
 puts "Finished seeding!"
 

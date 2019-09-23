@@ -1,9 +1,51 @@
 <div class="challenge-show-banner" style="background-image: url(<%= @challenge.image %>)">
 </div>
 <div class="container">
+  <div class="back-button">
+     <%= link_to my_challenges_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+  </div>
+   <h1 class="h1-challenge-show mb-4"><%= @challenge.name %></h1>
+  <div class="d-flex justify-content-between challenge-levels-indicator">
+    <p class="challenge-levels-param">Difficulty
+    <div class="d-flex justify-content-between challenge-levels-diff">
+      <% @challenge.effort.times do %>
+        <i id="actual-level" class="fas fa-trophy mr-1"></i>
+      <% end %>
+      <% (3 - @challenge.effort).times do %>
+        <i id="total-level" class="fas fa-trophy mr-1"></i>
+      <% end %>
+    </div>
+   </p>
+  </div>
+  <div class="d-flex justify-content-between challenge-levels-indicator">
+    <p class="challenge-levels-param":30px">Time
+      <div class="d-flex justify-content-between challenge-levels-time">
+        <% @challenge.time.times do %>
+          <i id="actual-level" class="fas fa-stopwatch"></i>
+        <% end %>
+        <% (3 - @challenge.time).times do %>
+          <i id="total-level" class="fas fa-stopwatch"></i>
+        <% end %>
+      </div>
+    </p>
+  </div>
+  <div class="greenpoint-level d-flex">
+      <%= image_tag "greenpoint-logo.svg", class: 'image_tag greenpoint'%>
+      </i><%= @challenge.greenpoint %></p>
+  </div>
+
+
 
   <% if current_user.challenges.pluck(:id).include?(@challenge.id) %>
-    <%= render 'ongoing-challenge-show'%>
+
+    <% if current_user.user_challenges.find_by(challenge_id: @challenge.id).completed == true %>
+       <%= render 'completed-challenge-show'%>
+    <% else %>
+      <%= render 'ongoing-challenge-show'%>
+    <% end %>
+
   <% else %>
     <%= render 'new-challenge-show'%>
   <% end %>

@@ -9,7 +9,7 @@
   })
 
   const complete = document.querySelector(".complete-button");
-  let boxes = document.querySelectorAll(".form-check-input");
+  let boxes = document.querySelectorAll(".checkbox-custom");
 
   if(boxes.length === 0){
     complete.disabled = false;

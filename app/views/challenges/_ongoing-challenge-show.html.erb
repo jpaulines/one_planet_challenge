@@ -1,48 +1,24 @@
- <h1 class="h1-challenge-show"><%= @challenge.name %></h1>
-  <div class="d-flex justify-content-between challenge-levels-indicator">
-    <p class="challenge-levels-param">Difficulty
-    <div class="d-flex justify-content-between challenge-levels-diff">
-      <% @challenge.effort.times do %>
-        <i id="actual-level" class="fas fa-trophy mr-1"></i>
-      <% end %>
-      <% (3 - @challenge.effort).times do %>
-        <i id="total-level" class="fas fa-trophy mr-1"></i>
-      <% end %>
+<div class="d-flex justify-content-between challenge-levels-indicator-commited">
+    <p class="challenge-levels-param">Commited
+    <div class="d-flex justify-content-between challenge-levels-commited">
+       <span class="commited-time"><%= @challenge.created_at.strftime('%F') %></span>
     </div>
    </p>
   </div>
-  <div class="d-flex justify-content-between challenge-levels-indicator">
-    <p style="width:30px">Time
-      <div class="d-flex justify-content-between challenge-levels-time">
-        <% @challenge.time.times do %>
-          <i id="actual-level" class="fas fa-stopwatch"></i>
-        <% end %>
-        <% (3 - @challenge.time).times do %>
-          <i id="total-level" class="fas fa-stopwatch"></i>
-        <% end %>
-      </div>
-    </p>
-  </div>
-  <p><i id="greenpoint-level" class="fas fa-award"> </i><%= @challenge.greenpoint %></p>
-  <p>Commited on <%= @challenge.created_at.strftime('%F') %></p>
-
-
   <h4 class="challenge-steps-title">Steps to completion</h4>
   <% @challenge.challenge_steps.each_with_index do |step, index|  %>
     <% unless step.content.nil? %>
       <div class="d-flex">
-        <div class="form-check">
           <label class="si si-checkbox" for="<%= index %>">
-            <p class="challenge-step-content si-label"><%=  step.content %></p>
-            <input type="checkbox" value="" id="<%= index %>">
+            <input type="checkbox" class="checkbox-custom" value="" id="<%= index %>" >
+            <span class="challenge-step-content si-label"><%=  step.content %></span>
           </label>
-        </div>
       </div>
     <% end %>
   <% end %>
-
-  <%= simple_form_for([@challenge, current_user.user_challenges.find_by(challenge: @challenge)], html: {id: "challenge-completed-sweet"}) do |f| %>
-     <%= f.input :image, required: false, :label => "Upload optional photo"%>
+  <br>
+  <%= simple_form_for(current_user.user_challenges.find_by(challenge: @challenge), html: {id: "challenge-completed-sweet"}) do |f| %>
+     <%= f.input :image, required: false, input_html: { hidden: true }, :label => "Upload Photo", class: "user_challenge_image" %>
      <%= f.submit "Challenge Completed", class: "btn custom my-3 complete-button", disabled: true %>
 
   <% end %>
