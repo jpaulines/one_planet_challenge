@@ -1,5 +1,6 @@
 import "bootstrap";
 import  Celebration from "images/Celebration.png"
+import {toggleActive} from '../plugins/checkbox_animation';
 
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
@@ -10,6 +11,8 @@ var tabs = document.getElementsByClassName('Tab');
 Array.prototype.forEach.call(tabs, function(tab) {
   tab.addEventListener('click', setActiveClass);
 });
+
+toggleActive();
 
 function setActiveClass(evt) {
   Array.prototype.forEach.call(tabs, function(tab) {

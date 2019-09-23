@@ -1,3 +1,12 @@
+.discover-page-scroll{
+ position: fixed;
+  top: 205px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+
 .challenges-index-scroll-index {
   overflow-x: auto;
   display: flex;
@@ -27,11 +36,48 @@
   margin-left: 3px;
 }
 
-.slider-challenge-index{
-   width: 20%;
-  justify-content: left;
-  margin: 0 auto;
+// .slider-challenge-index{
+//    width: 20%;
+//   justify-content: left;
+//   margin: 0 auto;
+//}
 
+// Checkboxes design
+.category-choice-index {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: -20px;
 }
 
+.category-choices {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
 
+.category-choice {
+  padding: 5px 5px;
+  background-color: #FFFFFF;
+  border-radius: 40px;
+  border: solid $dark-gray 2px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: #46C190;
+  color: white;
+  border: solid $green 2px;
+  opacity: 1;
+  }
+}
+
+.top-25{
+  top: 25%;
+  overflow-x: hidden;
+  margin-right: -6px;
+}
