@@ -1,0 +1,14 @@
+<!-- <p>Test</p> -->
+
+<%= render 'shared/navbar' %>
+
+<div class="profile-header">
+  <div class="thumbnail">
+    <%= cl_image_tag current_user.image, class: "avatar-profile" %>
+  </div>
+    <h1 class="h1-profile-wm">Your Community</h1>
+</div>
+
+<p><%= link_to "New Post", new_post_path, class: "" %></p>
+
+

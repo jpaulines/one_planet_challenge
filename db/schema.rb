@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_064035) do
+ActiveRecord::Schema.define(version: 2019_09_23_080815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_answers_on_post_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -42,6 +52,15 @@ ActiveRecord::Schema.define(version: 2019_09_22_064035) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["category_id"], name: "index_challenges_on_category_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "user_challenge_steps", force: :cascade do |t|
@@ -96,8 +115,11 @@ ActiveRecord::Schema.define(version: 2019_09_22_064035) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "posts"
+  add_foreign_key "answers", "users"
   add_foreign_key "challenge_steps", "challenges"
   add_foreign_key "challenges", "categories"
+  add_foreign_key "posts", "users"
   add_foreign_key "user_challenge_steps", "user_challenges"
   add_foreign_key "user_challenges", "challenges"
   add_foreign_key "user_challenges", "users"

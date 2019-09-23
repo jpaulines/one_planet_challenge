@@ -22,4 +22,15 @@ Rails.application.routes.draw do
   resources :challenges do
     resources :user_challenges, only: [:create, :update]
   end
+
+  # get "posts", to: "posts#index", as: :index
+
+  resources :users do
+    resources :posts, only: [:create]
+  end
+
+  resources :posts do
+    resources :answers, only: [:create]
+  end
+
 end
