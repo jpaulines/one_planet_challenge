@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_user, only: [:edit, :update]
+  skip_before_action :authenticate_user!, only: [ :index]
+  before_action :set_user, only: [ :edit, :update]
 
   def edit
   end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-   params.require(:user).permit(:first_name, :last_name, :username, :address, :money_level, :effort_level, :time_level, :greenpoint_score, :planet_country, :planet_user, :image)
+    params.require(:user).permit(:first_name, :last_name, :username, :address, :money_level, :effort_level, :time_level, :greenpoint_score, :planet_country, :planet_user, :image)
+    # authorize @user
   end
 end

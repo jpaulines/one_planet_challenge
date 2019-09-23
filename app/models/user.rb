@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_interests
   has_many :user_challenges
+  has_many :posts, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :categories, through: :user_interests
   has_many :challenges, through: :user_challenges
   has_many :users_rewards, dependent: :destroy
   mount_uploader :image, PhotoUploader

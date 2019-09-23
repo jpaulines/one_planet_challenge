@@ -20,6 +20,16 @@ function setActiveClass(evt) {
 }
 
 
+// Tooltip with bootstrap https://getbootstrap.com/docs/4.1/components/tooltips/
+// $(function () {
+//   $('[data-toggle="tooltip"]').tooltip()
+// })
+
+// Modal with bootstrap
+$('#exampleModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
 
 import { initSweetalert } from '../plugins/init_sweetalert';
 
@@ -49,3 +59,4 @@ initSweetalert('#challenge-accepted-sweet', {
   confirmButtonAriaLabel: 'Thumbs up, ready!',
   confirmButtonColor: '#46c190',
 });
+
