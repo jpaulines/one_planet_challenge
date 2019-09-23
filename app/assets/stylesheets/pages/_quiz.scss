@@ -1,19 +1,19 @@
-  .form-quiz {
-    input[type='radio'] {
-      display: none;
-    }
-    input[type='radio']:checked + label {
-      border-bottom: 3px $green solid;
-    }
-    margin-bottom: 0;
+.form-quiz {
+  input[type='radio'] {
+    display: none;
   }
+  input[type='radio']:checked + label {
+    border-bottom: 5px $darkgreen solid;
+  }
+  margin-bottom: 0;
+}
 
 .title {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  font-size: 34px;
+  font-size: 30px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   color: $darkestgreen;
   margin-bottom: 15px;
   line-height: 38px;
@@ -43,19 +43,46 @@
   margin-top: 1rem;
 }
 
-
+.tiny_logo {
+  width: 30px;
+}
 
 .label_question {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 20px;
   margin-bottom: 0;
   width: 100%;
 }
 
 #quiz_country_code {
   color: $green;
-  width: 300px;
+  width: 280px;
+  margin-left: 33px;
 }
 
+.container-quiz {
+  margin-top: 20px;
+}
 
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+   background-image: url(arrow-down2.png) no-repeat;   /* Add custom arrow */
+   border-color: $green;
+   // background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #EEE;
+
+}
+
+// select::-ms-expand {
+//     display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+// }
+
+// /* Target Internet Explorer 9 to undo the custom arrow */
+// @media screen and (min-width:0\0) {
+//     select {
+//         background-image:none\9;
+//         padding: 5px\9;
+//     }
+// }
 

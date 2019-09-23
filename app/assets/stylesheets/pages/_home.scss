@@ -8,7 +8,7 @@
 }
 
 .text-home {
-    height: 431px;
+    height: 250px;
     padding-bottom: 3%;
 }
 
@@ -16,13 +16,39 @@
   font-size: 19px;
 }
 
-.text-detail {
-  font-weight: 100;
-  width: 80%;
-  text-align: justify;
+// .text-detail {
+//   font-weight: 100;
+//   width: 80%;
+//   text-align: justify;
+// }
+
+.container-home {
+  margin-top: 70px;
+  width: 100vw;
+  height: 100vh;
 }
 
-.container {
-  margin-top: 10px;
-}
+// .logo {
+//   animation: cloudmove 2s infinite;
+// }
 
+
+// @keyframes cloudmove {
+
+//   25% {
+//     transform: translate(20px, 20px);
+//   }
+
+//   50% {
+//     transform: translate(20px, 0);
+
+//   }
+//   70% {
+//     transform: translate(20px, -20px);
+
+//   }
+//   80% {
+//     transform: translate(0, 0);
+
+//   }
+// }

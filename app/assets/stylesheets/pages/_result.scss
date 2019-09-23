@@ -1,9 +1,15 @@
 .little_logo {
-  width: 70px;
+  width: 80px;
+}
+
+.greenp_logo {
+  width: 40px;
 }
 
 .container_small {
   text-align: center;
+  width: 270px;
+  margin: 0 auto;
 }
 
 // .container_main {
@@ -14,6 +20,7 @@
 .text {
   font-weight: 100;
   width: 80%;
+  font-size: 20px;
   text-align: center;
   margin: 0 auto;
 
@@ -23,8 +30,14 @@
   font-weight: 600;
 }
 
+.big_text {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
 .text_center {
-  margin-top: 50px;
+
   text-align: center;
   font-size: 20px;
 }
@@ -36,3 +49,21 @@
 
 }
 
+.container-result {
+  margin-top: 10px;
+}
+
+.answer_text {
+  font-size: 20px;
+}
+
+.fa-info-circle {
+  width: 20px;
+  color: $gray;
+}
+
+.info-point {
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+}
