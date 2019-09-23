@@ -24,7 +24,10 @@
             <div class="challenge-card-content">
               <!-- if statement & checkbox image -->
               <div class="challenge-card-title">
-                <p class="category-tag"><%=  uc.challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                <p class="category-tag"><%=  uc.challenge.category.name%>
+                    <% img_path = display_category(uc.challenge.category.name) %>
+                    <%= image_tag img_path, alt: "alttext", class: "challenge-card-icon" %></p>
+                  <!-- <i id="challenge-category-icon" class="fas fa-bicycle"></i></p> -->
                 <h4 class="challenge-card-name"> <%= uc.challenge.name %></h4>
                   <div class="challenge-tags">
                     <div class="challenge-tag-pair">
@@ -54,7 +57,9 @@
                 <div class="challenge-card-content">
                   <!-- if statement & checkbox image -->
                   <div class="challenge-card-title">
-                    <p class="category-tag"><%=  challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                    <p class="category-tag"><%=  challenge.category.name%>
+                       <% img_path = display_category(challenge.category.name) %>
+                    <%= image_tag img_path, alt: "alttext", class: "challenge-card-icon" %></p>
                     <h4 class="challenge-card-name"> <%= challenge.name %></h4>
                       <div class="challenge-tags">
                         <div class="challenge-tag-pair">
@@ -83,7 +88,9 @@
             <div class="challenge-card-content">
               <!-- if statement & checkbox image -->
               <div class="challenge-card-title">
-                <p class="category-tag"><%=  uc.challenge.category.name%><i id="challenge-category-icon" class="fas fa-bicycle"></i></p>
+                <p class="category-tag"><%=  uc.challenge.category.name%>
+                  <% img_path = display_category(uc.challenge.category.name) %>
+                    <%= image_tag img_path, alt: "alttext", class: "challenge-card-icon" %></p>
                 <h4 class="challenge-card-name"> <%= uc.challenge.name %></h4>
                   <div class="challenge-tags">
                     <div class="challenge-tag-pair">

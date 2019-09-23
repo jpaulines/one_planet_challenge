@@ -4,10 +4,14 @@
   </div>
     <h1 class="h1-profile-wm">Welcome <%= current_user.first_name %>!</h1>
     <% if current_user.money_level.nil? %>
-      <%= link_to "Finish registration", edit_user_path(current_user) %>
-    <% elsif current_user.user_interests.empty? %>
-    <%= link_to "Fill in your interests", new_user_interest_path(current_user) %>
+      <%= link_to edit_user_path(current_user), class: "request-info" do %>
+        <i class="fas fa-lightbulb ml-3"></i> Complete registration
       <% end %>
+    <% elsif current_user.user_interests.empty? %>
+    <%= link_to new_user_interest_path(current_user), class: "request-info" do%>
+        <i class="fas fa-lightbulb ml-3"></i> Fill in your interests
+      <% end %>
+
   <div class="setting wheel" id="settingDropdown" data-toggle="dropdown" aria-haspopup=true aria-expanded= false %>
     <i class="fas fa-cog"></i>
   </div>
@@ -16,6 +20,9 @@
     <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
     <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
+
+    <% end %>
+
 </div>
 
 <!-- <div class="Panel"> -->

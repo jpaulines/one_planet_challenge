@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_09_23_080815) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +32,20 @@ ActiveRecord::Schema.define(version: 2019_09_23_080815) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_rewards", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "icon"
+    t.string "description"
+    t.string "name"
+    t.string "colour"
+    t.integer "min_challenges"
+    t.integer "max_challenges"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "total", default: 9
+    t.index ["category_id"], name: "index_category_rewards_on_category_id"
   end
 
   create_table "challenge_steps", force: :cascade do |t|
@@ -115,8 +131,21 @@ ActiveRecord::Schema.define(version: 2019_09_23_080815) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "posts"
-  add_foreign_key "answers", "users"
+
+
+
+  create_table "users_rewards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_reward_id"
+    t.integer "completed_challenges", default: 0
+    t.boolean "shown", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_reward_id"], name: "index_users_rewards_on_category_reward_id"
+    t.index ["user_id"], name: "index_users_rewards_on_user_id"
+  end
+
+  add_foreign_key "category_rewards", "categories"
   add_foreign_key "challenge_steps", "challenges"
   add_foreign_key "challenges", "categories"
   add_foreign_key "posts", "users"
@@ -125,4 +154,8 @@ ActiveRecord::Schema.define(version: 2019_09_23_080815) do
   add_foreign_key "user_challenges", "users"
   add_foreign_key "user_interests", "categories"
   add_foreign_key "user_interests", "users"
+  add_foreign_key "users_rewards", "category_rewards"
+  add_foreign_key "users_rewards", "users"
+  add_foreign_key "answers", "posts"
+  add_foreign_key "answers", "users"
 end
