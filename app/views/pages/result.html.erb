@@ -1,19 +1,36 @@
 <div class="container container-result">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-6 col-lg-3">
-         <p class="title">Results</p>
+         <br>
           <div class="text">
             <% if @result != nil %>
               <!-- <span>Your current lifestyle is </span> -->
               <% if @score < 0 %>
-                <p class="answer_text"> <span class="bold_text">Oh no!</span> Your lifestyle is worse than <%= @country%>'s average.</p>
+
+                <p class="answer_text"> <p class="title">Oh no!</p><br>Your lifestyle is worse than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+                </p>
+
               <% elsif @score > 0 %>
-                <p class="answer_text"> <span class="bold_text">Congrats🥳!</span> Your lifestyle is better than <%= @country%>'s average.</p>
+                <p class="answer_text"> <p class="title">Congrats🥳!</p><br>Your lifestyle is better than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+                </p>
+
                 <p class="text_center">You've earned yourself<br>
                   <%= image_tag "greenpoints.png", class: "greenp_logo" %>
                   <span class="bold_text"><%= @score %> greenpoints!</span></p>
+
               <% elsif @score = 0 %>
-                <p class="answer_text"> <span class="bold_text">There is room for improvement, </span>your lifestyle matches <%= @country%>'s average</p>
+
+                <p class="answer_text"> <p class="title">There is room for improvement...</p><br>Your lifestyle matches <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+                </p>
               <% end %>
 
               <!-- If we all lead the same lifestyle as people living in we would need approximatl-->
@@ -36,14 +53,12 @@
                 <p class="mb-4"></p>
               </div>
 
-              <p class="text_center">Average lifestyle in<br>
-                <span class="bold_text"><%= @country %></span> requires<span class="bold_text"><br><%= @result %> Earths</span>
+              <!-- <p class="text_center">Average lifestyle in<br> -->
+                <!-- <span class="bold_text"><%= @country %></span> requires<span class="bold_text"><br><%= @result %> Earths</span> -->
                <!--  <span data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-info-circle"></i></span> -->
-                <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
-                  <i class="fas fa-info-circle"></i>
-                </button>
-              </p>
+
+              <!-- </p> -->
               <!-- Button trigger modal -->
 
              <!-- Tooltip boostrap + also check app/javascript/packs/application.js-->
@@ -52,27 +67,33 @@
               </button> -->
 
             <% else %>
-              <p>We are sorry, but there is no data avalable about the ecological footprint in terms of Earths <%= @country %> at the moment.
+
+              <% if @score < 0 %>
+                <p class="answer_text"> <p class="title">Oh no!</p><br>Based on your answers we think you could reduce your lifestyle's footprint.</p>
+
+              <% elsif @score > 0 %>
+                <p class="answer_text"> <p class="title">Congrats🥳!</p><br>Your lifestyle's footprint is already low.</p>
+
+                <p class="text_center">You've earned yourself<br>
+                  <%= image_tag "greenpoints.png", class: "greenp_logo" %>
+                  <span class="big_text"><%= @score %> greenpoints!</span></p>
+
+              <% elsif @score = 0 %>
+                <p class="answer_text"> <p class="title">There is room for improvement...</p><br>Your lifestyle's footprint could be reduced!</p>
+              <% end %>
+
+              <br>
+              <p style="font-size:18px">We are sorry, there is no data available about the ecological footprint of <%= @country %> in terms of Earths at the moment.
               <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
                   <i class="fas fa-info-circle"></i>
                 </button>
               </p>
-              <% if @score < 0 %>
-                <span> <span class="bold_text">Oh no!</span> Based on your answers we think you could redue your lifestyle's footprint</span>
-              <% elsif @score > 0 %>
-                <span class="bold_text">Congrats🥳!</span> <p> Your lifestyle's footprint is already low.</p>
-                <p class="text_center">You've earned yourself<br>
-                  <%= image_tag "greenpoints.png", class: "greenp_logo" %>
-                  <span class="bold_text"><%= @score %> greenpoints!</span></p>
-              <% elsif @score = 0 %>
-                <span> <span class="bold_text">There is room for improvement, </span>your lifestyle's footprint could be reduced!</span>
-              <% end %>
             <% end %>
 
             <!-- <p class="mt-5 mb-4 text_final">You can do better! </p> -->
           </div>
 
-          <%= link_to "Get Challenged!", new_user_registration_path(greenpoint_score: @score, planet_country: @result), class: "btn custom mt-4"%>
+          <%= link_to "Get Challenged!", new_user_registration_path(greenpoint_score: @score, planet_country: @result), class: "btn custom mt-4 mt-4"%>
 
 
     </div>

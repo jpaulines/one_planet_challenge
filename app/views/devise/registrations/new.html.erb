@@ -1,7 +1,7 @@
-<div class="container container-signup">
+<div class="container container-quiz">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <h3 class="signup text-center">OnePlanet is happy to have you on board!</h3>
+      <h3 class="signup text-center title">We are happy to have you on board!</h3>
       <div class="signup progress mb-3" style="width: 80%; margin: 0 auto;">
         <div class="progress-bar" role="progressbar" style="width: 33%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
@@ -28,7 +28,7 @@
         required: true,
         input_html: { autocomplete: "new-password" },label: false, placeholder: '*Confirm your password' %>
         <%= f.input :address, required: true, label: false, placeholder: '*Address' %>
-        <%= f.input :image, required: false, :label => "Your profile image"%>
+        <%= f.input :image, required: false, :label => "Profile image"%>
 
         <%= f.hidden_field :greenpoint_score, value: params[:greenpoint_score] %>
         <%= f.hidden_field :planet_country, value: params[:planet_country] %>

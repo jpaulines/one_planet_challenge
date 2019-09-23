@@ -1,8 +1,8 @@
-<div class="container container-signup">
+<div class="container container-quiz">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
 
-      <h3 class="signup text-center" style="margin-bottom: 35px">One last step to go!</h3>
+      <h3 class="signup text-center title" style="margin-bottom: 10px">One last step to go!</h3>
 
       <div class="signup progress mb-3">
         <div class="progress-bar" role="progressbar" style="width: 100%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -11,18 +11,17 @@
 
       <div class="row">
         <%= image_tag "three.svg", class: 'sign up icons'%>
-        <h4>Your interests</h4>
+        <h4 class="mb-4">Your interests (min. 3)</h4>
       </div>
 
-      <p>Pick 3 or more:</p>
       <%= form_tag user_interests_url do %>
       <div class="form-group">
 
         <input type="hidden" name="category_ids" value="">
-        <div class="row category-choices">
+        <div class="row justify-content-center">
 
         <% category_ids = current_user.categories.pluck(:id) %>
-          <% Category.all.each do |category| %>
+          <% Category.all.each_with_index do |category, index| %>
           <div class="category-checkbox col-5 p-0 mx-2">
 
             <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>" <%= 'checked' if category_ids.include?(category.id) %> >
@@ -51,7 +50,7 @@
             <% end %>
             <% end %>
           </div>
-          <button id="" class="btn custom">Submit</button>
+          <button id="" class="btn custom mt-5">Submit</button>
         </div>
     </div>
   </div>

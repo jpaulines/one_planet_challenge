@@ -1,5 +1,5 @@
 .little_logo {
-  width: 50px;
+  width: 80px;
 }
 
 .greenp_logo {
@@ -8,7 +8,7 @@
 
 .container_small {
   text-align: center;
-  width: 200px;
+  width: 270px;
   margin: 0 auto;
 }
 
@@ -20,6 +20,7 @@
 .text {
   font-weight: 100;
   width: 80%;
+  font-size: 20px;
   text-align: center;
   margin: 0 auto;
 
@@ -27,6 +28,12 @@
 
 .bold_text {
   font-weight: 600;
+}
+
+.big_text {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 20px;
 }
 
 .text_center {
@@ -43,7 +50,7 @@
 }
 
 .container-result {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .answer_text {
