@@ -7,14 +7,14 @@
               <!-- <span>Your current lifestyle is </span> -->
               <% if @score < 0 %>
 
-                <p class="answer_text"> <p class="title">Oh no!</p><br>Your lifestyle is worse than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <p class="answer_text"> <p class="title">Oh no!</p><br>Your lifestyle is worse than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths</span>
                 <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
                   <i class="fas fa-info-circle"></i>
                 </button>
                 </p>
 
               <% elsif @score > 0 %>
-                <p class="answer_text"> <p class="title">Congrats🥳!</p><br>Your lifestyle is better than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <p class="answer_text"> <p class="title">Congrats🥳!</p><br>Your lifestyle is better than <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths</span>
                 <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
                   <i class="fas fa-info-circle"></i>
                 </button>
@@ -26,7 +26,7 @@
 
               <% elsif @score = 0 %>
 
-                <p class="answer_text"> <p class="title">There is room for improvement...</p><br>Your lifestyle matches <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths.</span>
+                <p class="answer_text"> <p class="title">There is room for improvement...</p><br>Your lifestyle matches <%= @country%>'s average of <span class="bold_text"><br><%= @result %> Earths</span>
                 <button type="button" class="info-point" data-toggle="modal" data-target="#exampleModal">
                   <i class="fas fa-info-circle"></i>
                 </button>
@@ -111,7 +111,7 @@
         </button>
       </div>
       <div class="modal-body text-justify">
-        Today, more than 80 percent of the world’s population lives in countries that are running ecological deficits, using more resources than what their ecosystems can renew. The country information we display here is coming from the Ecological Footprint Explorer of the Footprint network. <br>
+        Today, more than 80% of the world’s population lives in countries that are running ecological deficits, using more resources than what their ecosystems can renew. The country information we display here is coming from the Ecological Footprint Explorer of the Footprint network. <br>
         Every individual and country’s Ecological Footprint has a corresponding planet equivalent, or the number of Earths it would take to support humanity’s Footprint if everyone lived like that individual or residents of a given country. It is the ratio of an individual’s (or country’s per capita) Footprint to the per capita biological capacity available on Earth (1.6 gha in 2019). In 2019, the world average Ecological Footprint of 2.7 gha equals 1.75 planet equivalents.
       </div>
       <div class="modal-footer">

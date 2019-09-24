@@ -59,10 +59,10 @@
   </div>
 
   <div class="row justify-content-around">
-    <div>
+    <div class="likes">
       <%= simple_form_for([post, @like], remote: true) do |f| %>
         <%= button_tag(type: "submit", class: "new_like_submit") do %>
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart" style="color: #338d69;" data-post-id="<%= post.id %>"></i>
         <% end %>
       <% end %>
     </div>
