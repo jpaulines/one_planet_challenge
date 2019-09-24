@@ -47,37 +47,6 @@
         </div>
 
 
-    <h1 class="challenges suggested">Suggested Challenges</h1>
-     <div class="row justify-content-center" style="margin: 0 -15px;">
-        <% @challenges.last(3).each_with_index do |challenge, index| %>
-          <% unless @user_challenges.pluck(:challenge_id).include?(challenge.id) %>
-            <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
-              <%= link_to challenge_path(challenge) do  %>
-                <div class="challenge-card">
-                  <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
-                  <div class="challenge-card-content">
-                    <!-- if statement & checkbox image -->
-                    <div class="challenge-card-title">
-                      <p class="category-tag"><%=  challenge.category.name%>
-                         <% img_path = display_category(challenge.category.name) %>
-                      <%= image_tag img_path, alt: "alttext", class: "challenge-card-icon" %></p>
-                      <h4 class="challenge-card-name"> <%= challenge.name %></h4>
-                        <div class="challenge-tags">
-                          <div class="challenge-tag-pair">
-                            <p><i class="fas fa-trophy"></i><%= challenge.effort %></p>
-                          </div>
-                          <div class="challenge-tag-pair">
-                            <p><i class="fas fa-stopwatch"></i><%= challenge.time %></p>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                  </div>
-              <% end %>
-          </div>
-        <% end %>
-      <%end%>
-    </div>
 
    <h1 class="challenges suggested">Completed Challenges</h1>
      <div class="row justify-content-center" style="margin: 0 -15px;">
