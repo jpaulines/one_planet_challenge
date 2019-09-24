@@ -1,10 +1,8 @@
 <%= render 'shared/navbar' %>
-
 <div class="post-show-header d-flex">
   <%= cl_image_tag @post.user.image, class: "avatar-post-show" %>
   <p class="post-show-user-name"><%= @post.user.first_name %>'s post <i class="fas fa-comment ml-2"></i></p>
 </div>
-
 
   <div class="post-show-scroll">
     <div class="container">
@@ -13,9 +11,8 @@
         <p class="card-post-content show"><%= @post.content %></p>
       </div>
     <h2 class="post-comment-count">
-      <%= pluralize @post.answers.size, "comment" %>
+      <%= pluralize @post.answers.size, "Comment" %>
     </h2>
-
     <div id="answers">
       <% if @post.answers.blank? %>
         <p class="show-be-first">Be the first to reply to <%= @post.user.first_name %>.</p>
@@ -25,7 +22,6 @@
         <% end %>
       <% end %>
     </div>
-
 
     <%= simple_form_for [@post, @answer] do |f| %>
       <%= f.input :content, label: "Your Comment" %>
@@ -38,3 +34,8 @@
         <i class="fas fa-chevron-left"></i>
       <% end %>
   </div>
+
+
+
+
+
