@@ -12,11 +12,12 @@ puts "Seeding now..."
 
 
 ChallengeStep.destroy_all
+Category.destroy_all
 Challenge.destroy_all
 CategoryReward.destroy_all
 UsersReward.destroy_all
-Category.destroy_all
 User.destroy_all
+Post.destroy_all
 
 
 CATEGORIES = [
@@ -64,7 +65,7 @@ CSV.foreach(filepath, csv_options) do |row|
     challenge: challenge
     )
   ChallengeStep.create!(
-    content: row["Step 4"],
+    content: row["step 4"],
     challenge: challenge
     )
 end

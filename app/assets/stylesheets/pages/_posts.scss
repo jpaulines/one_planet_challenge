@@ -308,6 +308,7 @@ span.post-created {
   padding: 9px 12px;
   margin-left: 10px;
   position: relative;
+  min-width: 200px;
 }
 
 .back-button-posts {
@@ -326,7 +327,14 @@ span.post-created {
   color: white;
 }
 
-
+.post-show-scroll {
+ position: fixed;
+ top: 175px;
+ bottom: 84px;
+ left: 0;
+ right: 0;
+ overflow: auto;
+}
 
 // .heart {
 //   &__button {
