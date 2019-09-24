@@ -34,7 +34,7 @@ end
 
 require 'csv'
 
-csv_text = Rails.root.join('lib', 'seeds', 'seeds3.csv')
+csv_text = Rails.root.join('lib', 'seeds', 'seeds-final.csv')
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = csv_text
@@ -349,13 +349,13 @@ u = User.create!(
     planet_user: rand(1..9),
     image: MALE_PHOTOS.sample
   )
-  CategoryReward.all.each do |reward|
-    if reward.name.include?("Base")
-      UsersReward.create!(user: u, category_reward: reward, shown: true)
-    else
-      UsersReward.create!(user: u, category_reward: reward)
-    end
-  end
+  # CategoryReward.all.each do |reward|
+  #   if reward.name.include?("Base")
+  #     UsersReward.create!(user: u, category_reward: reward, shown: true)
+  #   else
+  #     UsersReward.create!(user: u, category_reward: reward)
+  #   end
+  # end
 end
 
 # Create female users
@@ -376,13 +376,13 @@ end
     planet_user: rand(1..9),
     image: FEMALE_PHOTOS.sample
   )
-  CategoryReward.all.each do |reward|
-    if reward.name.include?("Base")
-      UsersReward.create!(user: u, category_reward: reward, shown: true)
-    else
-      UsersReward.create!(user: u, category_reward: reward)
-    end
-  end
+  # CategoryReward.all.each do |reward|
+  #   if reward.name.include?("Base")
+  #     UsersReward.create!(user: u, category_reward: reward, shown: true)
+  #   else
+  #     UsersReward.create!(user: u, category_reward: reward)
+  #   end
+  # end
 end
 
 puts "Finished seeding!"

@@ -1,73 +1,74 @@
-<%= render 'shared/navbar' %>
+<div class="vh-container">
+  <%= render 'shared/navbar' %>
 
-<%= render 'profile-header' %>
+  <%= render 'profile-header' %>
 
-<nav>
-  <ul class="Tabs">
-    <li class="Tabs__tab Tab"><%= link_to "DASHBOARD", dashboard_path %></li>
-    <li class="Tabs__tab Tab"><%= link_to "MY CHALLENGES", my_challenges_path %></li>
-    <li class="Tabs__tab active Tab"><%= link_to "JOURNEY", journey_path %></li>
-    <li class="Tabs__presentation-slider" role="presentation"></li>
-  </ul>
-</nav>
-</div>
+  <nav>
+    <ul class="Tabs">
+      <li class="Tabs__tab Tab"><%= link_to "DASHBOARD", dashboard_path %></li>
+      <li class="Tabs__tab Tab"><%= link_to "MY CHALLENGES", my_challenges_path %></li>
+      <li class="Tabs__tab active Tab"><%= link_to "JOURNEY", journey_path %></li>
+      <li class="Tabs__presentation-slider" role="presentation"></li>
+    </ul>
+  </nav>
+  </div>
 
 
 
-<div class="container">
-  <div class="challenges-scroll-journey">
-   <div class="row">
-    <div class="col-11 m-2 ml-4">
-     <div class="card-journey-connection mb-1 mt-1 start">
-      <%= image_tag "logo-3nclouds.svg", class: "logo-journey-start" %>
-    </div>
-    <% current_user.challenges.each do |challenge| %>
-    <% user_challenge_pic = current_user.user_challenges.find_by(challenge: challenge).image  %>
-    <%  if user_challenge_pic.blank? %>
-    <div class="card-event-company-connection mb-1 mt-1">
-    </div>
-    <div class="card-journey">
-      <div class="d-flex">
-       <%# image_tag event.event_image, class: "avatar-large mr-2" %>
-
-       <div class="card-journey-content">
-        <p><span class="p-title"><%= challenge.name %></p></span>
-        <p><span class="p-question">29. Aug 2019</p>
-          <p><span class="p-greenpoints">
-            <%= image_tag "greenpoint-white.svg", class: "greenpoints" %>
-          </span><%= challenge.greenpoint %></p>
-        </div>
+  <div class="container vh-100">
+    <div class="challenges-scroll-journey">
+     <div class="row">
+      <div class="col-11 m-2 ml-4">
+       <div class="card-journey-connection mb-1 mt-1 start">
+        <%= image_tag "logo-3nclouds.svg", class: "logo-journey-start" %>
       </div>
-      <!-- Would need a joined table to sort for date -->
-    </div>
-    <% else %>
-    <div class="card-event-company-connection mb-1 mt-1">
-    </div>
-    <div class="card-journey">
-      <div class="d-flex">
-       <%# image_tag event.event_image, class: "avatar-large mr-2" %>
+      <% current_user.challenges.each do |challenge| %>
+      <% user_challenge_pic = current_user.user_challenges.find_by(challenge: challenge).image  %>
+      <%  if user_challenge_pic.blank? %>
+      <div class="card-event-company-connection mb-1 mt-1">
+      </div>
+      <div class="card-journey">
+        <div class="d-flex">
+         <%# image_tag event.event_image, class: "avatar-large mr-2" %>
 
-       <div class="card-journey-content">
+         <div class="card-journey-content">
           <p><span class="p-title"><%= challenge.name %></p></span>
           <p><span class="p-question">29. Aug 2019</p>
-          <p><span class="p-greenpoints">
-          <%= image_tag "greenpoint-white.svg", class: "greenpoints" %>
-          </span><%= challenge.greenpoint %></p>
+            <p><span class="p-greenpoints">
+              <%= image_tag "greenpoint-white.svg", class: "greenpoints" %>
+            </span><%= challenge.greenpoint %></p>
+          </div>
         </div>
-        <div class="journey-img">
-          <%= image_tag user_challenge_pic.url %>
-      <!-- Would need a joined table to sort for date -->
-        </div>
-       </div>
+        <!-- Would need a joined table to sort for date -->
+      </div>
+      <% else %>
+      <div class="card-event-company-connection mb-1 mt-1">
+      </div>
+      <div class="card-journey">
+        <div class="d-flex">
+         <%# image_tag event.event_image, class: "avatar-large mr-2" %>
 
+         <div class="card-journey-content">
+            <p><span class="p-title"><%= challenge.name %></p></span>
+            <p><span class="p-question">29. Aug 2019</p>
+            <p><span class="p-greenpoints">
+            <%= image_tag "greenpoint-white.svg", class: "greenpoints" %>
+            </span><%= challenge.greenpoint %></p>
+          </div>
+          <div class="journey-img">
+            <%= image_tag user_challenge_pic.url %>
+        <!-- Would need a joined table to sort for date -->
+          </div>
+         </div>
+
+      </div>
+      <%end %>
+      <% end %>
     </div>
-    <%end %>
-    <% end %>
   </div>
-</div>
-</div>
-</div>
+  </div>
+  </div>
 
 
-
+</div>
 
