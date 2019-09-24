@@ -1,0 +1,6 @@
+
+<% if @like.errors.any? %>
+<% else %>
+  var likeCounter = document.querySelector("[data-post-id='<%= @post.id %>']")
+  likeCounter.innerHTML = "<%= j render 'posts/likes', post: @post %>"
+<% end %>

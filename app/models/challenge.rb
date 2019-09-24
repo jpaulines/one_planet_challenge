@@ -4,4 +4,5 @@ class Challenge < ApplicationRecord
   has_many :challenge_steps, dependent: :destroy
   has_many :users, through: :user_challenges
   has_many :posts, dependent: :destroy
+  has_many :hearts, dependent: :destroy
 end

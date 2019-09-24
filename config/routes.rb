@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :challenges do
     resources :user_challenges, only: [:create]
+    resources :hearts, only: [:create]
   end
   resources :user_challenges, only: [:update] do
     member do
@@ -35,8 +36,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:create]
   end
 
-  resources :posts do
+  resources :posts, only: [:index, :show] do
     resources :answers, only: [:create]
+    resources :likes, only: [:create]
   end
 
 end

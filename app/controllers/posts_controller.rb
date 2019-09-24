@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @posts = policy_scope(Post).order(created_at: :desc)
     @user = current_user
     @post = Post.new
+    @like = Like.new
   end
 
   def new

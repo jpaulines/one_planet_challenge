@@ -37,8 +37,8 @@
       <!-- place tag later -->
       <p class="post-user">General</p>
       <div class="row m-0">
-        <div class="post-small-icons">
-          <i class="fas fa-heart"></i> <span>1</span>
+        <div class="post-small-icons" data-post-id="<%= post.id %>">
+         <%= render "likes", post: post %>
         </div>
         <div class="post-small-icons">
           <i class="fas fa-comment"></i> <span>1</span>
@@ -60,7 +60,11 @@
 
   <div class="row justify-content-around">
     <div>
-      <i class="fas fa-heart"></i>
+      <%= simple_form_for([post, @like], remote: true) do |f| %>
+        <%= button_tag(type: "submit", class: "new_like_submit") do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% end %>
     </div>
     <div>
       <%= link_to post_path(post) do %>
