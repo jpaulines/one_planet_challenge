@@ -31,7 +31,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :title)
-    authorize @post
   end
 
   def set_post
