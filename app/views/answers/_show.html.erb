@@ -1,2 +1,16 @@
-<%= answer.content %>
-<%= answer.user.first_name %>
+
+<div class="answer-container d-flex">
+  <%= cl_image_tag answer.user.image, class: "avatar-answer" %>
+
+
+  <div class="answer-box">
+    <div class="row justify-content-between">
+      <div class="row">
+          <p class="comment-name"><%=  answer.user.first_name %> <span class="post-created">(<%=  answer.created_at.strftime("%d/%m/%Y") %>)</span></p>
+      </div>
+    </div>
+
+    <p class="show-be-first-content"><%= answer.content %></p>
+  </div>
+</div>
+
