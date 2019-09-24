@@ -21,6 +21,11 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
 
+  # step from https://www.lewagon.com/blog/setup-meta-tags-rails
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
    private
 
   def skip_pundit?
