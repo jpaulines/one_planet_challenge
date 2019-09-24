@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    # we need @post in our `simple_form_for`
+    @answer = Answer.new
   end
 
   def create
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :title)
+    params.require(:post).permit(:content, :title, :challenge_id)
   end
 
   def set_post
