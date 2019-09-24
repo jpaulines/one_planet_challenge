@@ -18,10 +18,10 @@
     label: "Challenges",
     data: [...challenges],
     backgroundColor: [
-    'rgba(204, 241, 255, .2)',
+    'rgba(250, 218, 94, .2)',
     ],
     borderColor: [
-    'rgba(153, 201, 255, .9)',
+    'rgba(250, 218, 94, .7)',
     ],
     borderWidth: 2
   },
@@ -29,10 +29,10 @@
     label: "Greens per challenge",
     data: [...earnedGreens],
     backgroundColor: [
-    'rgba(70,193,144, .1)',
+    'rgba(204, 241, 255, .3)',
     ],
     borderColor: [
-    'rgba(70,193,144, .7)',
+    'rgba(153, 201, 255, .9)',
     ],
     borderWidth: 2
   },
@@ -40,10 +40,10 @@
     label: "Greenscore",
     data: [...greenpoints],
     backgroundColor: [
-    'rgba(250, 218, 94, .2)',
+    'rgba(70,193,144, .1)',
     ],
     borderColor: [
-    'rgba(250, 218, 94, .7)',
+    'rgba(70,193,144, .7)',
     ],
     borderWidth: 2
     }

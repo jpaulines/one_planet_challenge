@@ -14,8 +14,9 @@
   </div>
 
   <div class="challenges-scroll">
-
-    <h1 class="challenges">Ongoing Challenges</h1>
+    <% if @user_challenges.where(completed: false).exists? %>
+      <h1 class="challenges">Ongoing Challenges</h1>
+    <%end %>
      <div class="row justify-content-center" style="margin: 0 -15px;">
         <% @user_challenges.where(completed: false).each_with_index do |uc, index| %>
         <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
@@ -78,8 +79,9 @@
         <% end %>
       <%end%>
     </div>
-
-   <h1 class="challenges suggested">Completed Challenges</h1>
+  <% if @user_challenges.where(completed: true).exists? %>
+    <h1 class="challenges suggested">Completed Challenges</h1>
+  <% end %>
      <div class="row justify-content-center" style="margin: 0 -15px;">
         <% @user_challenges.where(completed: true).each_with_index do |uc, index| %>
         <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
