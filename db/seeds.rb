@@ -10,6 +10,7 @@ puts "Seeding now..."
 
 # Clear the DB
 
+Like.destroy_all
 Answer.destroy_all
 Post.destroy_all
 ChallengeStep.destroy_all

@@ -195,7 +195,6 @@ span.post-created {
   margin-bottom: -3px;
 }
 
-
 .card-post-content {
   font-weight: 300;
 }
@@ -205,18 +204,21 @@ span.post-created {
   font-size: 18px;
 }
 
-
-.modal-header {
-  position: relative;
-  padding: 25px;
-}
-
-.modal-title {
+.modalcusto {
+  .modal-header {
+    position: relative;
+    padding: 25px;
+  }
+  .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
   position: absolute;
   left: 100px;
   color: black;
+  }
+  .modal-footer {
+    border-top: 0px solid #dee2e6;
+  }
 }
 
 .text {
@@ -228,9 +230,6 @@ span.post-created {
   font-size: 16px;
 }
 
-.modal-footer {
-  border-top: 0px solid #dee2e6;
-}
 
 // post show
 
