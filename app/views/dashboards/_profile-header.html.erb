@@ -12,9 +12,12 @@
         <i class="fas fa-lightbulb ml-3"></i> Fill in your interests
       <% end %>
     <% end %>
-  <div class="setting wheel" id="settingDropdown" data-toggle="dropdown" aria-haspopup=true aria-expanded= false %>
+  <!-- <div class="setting wheel" id="settingDropdown" data-toggle="dropdown" aria-haspopup=true aria-expanded= false %>
     <i class="fas fa-cog"></i>
-  </div>
+  </div> -->
+  <button type="button" class="setting wheel" data-toggle="dropdown" aria-haspopup=true aria-expanded= false>
+    <i class="fas fa-cog"></i>
+  </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "Edit Preferences", edit_user_path(current_user), class: "dropdown-item" %>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
