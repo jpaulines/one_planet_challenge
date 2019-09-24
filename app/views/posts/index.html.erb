@@ -93,8 +93,10 @@
       </div>
       <div class="modal-body text-justify">
         <%= simple_form_for [@user, @post] do |f| %>
+        <%= f.input :challenge_id, collection: current_user.challenges %>
         <%= f.input :title %>
         <%= f.input :content %>
+
       </div>
       <div class="modal-footer">
         <%= f.submit "Create Post", class: "btn custom mt-5" %>

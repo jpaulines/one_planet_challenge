@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   # get "posts", to: "posts#index", as: :index
 
+
   resources :users do
     resources :posts, only: [:create]
   end

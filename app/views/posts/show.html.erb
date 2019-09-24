@@ -2,6 +2,20 @@
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
 
+<h2>
+  <%= pluralize @post.answers.size, "answer" %>
+</h2>
+
+<div id="answers">
+  <% if @post.answers.blank? %>
+    Be the first to reply to <%= @post.user %>
+  <% else %>
+    <% @post.answers.each do |answer| %>
+      <%= render 'answers/show', answer: answer %>
+    <% end %>
+  <% end %>
+</div>
+
 
 <%= simple_form_for [@post, @answer] do |f| %>
   <%= f.input :content %>
