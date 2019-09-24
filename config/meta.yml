@@ -1,0 +1,6 @@
+# step from https://www.lewagon.com/blog/setup-meta-tags-rails
+meta_product_name: "OnePlanet Challenge App"
+meta_title: "OnePlanet - Reduce your footprint, one challenge at a time."
+meta_description: "Do you feel like you could do more to reduce your environmental footprint? Do you feel like you do not know where to start? We have the solution for you."
+meta_image: "logo-3nclouds.svg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

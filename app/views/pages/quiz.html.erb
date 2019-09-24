@@ -13,7 +13,7 @@
          <div class="country_bar">
          <%= f.label :country_code,  'Current location:', class: 'label-quiz label_question' %>
          <!-- Where are you currently living? -->
-         <%= f.country_select(:country_code, class: 'country_field', required: true, prompt: "Select your country") %>
+         <%= f.country_select(:country_code, class: 'country_field', required: true, prompt: "Select your country", priority_countries: ["IL", "FR", "BE", "DE", "US"]) %>
          </div>
          <br>
 
