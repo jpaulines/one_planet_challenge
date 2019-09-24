@@ -34,7 +34,7 @@ end
 
 require 'csv'
 
-csv_text = Rails.root.join('lib', 'seeds', 'seeds3.csv')
+csv_text = Rails.root.join('lib', 'seeds', 'seeds-final.csv')
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = csv_text
@@ -94,23 +94,38 @@ CHALLENGE_NAMES = [
 
 ]
 
+POSTS = [
+  ["Renewable Energy Challenge", "Hi, I took on this challenge and would love to switch to a renewable enegery provider. However, I am struggeling to find the right one. Does anyone have some experiences to share? Thank you!"],
+  ["Local Farmers Market", "Hey Community! This Saturday there will be a lovely farmers market near Levinsky. I think it is really worth checking it out. Looking forward to seeing you there."],
+  ["DIY Furniture repairs", "I commited to the DIY challenge, but noticed I don't have a huge talent with handling tools. Could someone give me some advice on how to fix a broken sofa leg? Appreciated!"],
+  ["Terrasse Garden", "Shalom! I am lucky enough to have a roof top terasse and am planning to start a little vegetable and herb garden there. Would some of you maybe interested in starting this little sustainablity project with me?"],
+  ["Plastic in the Oceans", "Dear Community, I was utterly shocked by this article (https://edition.cnn.com/2019/04/01/europe/sperm-whale-plastic-stomach-italy-scli-intl/index.html) and feel ever more encouraged to do good for our planet. I am so happy to have found like minded people here!"],
+  ["Community Trade", "Hi Planetists! I took on the trading challenge and am hereby offering to exchange on of my renowned self made carrot cakes against a sun umbrella (needed for 2 days). Who's in?"],
+  ["Fly less, smile more", "Guys, I just realised I have managed not to fly for 8 months straight. I am so proud and happy about this achievement. This community makes me grow!"],
+  ["WWoofer Challenge", "Hello! Just wanted to share how much I loved my experience volunteering as WWoofer. I can only recommend this one of a kind challenge to anyone. It takes courage, but it's so worth it!!"],
+  ["Made me laugh", "There is this invention called a bicycle that runs on fat and saves you money. :) So true, duh. Bikes for the win!!"],
+  ["Little Morning Joke", "A climate scientist and a climate change denier walk into a bar. The denier says, nice to see you. The climate scientist says, nice to CO2." ],
+  ["Flee Market this week", "Announcement: I am organizing a flee market in the Meir Park this weekend! Sort out beloved things you do not really need anymore and join me! (Great opportunity to earn some Greenpoints too ;)."],
+  ["Match my greens!", "Hello Planetists! Not to brag, but I reached 150 greenpoints today woop woop!! I am challenging you to race me on this number ;) The first one to overtake me, will receive some of my homemade Kambucha."]
+]
+
+
+
 
 
 
 MALE_PHOTOS = [
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286490/profile%20images/man1_bv0wqq.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286490/profile%20images/man2_qfy3f9.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man3_gujgoz.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man4_sl4xjk.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/man5_sta6ow.png"
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311012/sample_user_avatars/m3_xny4uj.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311012/sample_user_avatars/m4_dhrcj2.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311011/sample_user_avatars/m1_zn32we.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311011/sample_user_avatars/m2_y738th.png"
 ]
 
 FEMALE_PHOTOS = [
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman1_w1esnj.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman2_ejfuq0.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568292986/profile%20images/asian_woman_epwkxv.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman4_pq0zdm.jpg",
-"https://res.cloudinary.com/dakarw0uq/image/upload/v1568286491/profile%20images/woman5_xxjnox.jpg"
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311012/sample_user_avatars/w2_gaq1m2.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311011/sample_user_avatars/w3_ejptzo.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311011/sample_user_avatars/w1_wfzwke.png",
+"https://res.cloudinary.com/du6ced10c/image/upload/v1569311011/sample_user_avatars/w4_mki6y2.png",
 ]
 
 # Create static list of event categories
@@ -333,7 +348,7 @@ CategoryReward.create!(
   min_challenges: 9,
   max_challenges: 100
   )
-5.times do
+4.times do
 u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.username,
@@ -347,20 +362,29 @@ u = User.create!(
     greenpoint_score: rand(10..150),
     planet_country: rand(1..9),
     planet_user: rand(1..9),
-    image: MALE_PHOTOS.sample
+    remote_image_url: MALE_PHOTOS.sample
   )
-  CategoryReward.all.each do |reward|
-    if reward.name.include?("Base")
-      UsersReward.create!(user: u, category_reward: reward, shown: true)
-    else
-      UsersReward.create!(user: u, category_reward: reward)
-    end
-  end
+  # CategoryReward.all.each do |reward|
+  #   if reward.name.include?("Base")
+  #     UsersReward.create!(user: u, category_reward: reward, shown: true)
+  #   else
+  #     UsersReward.create!(user: u, category_reward: reward)
+  #   end
+  # end
+  post = POSTS.sample
+  Post.create!(
+
+    title: post[0],
+    content: post[1],
+    user: u,
+  )
+
+
 end
 
 # Create female users
 
-5.times do
+4.times do
   u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.domain_word,
@@ -374,15 +398,22 @@ end
     greenpoint_score: rand(10..150),
     planet_country: rand(1..9),
     planet_user: rand(1..9),
-    image: FEMALE_PHOTOS.sample
+    remote_image_url: FEMALE_PHOTOS.sample
   )
-  CategoryReward.all.each do |reward|
-    if reward.name.include?("Base")
-      UsersReward.create!(user: u, category_reward: reward, shown: true)
-    else
-      UsersReward.create!(user: u, category_reward: reward)
-    end
-  end
+  # CategoryReward.all.each do |reward|
+  #   if reward.name.include?("Base")
+  #     UsersReward.create!(user: u, category_reward: reward, shown: true)
+  #   else
+  #     UsersReward.create!(user: u, category_reward: reward)
+  #   end
+  # end
+  post = POSTS.sample
+  Post.create!(
+
+    title: post[0],
+    content: post[1],
+    user: u,
+  )
 end
 
 puts "Finished seeding!"

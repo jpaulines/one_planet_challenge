@@ -6,7 +6,10 @@
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 20px;
-  color: $green;
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 16px;
+  color: $light-gray;
   background-color: transparent !important;
   background: none !important;
   border: none !important;
@@ -18,17 +21,53 @@
 }
 
 .title-post {
-  text-align: center;
   font-family: 'Open Sans';
-  font-weight: 400;
+  font-weight: 600;
   font-size: 20px;
+  margin-bottom: 0;
   color: black;
 }
 
+.post-tag {
+  background-color: $green;
+  margin-right: 10px;
+  padding: 5px 15px;
+  /* margin: 9px 5px 5px 15px; */
+  border-radius: 61px;
+  color: white;
+  font-size: 14px;
+}
+
 .avatar-post {
-  width: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-left: 3px;
+  position: absolute;
+  left: 23px;
+  top: 5px;
+}
+
+.avatar-answer {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  // position: absolute;
+  // left: 23px;
+  // top: 5px;
+}
+
+.avatar-post-user {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-bottom: 6px;
+}
+
+.post-header {
+    position: absolute;
+  left: 85px;
+  top: 5px;
 }
 
 .bar {
@@ -39,42 +78,250 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid $light-gray;
-  padding-bottom: 10px;
   margin-left: 15px;
   margin-right: 15px;
+  margin-top: 20px;
 }
 
-
-
-
-.border-bottom {
-  border-bottom: 1px solid $light-gray;
+.card-reactions {
+  border-top: 1px solid $light-gray;
   padding-bottom: 10px;
   margin-left: 15px;
   margin-right: 15px;
+  padding-top: 12px;
+}
+
+.post-reaction {
+  color: $darkgreen;
+}
+
+.post-reaction a i {
+  color: $darkgreen;
 }
 
 
 .post-scroll {
     position: fixed;
-    top: 180px;
+    top: 230px;
     bottom: 80px;
     left: 0;
     right: 0;
     overflow: auto;
 }
 
-.post-user {
-  margin-bottom: -5px;
+.post-user-name {
+  margin-bottom: 0;
+  font-family: "Open Sans";
+  font-weight: 600;
+  color: black;
+  font-size: 18px;
 }
 
-.post-user2 {
+.post-created {
    margin-bottom: 0px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 15px;
+}
+
+span.post-created {
+  margin-bottom: 0px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: $light-gray;
+  font-size: 14px;
+}
+
+.post-challenge {
+  margin-bottom: 0px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 15px;
+  color: $green;
+  margin-bottom: 10px;
+}
+
+.post-user-tag {
+  background-color: $green;
+  padding: 5px 0px;
+  width: 75px;
+  /* margin: 9px 5px 5px 15px; */
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  top: 8px;
+  left: -2px;
+}
+
+.post-actions {
+  position: absolute;
+  top: 38px;
+  left: 12px;
+}
+
+.post-body {
+  margin-top: 70px;
+  margin-left: -4px;
 }
 
 .card-post {
   background: rgba(196, 196, 196, 0.1);
   border: 1px solid rgba(196, 196, 196, 0.1);
   margin-bottom: 4%;
+  position: relative;
+}
 
+.card-post-title {
+  font-weight: 400;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.card-post-title.show{
+  font-weight: 400;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-post-title-chall {
+  font-weight: 400;
+  color: black;
+  font-size: 18px;
+  margin-bottom: -3px;
+}
+
+
+.card-post-content {
+  font-weight: 300;
+}
+
+.card-post-content.show {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+
+.modal-header {
+  position: relative;
+  padding: 25px;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  position: absolute;
+  left: 100px;
+  color: black;
+}
+
+.text {
+  width: 100%;
+}
+
+.form-control-label.text {
+  text-align: left;
+  font-size: 16px;
+}
+
+.modal-footer {
+  border-top: 0px solid #dee2e6;
+}
+
+// post show
+
+.post-show-header {
+  background-color: $green;
+  height: 180px;
+  position: relative;
+}
+
+.avatar-post-show {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-bottom: 6px;
+  position: absolute;
+  top: 95px;
+  left: 10px;
+
+}
+
+.post-show-user-name {
+  margin-bottom: 0;
+  font-family: "Open Sans";
+  font-weight: 300;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 105px;
+  left: 90px;
+}
+
+.post-show-content {
+  padding-top: 20px;
+}
+
+.post-comment-count {
+  font-weight: 400;
+  font-size: 22px;
+  color: $darkgreen;
+  margin-bottom: 15px;
+}
+
+.show-be-first {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.show-be-first-content {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+
+.comment-name {
+  font-weight: 400;
+  font-size: 16px;
+  color: $green;
+  margin-bottom: 0;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+}
+
+
+.answer-box {
+  background: rgba(180, 180, 180, 0.2);
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 28px;
+  padding: 9px 12px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.back-button-posts {
+  position: absolute;
+  color: white;
+  top: 20px;
+  left: 14px;
+  // background-color: rgba(250, 250, 250, .8);
+  padding: 10px 18px;
+  // border: 2px solid white;
+  border-radius: 50%;
+  background-color: rgba(250, 250, 250, .2);
+}
+
+.back-button-posts i {
+  color: white;
 }

@@ -7,14 +7,19 @@
 </div>
 
 <div class="container-post-bar">
-          <div class="flex-item">
-          <%= cl_image_tag current_user.image, class: "avatar-post", alt: "avatar" %>
-          </div>
-          <div class="flex-item">
-            <button type="button" class="input-field-post" data-toggle="modal" data-target="#exampleModal">
-            What's on your mind?</button>
-            <%#= link_to "What's on your mind?", new_post_path, class: "input-field-post"%>
-          </div>
+  <div class="flex-item">
+  <%= cl_image_tag current_user.image, class: "avatar-post-user" %>
+  </div>
+  <div class="flex-item">
+    <button type="button" class="input-field-post" data-toggle="modal" data-target="#exampleModal">
+    What would you like to share?</button>
+    <%#= link_to "What's on your mind?", new_post_path, class: "input-field-post"%>
+  </div>
+</div>
+<div class="d-flex m-2 ml-3">
+  <div class="post-tag">Challenge</div>
+  <div class="post-tag">General</div>
+  <div class="post-tag">Question</div>
 </div>
 
 <div class="post-scroll container">
@@ -26,43 +31,47 @@
   <div class="row justify-content-between">
     <div class="col-6 row">
       <div class="col-4">
-        <%= cl_image_tag post.user.image, class: "avatar-post", alt: "avatar" %>
+        <%= cl_image_tag post.user.image, class: "avatar-post" %>
       </div>
-      <div class="col-8">
-        <p class="post-user"><%=  post.user.first_name %></p>
-        <p class="post-user2"><%=  post.created_at.strftime("%d/%m/%Y") %></p>
+      <div class="post-header col-8">
+        <p class="post-user-name"><%=  post.user.first_name %></p>
+        <p class="post-created"><%=  post.created_at.strftime("%d/%m/%Y") %></p>
       </div>
     </div>
-    <div class="col-3 p-0">
+    <div class=" col-3 p-0">
       <!-- place tag later -->
-      <p class="post-user">General</p>
-      <div class="row m-0">
+      <p class="post-user-tag">General</p>
+      <div class="post-actions row m-0">
         <div class="post-small-icons">
-          <i class="fas fa-heart"></i> <span>1</span>
+          <i class="fas fa-heart"></i> <span class="mr-1">1</span>
         </div>
         <div class="post-small-icons">
-          <i class="fas fa-comment"></i> <span>1</span>
+          <i class="fas fa-comment"></i> <span class="mr-1">1</span>
         </div>
       </div>
     </div>
   </div>
-
-
-  <div class="col-12">
+  <div class="post-body col-12">
     <div>
-      <p class="card-post-title"><%= post.title %></p>
+      <% if !post.challenge.nil? %>
+        <p class="card-post-title-chall"><%= post.title %></p>
+        <%= link_to challenge_path(post.challenge), class: "post-challenge" do  %>
+          <p><%= post.challenge.name %>
+        <% end %>
+      <% else %>
+        <p class="card-post-title"><%= post.title %></p>
+      <% end %>
     </div>
     <div>
-      <p><%= post.content %></p>
+      <p class="card-post-content"><%= post.content %></p>
     </div>
-    <p class="border-bottom"></p>
   </div>
 
-  <div class="row justify-content-around">
-    <div>
-      <i class="fas fa-heart"></i>
+  <div class="card-reactions row justify-content-around">
+    <div class="post-reaction">
+      <i class="fas fa-heart" style="color: #338d69;"></i>
     </div>
-    <div>
+    <div class="post-reaction">
       <%= link_to post_path(post) do %>
         <i class="fas fa-comment"></i>
       <% end %>
@@ -81,7 +90,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <%= cl_image_tag current_user.image, class: "avatar-post mr-3", alt: "avatar" %>
-        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Share your thoughts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -90,11 +99,11 @@
         <%= simple_form_for [@user, @post] do |f| %>
         <%= f.input :challenge_id, collection: current_user.challenges %>
         <%= f.input :title %>
-        <%= f.input :content %>
+        <%= f.input :content, class: "content-box" %>
 
       </div>
       <div class="modal-footer">
-        <%= f.submit "Create Post", class: "btn custom mt-5" %>
+        <%= f.submit "Create Post", class: "btn custom mt-1 mb-2" %>
         <% end %>
       </div>
     </div>
