@@ -40,10 +40,12 @@
     </div>
     <div class=" col-3 p-0">
       <!-- place tag later -->
+
       <p class="post-user-tag">General</p>
       <div class="post-actions row m-0">
-        <div class="post-small-icons">
-          <i class="fas fa-heart"></i> <span class="mr-1">1</span>
+        <div class="post-small-icons" data-post-id="<%= post.id %>">
+          <%= render "likes", post: post %>
+
         </div>
         <div class="post-small-icons">
           <i class="fas fa-comment"></i> <span class="mr-1">1</span>
@@ -68,8 +70,13 @@
   </div>
 
   <div class="card-reactions row justify-content-around">
-    <div class="post-reaction">
-      <i class="fas fa-heart" style="color: #338d69;"></i>
+    <div class="post-reaction likes">
+      <%= simple_form_for([post, @like], remote: true) do |f| %>
+        <%= button_tag(type: "submit", class: "new_like_submit") do %>
+          <i class="fas fa-heart" style="color: #338d69;" data-post-id="<%= post.id %>"></i>
+        <% end %>
+      <% end %>
+
     </div>
     <div class="post-reaction">
       <%= link_to post_path(post) do %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_075431) do
+ActiveRecord::Schema.define(version: 2019_09_24_085517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,24 @@ ActiveRecord::Schema.define(version: 2019_09_24_075431) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["category_id"], name: "index_challenges_on_category_id"
+  end
+
+  create_table "hearts", force: :cascade do |t|
+    t.bigint "challenge_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_hearts_on_challenge_id"
+    t.index ["user_id"], name: "index_hearts_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -147,6 +165,10 @@ ActiveRecord::Schema.define(version: 2019_09_24_075431) do
   add_foreign_key "category_rewards", "categories"
   add_foreign_key "challenge_steps", "challenges"
   add_foreign_key "challenges", "categories"
+  add_foreign_key "hearts", "challenges"
+  add_foreign_key "hearts", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "challenges"
   add_foreign_key "posts", "users"
   add_foreign_key "user_challenge_steps", "user_challenges"
