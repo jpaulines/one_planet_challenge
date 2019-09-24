@@ -6,12 +6,30 @@
   position: relative;
 }
 
+.image_tag.greenpoint-header-icon {
+  height: 22px;
+  margin-right: 5px;
+}
+
 .badge-overview {
   position: absolute;
   /* justify-content: space-between; */
   justify-content: space-between;
   width: 330px;
   bottom: 15px;
+}
+
+.request-greens {
+  color: #338d69;
+  position: absolute;
+  top: 78px;
+  z-index: 4;
+  right: 111px;
+  padding: 3px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Open Sans";
+  top: 71px;
 }
 
 

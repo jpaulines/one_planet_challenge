@@ -3,6 +3,7 @@
   <%= cl_image_tag @post.user.image, class: "avatar-post-show" %>
   <p class="post-show-user-name"><%= @post.user.first_name %>'s post <i class="fas fa-comment ml-2"></i></p>
 </div>
+
   <div class="post-show-scroll">
     <div class="container">
       <div class="post-show-content">
@@ -21,6 +22,7 @@
         <% end %>
       <% end %>
     </div>
+
     <%= simple_form_for [@post, @answer] do |f| %>
       <%= f.input :content, label: "Your Comment" %>
       <%= f.submit "Reply", class: "btn custom mt-3" %>

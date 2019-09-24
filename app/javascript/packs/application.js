@@ -53,7 +53,7 @@ initSweetalert('#challenge-completed-sweet', {
 
 initSweetalert('#challenge-accepted-sweet', {
   title: "Let's do this!",
-  text: "Go and earn some greenpoints. ",
+  // text: "Go and earn some greenpoints. ",
   showCloseButton: true,
   buttonsStyling: false,
   confirmButtonClass: "btn custom",
