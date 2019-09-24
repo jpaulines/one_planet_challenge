@@ -1,3 +1,9 @@
 <%= render 'shared/navbar' %>
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
+
+
+<%= simple_form_for [@post, @answer] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Reply", class: "btn-custom" %>
+<% end %>
