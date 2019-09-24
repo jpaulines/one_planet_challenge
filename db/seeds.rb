@@ -10,14 +10,15 @@ puts "Seeding now..."
 
 # Clear the DB
 
-
+Answer.destroy_all
+Post.destroy_all
 ChallengeStep.destroy_all
 Category.destroy_all
 Challenge.destroy_all
 CategoryReward.destroy_all
 UsersReward.destroy_all
 User.destroy_all
-Post.destroy_all
+
 
 
 CATEGORIES = [
