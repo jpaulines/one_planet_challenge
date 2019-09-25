@@ -3,7 +3,7 @@
     <%= cl_image_tag current_user.image, class: "avatar-profile" %>
   </div>
     <h1 class="h1-profile-wm">Welcome <%= current_user.first_name %>!</h1>
-    <p class="request-greens"> <%= image_tag "greenpoint-logo.svg", class: 'image_tag greenpoint-header-icon'%><%=@score %> Greenpoints</p>
+    <p class="request-greens"> <%= image_tag "greenpoint-logo.svg", class: 'image_tag greenpoint-header-icon'%><%=current_user.greenpoint_score %> Greenpoints</p>
     <% if current_user.money_level.nil? %>
       <%= link_to edit_user_path(current_user), class: "request-info" do %>
         <i class="fas fa-lightbulb ml-3"></i> Complete registration

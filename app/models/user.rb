@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   mount_uploader :image, PhotoUploader
   after_create :create_rewards
+  after_create :initialize_greenpoints
 
   def create_rewards
     CategoryReward.all.each do |reward|
@@ -22,5 +23,10 @@ class User < ApplicationRecord
         UsersReward.create(user: self, category_reward: reward)
       end
     end
+  end
+
+  def initialize_greenpoints
+    self.greenpoint_score = self.quiz_result
+    self.save
   end
 end
