@@ -26,6 +26,7 @@
     <h1 class="challenges suggested">Suggested Challenges</h1>
       <div class="challenges-index-scroll-index">
        <% @suggested_challenges.each do |challenge| %>
+          <% unless current_user.challenges.pluck(:id).include?(challenge.id) %>
        <%= link_to challenge_path(challenge) do  %>
         <div class="challenge-index-card">
           <div class="challenge-card-image" style="background-image: url(<%= challenge.image %>)"></div>
@@ -47,6 +48,7 @@
             </div>
           </div>
         </div>
+      <% end %>
       <% end %>
     <% end %>
   </div>
