@@ -4,7 +4,23 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+    .custom-message-500 {
+      background-color: #46C190;
+      color: #FFF;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+    }
+    .container-500 {
+      display: inline-block;
+      font-size: 30px;
+      margin: 20px;
+    }
+    .text-500 {
+      text-align: justify;
+
+    }
+  /*.rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
@@ -50,17 +66,21 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  }*/
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body class="rails-default-error-page custom-message-500">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
+  <!-- <div class="dialog">
     <div>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+  </div> -->
+  <div class="container-500">
+    <img src="/images/logo-3nclouds.png" alt="logo">
+    <p class="text-500">Sorry guys, something is seriously going wrong on this planet... we are trying to fix it, in the meantime, don't waste time and reduce your footprint!</p>
   </div>
 </body>
 </html>
