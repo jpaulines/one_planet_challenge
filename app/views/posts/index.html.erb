@@ -16,12 +16,12 @@
     <%#= link_to "What's on your mind?", new_post_path, class: "input-field-post"%>
   </div>
 </div>
-<div class="d-flex m-2 ml-3">
+<!-- <div class="d-flex m-2 ml-3">
   <div class="post-tag">Challenge</div>
   <div class="post-tag">General</div>
   <div class="post-tag">Question</div>
 </div>
-
+ -->
 <div class="post-scroll container">
 
 <% @posts.each do |post| %>
@@ -38,10 +38,14 @@
         <p class="post-created"><%=  post.created_at.strftime("%d/%m/%Y") %></p>
       </div>
     </div>
+
     <div class=" col-3 p-0">
       <!-- place tag later -->
-
-      <p class="post-user-tag">General</p>
+      <% if post.challenge.nil? %>
+        <p class="post-user-tag">General</p>
+      <% else %>
+        <p class="post-user-tag">Challenge</p>
+      <% end %>
       <div class="post-actions row m-0">
         <div class="post-small-icons" data-post-id="<%= post.id %>">
           <%= render "likes", post: post %>
