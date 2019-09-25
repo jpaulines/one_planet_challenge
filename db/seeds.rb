@@ -14,6 +14,7 @@ Like.destroy_all
 Answer.destroy_all
 Post.destroy_all
 ChallengeStep.destroy_all
+UserInterest.destroy_all
 Category.destroy_all
 Challenge.destroy_all
 CategoryReward.destroy_all
@@ -29,7 +30,7 @@ CATEGORIES = [
 ]
 
 CATEGORIES.each do |category|
-  Category.create(name: category)
+  Category.create!(name: category)
 end
 
 

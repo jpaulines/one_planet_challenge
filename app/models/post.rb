@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   belongs_to :challenge, optional: true
   has_many :answers, dependent: :destroy
   has_many :likes, dependent: :destroy
