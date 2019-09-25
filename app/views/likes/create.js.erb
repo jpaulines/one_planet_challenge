@@ -1,13 +1,11 @@
 
-
-<% if @like.errors.any? %>
-<% else %>
   var likeCounter = document.querySelector("[data-post-id='<%= @post.id %>']")
   likeCounter.innerHTML = "<%= j render 'posts/likes', post: @post %>"
-  var likeColor = document.querySelector(".likes > form > button > i[data-post-id='<%= @post.id %>']")
-  likeColor.style.color = '#FF6978'
-<% end %>
+    var likeColor = document.querySelector(".likes form button[data-post-id='<%= @post.id %>']")
 
+  likeColor.innerHTML = "<%= j render 'posts/likesheart', post: @post %>"
+  likeColor.classList.add('heart__button--float');
+  setTimeout(() => likeColor.classList.remove('heart__button--float'), 2500)
 
 
 

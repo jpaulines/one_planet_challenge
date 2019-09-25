@@ -37,7 +37,7 @@
     borderWidth: 2
   },
              {
-    label: "Greenscore",
+    label: "Greenpoints",
     data: [...greenpoints],
     backgroundColor: [
     'rgba(70,193,144, .1)',
