@@ -13,9 +13,8 @@ class UserInterestsController < ApplicationController
     if params[:interests][:category_ids].blank? && params[:category_ids].blank?
       # need to authorize to continue on to redirect
       redirect_to new_user_interest_path, alert: "Please choose your preferences"
-      return
     end
-      params[:interests][:category_ids].each do |id|
+    params[:interests][:category_ids].each do |id|
       category = Category.find(id.to_i)
       next if current_user.categories.include?(category)
       @user_interest = UserInterest.new(category: category, user: current_user)

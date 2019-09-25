@@ -1,57 +1,44 @@
 <div class="container container-quiz">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-
       <h3 class="signup text-center title" style="margin-bottom: 10px">One last step to go!</h3>
-
       <div class="signup progress mb-3">
         <div class="progress-bar" role="progressbar" style="width: 100%; background-color: #46c190;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
         </div>
       </div>
-
       <div class="row">
         <%= image_tag "three.svg", class: 'sign up icons'%>
         <h4 class="mb-4">Your interests (min. 3)</h4>
       </div>
-
-      <%= form_tag user_interests_url do %>
+      <%= form_tag user_interests_path, method: :post do %>
       <div class="form-group">
-
         <input type="hidden" name="category_ids" value="">
         <div class="row justify-content-center">
-
-        <% category_ids = current_user.categories.pluck(:id) %>
+          <% category_ids = current_user.categories.pluck(:id) %>
           <% Category.all.each_with_index do |category, index| %>
           <div class="category-checkbox col-5 p-0 mx-2">
-
             <input type="checkbox" class="d-none checkbox" value="<%= category.id %>" name="interests[category_ids][]" id="interests_id_<%= category.id %>" <%= 'checked' if category_ids.include?(category.id) %> >
-
             <label for="interests_id_<%= category.id %>">
-
-
-                <div class="category-card">
-                  <div>
-                    <%= image_tag "#{category.name.downcase}.jpg", class: "category-card-image" %>
-                  </div>
-                  <div class="category-card-content">
-                    <!-- if statement & checkbox image -->
-                    <div class="category-card-title">
-                      <h4> <%= category.name %></h4>
-                      <% img_path = display_category(category.name) %>
-                      <%= image_tag img_path, alt: "alttext" %>
-                    </div>
+              <div class="category-card">
+                <div>
+                  <%= image_tag "#{category.name.downcase}.jpg", class: "category-card-image" %>
+                </div>
+                <div class="category-card-content">
+                  <!-- if statement & checkbox image -->
+                  <div class="category-card-title">
+                    <h4> <%= category.name %></h4>
+                    <% img_path = display_category(category.name) %>
+                    <%= image_tag img_path, alt: "alttext" %>
                   </div>
                 </div>
-
-              </label>
-
-            </div>
-
-            <% end %>
-            <% end %>
+              </div>
+            </label>
           </div>
+          <% end %>
           <button id="" class="btn custom mt-5">Submit</button>
+          <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>
