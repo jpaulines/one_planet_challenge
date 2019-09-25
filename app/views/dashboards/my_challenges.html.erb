@@ -16,6 +16,11 @@
   <div class="challenges-scroll">
     <% if @user_challenges.where(completed: false).exists? %>
       <h1 class="challenges">Ongoing Challenges</h1>
+    <% else %>
+      <div class="take-on-new">
+        <h2 class="completed-congrats-new">Time to take on new challenges & earn greenpoints!</h2>
+        <%= image_tag "logo-3nclouds.svg", class: "img-encouraging-planet"%>
+      </div>
     <%end %>
      <div class="row justify-content-center" style="margin: 0 -15px;">
         <% @user_challenges.where(completed: false).each_with_index do |uc, index| %>

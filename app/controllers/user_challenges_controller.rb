@@ -18,6 +18,8 @@ class UserChallengesController < ApplicationController
 
     @user_challenge.update(image: params[:user_challenge][:image]) if params[:user_challenge]
     @user_challenge.update(completed: true)
+    current_user.greenpoint_score += @user_challenge.challenge.greenpoint
+    current_user.save
     redirect_to dashboard_path
     authorize :user_challenge, :update?
   end

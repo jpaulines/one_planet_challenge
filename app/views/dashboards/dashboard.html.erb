@@ -15,15 +15,15 @@
 <%= render 'dashboard-board' %>
 
 
-  <% current_user.users_rewards.where(shown: true).each do |ur| %>
+  <% @rewards.each do |ur| %>
     <div class="reward-card d-flex ">
       <div class="reward-icon text-center">
         <%= image_tag ur.category_reward.icon %>
         <div class="earth-scale d-flex">
-          <% (ur.category_reward.min_challenges / 3).times do %>
+          <% (ur.category_reward.max_challenges / 3).times do %>
             <i style="color: <%= ur.category_reward.colour %>"class="fas fa-globe-americas"></i>
           <% end %>
-          <% (3 - (ur.category_reward.min_challenges / 3)).times do %>
+          <% (3 - (ur.category_reward.max_challenges / 3)).times do %>
             <div class="empty-globe"></div>
           <% end %>
         </div>
