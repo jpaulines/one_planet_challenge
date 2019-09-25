@@ -96,20 +96,24 @@ h1.challenges.suggested {
 
 .challenges-scroll {
   position: fixed;
-  top: 180px;
+  top: 175px;
   bottom: 80px;
   left: 0;
   right: 0;
-  overflow: auto;
+  overflow-x: auto;
+
 }
 
 .challenges-scroll-index {
   position: fixed;
-  top: 12px;
+  top: 185px;
   bottom: 84px;
-  left: 0;
-  right: 0;
+  margin-right: -3px;
+  margin-left: 5px;
+  //left: 0;
+  //right: 0;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .challenges-scroll-dashboard {
