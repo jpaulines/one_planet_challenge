@@ -20,8 +20,6 @@ CategoryReward.destroy_all
 UsersReward.destroy_all
 User.destroy_all
 
-
-
 CATEGORIES = [
   "Shopping",
   "Mobility",
@@ -146,7 +144,7 @@ CategoryReward.create!(
   name: "Base Shopper",
   colour: "#C4C4C4",
   min_challenges: 0,
-  max_challenges: 3
+  max_challenges: 1
   )
 
 CategoryReward.create!(
@@ -155,8 +153,8 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the shopping category",
   name: "Junior Shopper",
   colour: "#46c190",
-  min_challenges: 3,
-  max_challenges: 6
+  min_challenges: 1,
+  max_challenges: 5
   )
 
 CategoryReward.create!(
@@ -165,7 +163,7 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the shopping category",
   name: "Senior Shopper",
   colour: "#676767",
-  min_challenges: 6,
+  min_challenges: 5,
   max_challenges: 9
   )
 
@@ -188,7 +186,7 @@ CategoryReward.create!(
   name: "Base Mobilizer",
   colour: "#C4C4C4",
   min_challenges: 0,
-  max_challenges: 3
+  max_challenges: 1
   )
 
 CategoryReward.create!(
@@ -197,8 +195,8 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the mobility category",
   name: "Junior Mobilizer",
   colour: "#46c190",
-  min_challenges: 3,
-  max_challenges: 6
+  min_challenges: 1,
+  max_challenges: 5
   )
 
 CategoryReward.create!(
@@ -207,7 +205,7 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the mobility category",
   name: "Senior Mobilizer",
   colour: "#888888",
-  min_challenges: 6,
+  min_challenges: 5,
   max_challenges: 9
   )
 
@@ -232,7 +230,7 @@ CategoryReward.create!(
   name: "Base Investor",
   colour: "#C4C4C4",
   min_challenges: 0,
-  max_challenges: 3
+  max_challenges: 1
   )
 
 CategoryReward.create!(
@@ -241,8 +239,8 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the investment category",
   name: "Junior Investor",
   colour: "#46c190",
-  min_challenges: 3,
-  max_challenges: 6
+  min_challenges: 1,
+  max_challenges: 5
   )
 
 CategoryReward.create!(
@@ -251,7 +249,7 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the investment category",
   name: "Senior Investor",
   colour: "#888888",
-  min_challenges: 6,
+  min_challenges: 5,
   max_challenges: 9
   )
 
@@ -275,7 +273,7 @@ CategoryReward.create!(
   name: "Base Foodie",
   colour: "#C4C4C4",
   min_challenges: 0,
-  max_challenges: 3
+  max_challenges: 1
   )
 
 CategoryReward.create!(
@@ -284,8 +282,8 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the food category",
   name: "Junior Foodie",
   colour: "#46c190",
-  min_challenges: 3,
-  max_challenges: 6
+  min_challenges: 1,
+  max_challenges: 5
   )
 
 CategoryReward.create!(
@@ -294,7 +292,7 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the food category",
   name: "Senior Foodie",
   colour: "#888888",
-  min_challenges: 6,
+  min_challenges: 5,
   max_challenges: 9
   )
 
@@ -318,7 +316,7 @@ CategoryReward.create!(
   name: "Base Homie",
   colour: "#C4C4C4",
   min_challenges: 0,
-  max_challenges: 3
+  max_challenges: 1
   )
 
 CategoryReward.create!(
@@ -327,8 +325,8 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the home category",
   name: "Junior Homie",
   colour: "#46c190",
-  min_challenges: 3,
-  max_challenges: 6
+  min_challenges: 1,
+  max_challenges: 5
   )
 
 CategoryReward.create!(
@@ -337,7 +335,7 @@ CategoryReward.create!(
   description: "Complete 9 challenges of the home category",
   name: "Senior Homie",
   colour: "#888888",
-  min_challenges: 6,
+  min_challenges: 5,
   max_challenges: 9
   )
 
@@ -351,7 +349,9 @@ CategoryReward.create!(
   min_challenges: 9,
   max_challenges: 100
   )
-4.times do
+
+
+4.times do |i|
 u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.username,
@@ -365,7 +365,7 @@ u = User.create!(
     greenpoint_score: rand(10..150),
     planet_country: rand(1..9),
     planet_user: rand(1..9),
-    remote_image_url: MALE_PHOTOS.sample
+    remote_image_url: MALE_PHOTOS[i]
   )
   # CategoryReward.all.each do |reward|
   #   if reward.name.include?("Base")
@@ -381,13 +381,12 @@ u = User.create!(
     content: post[1],
     user: u,
   )
-
-
 end
 
 # Create female users
 
-4.times do
+
+4.times do |i|
   u = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.domain_word,
@@ -401,7 +400,7 @@ end
     greenpoint_score: rand(10..150),
     planet_country: rand(1..9),
     planet_user: rand(1..9),
-    remote_image_url: FEMALE_PHOTOS.sample
+    remote_image_url: FEMALE_PHOTOS[i]
   )
   # CategoryReward.all.each do |reward|
   #   if reward.name.include?("Base")
