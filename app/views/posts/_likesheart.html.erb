@@ -1,0 +1,6 @@
+<% if post.likes.where(user: current_user).empty? %>
+  <i class="fas fa-heart" style="color: #338d69;"></i>
+<% else  %>
+  <i class="fas fa-heart heart__button--hearted" style="color: #FF6978;"></i>
+<% end %>
+

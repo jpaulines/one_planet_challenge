@@ -33,7 +33,7 @@
         <p class="p-reward"><%=  ur.category_reward.description %> </p>
         <div class="progress">
 
-          <div class="progress-bar" role="progressbar" style="width: <%= (ur.completed_challenges.to_f /  ur.category_reward.total).round(2) * 100 %>%; background-color: <%= ur.category_reward.colour %>;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress"><%= ur.completed_challenges %> / <%= ur.category_reward.total %></span>
+          <div class="progress-bar" role="progressbar" style="width: <%= (ur.completed_challenges.to_f /  ur.category_reward.total).round(2) * 100 %>%; background-color: <%= ur.category_reward.colour %>;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div><span class="reward-progress"><%= ur.completed_challenges %> / 6</span>
         </div>
       </div>
     </div>
