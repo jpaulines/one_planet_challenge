@@ -23,6 +23,7 @@
       </div>
     <%end %>
      <div class="row justify-content-center" style="margin: 0 -15px;">
+      <div class="my-challenges-caroussel">
         <% @user_challenges.where(completed: false).each_with_index do |uc, index| %>
         <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
           <%= link_to challenge_path(uc.challenge) do  %>
@@ -50,11 +51,13 @@
               <% end %>
             </div>
             <% end %>
+          </div>
         </div>
   <% if @user_challenges.where(completed: true).exists? %>
     <h1 class="challenges suggested">Completed Challenges</h1>
   <% end %>
      <div class="row justify-content-center" style="margin: 0 -15px;">
+       <div class="my-challenges-caroussel">
         <% @user_challenges.where(completed: true).each_with_index do |uc, index| %>
         <div class="col-5 p-0 <%= 'mx-2' if index.odd? %>">
           <%= link_to challenge_path(uc.challenge) do  %>
@@ -81,6 +84,7 @@
               <% end %>
             </div>
             <% end %>
+          </div>
         </div>
   </div>
 </div>
