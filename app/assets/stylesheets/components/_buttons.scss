@@ -40,6 +40,13 @@
   }
 }
 
+.btn-search {
+  font-weight: 600;
+  color: $darkgreen;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
 
 .btn-index {
   background-color: $green;
@@ -55,5 +62,7 @@
 }
 
 .btn.challenge.index {
-  color: $green;
+  font-weight: 600;
+  color: $darkgreen;
+  font-size: 16px;
 }

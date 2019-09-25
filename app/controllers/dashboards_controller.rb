@@ -23,7 +23,7 @@ class DashboardsController < ApplicationController
     @greenpoints_progress
     @earned_greens_arr
     # cumulated challenges
-    @challenges_score = (0..@user_challenges.count).to_a
+    @challenges_score = (0..@user_challenges.where(completed: true).count).to_a
 
     @rewards = current_user.users_rewards.where(shown: true).sort_by{|r| r.category_reward.max_challenges}.reverse
 
