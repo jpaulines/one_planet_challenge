@@ -353,7 +353,11 @@ span.post-created {
   font-weight: 600;
   color: $darkgreen;
   font-size: 18px;
-  margin-left: 5px;
+  margin-left: 0px;
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+  padding-right: 10px;
 }
 
 // .heart {
