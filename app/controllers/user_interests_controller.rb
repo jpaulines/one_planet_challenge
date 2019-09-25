@@ -26,7 +26,7 @@ class UserInterestsController < ApplicationController
         user_interest.destroy
       end
     end
-    redirect_to dashboard_path
+    redirect_to challenges_path
   end
 
   private
