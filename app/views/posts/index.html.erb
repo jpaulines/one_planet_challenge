@@ -16,6 +16,17 @@
     <%#= link_to "What's on your mind?", new_post_path, class: "input-field-post"%>
   </div>
 </div>
+
+<div>
+  <%= form_tag posts_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-bar",
+      placeholder: "Filter by challenge title"
+    %>
+    <%= submit_tag "Search", class: "btn-custom" %>
+  <% end %>
+</div>
 <!-- <div class="d-flex m-2 ml-3">
   <div class="post-tag">Challenge</div>
   <div class="post-tag">General</div>
