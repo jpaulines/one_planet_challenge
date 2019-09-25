@@ -103,7 +103,7 @@
 .post-scroll {
     position: fixed;
     top: 230px;
-    bottom: 80px;
+    bottom: 84px;
     left: 0;
     right: 0;
     overflow: auto;
@@ -197,6 +197,8 @@ span.post-created {
 
 .card-post-content {
   font-weight: 300;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: scroll;
 }
 
 .card-post-content.show {
@@ -333,6 +335,25 @@ span.post-created {
  left: 0;
  right: 0;
  overflow: auto;
+}
+
+.search-bar-form {
+  width: 100%;
+  margin-left: 15px;
+  margin-top: 12px;
+  /* border-radius: 12px; */
+  display: flex;
+}
+
+.search-bar {
+  border-radius: 5px;
+}
+
+.btn-search {
+  font-weight: 600;
+  color: $darkgreen;
+  font-size: 18px;
+  margin-left: 5px;
 }
 
 // .heart {

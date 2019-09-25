@@ -50,4 +50,13 @@
     <%= render 'new-challenge-show'%>
   <% end %>
 
+<% if @challenge.posts.exists? %>
+ <%= link_to posts_path(query: @challenge.name), class: "btn custom community" do%>
+  Check out the Conversation <i class="fas fa-user-friends ml-1"></i>
+ <% end %>
+<% else %>
+<%= link_to posts_path, class: "btn custom community" do%>
+  Start the Conversation <i class="fas fa-user-friends ml-1"></i>
+ <% end %>
+<% end %>
 </div>
