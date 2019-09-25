@@ -8,7 +8,11 @@ class DashboardsController < ApplicationController
 
     # greens per challenge
     @earned_greens_arr = [0]
-    progress = current_user.quiz_result
+    if current_user.quiz_result.nil?
+      progess = 0
+    else
+      progress = current_user.quiz_result
+    end
     @greenpoints_progress << progress
     @user_challenges.where(completed: true).each do |uc|
       progress += uc.challenge.greenpoint
