@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
     # cumulated greenpoints score
     @greenpoints_score = []
-    @score = 0
+    @score = current_user.greenpoint_score
     # greens per challenge
     @earned_greens_arr = []
 
