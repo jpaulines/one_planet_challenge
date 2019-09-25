@@ -6,6 +6,19 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.new
     @like = Like.new
+
+    if params[:query].present?
+      challenges = Challenge.where("name ILIKE ?", "%#{params[:query]}%")
+      @posts = []
+      challenges.each do |challenge|
+        matches = Post.where(challenge: challenge)
+        @posts << matches
+      end
+      @posts = @posts.flatten
+    else
+      @posts = Post.all
+    end
+
   end
 
   def new

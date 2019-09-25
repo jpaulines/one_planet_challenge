@@ -4,3 +4,14 @@
   right: 16px;
   z-index: 1000;
 }
+
+.breakpoint {
+  display: none;
+}
+
+@media screen and (min-width: 450px) {
+  .breakpoint {
+    display: block;
+    background-color: white !important;
+  }
+}
