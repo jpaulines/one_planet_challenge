@@ -14,8 +14,8 @@
       <%= form_tag user_path(current_user), method: :patch do %>
 <!--         <form action="/users/<%= current_user.id %>" method="patch">
 -->
-<div class="form preferences d-flex flex-column justify-content-between form-page">
-  <label for="Preferences" class="label_question">How much time?</label>
+<div class="form preferences d-flex flex-column justify-content-between form-page mt-4">
+  <label for="Preferences" class="label_question ml-1 mb-1">How much time?</label>
   <div class="wrapping-slider">
   <div class="d-flex justify-content-between mt-1">
     <p class="slider">A little</p>
@@ -23,7 +23,7 @@
   </div>
   <input type="range" class="custom-range" id="slider" name=user[time_level] min="1" max="3" value="<%= current_user.time_level %>">
 </div>
-  <label for="Preferences" class="label_question">How much effort?</label>
+  <label for="Preferences" class="label_question ml-1 mb-1">How much effort?</label>
   <div class="wrapping-slider">
   <div class="d-flex justify-content-between mt-1">
     <p class="slider">A little</p>
@@ -31,7 +31,7 @@
   </div>
   <input type="range" class="custom-range" id="slider" name=user[effort_level] min="1" max="3" value="<%= current_user.effort_level %>">
   </div>
-  <label for="Preferences" class="label_question">How much money?</label>
+  <label for="Preferences" class="label_question ml-1 mb-1">How much money?</label>
   <div class="wrapping-slider">
   <div class="d-flex justify-content-between mt-1">
     <p class="slider">A little</p>
@@ -40,7 +40,7 @@
   <input type="range" class="custom-range" id="slider" name=user[money_level] min="1" max="3" value="<%= current_user.money_level %>">
   </div>
   <br>
-  <button id="" class="btn custom mb-5">Submit</button>
+  <button id="" class="btn custom mb-5 mt-2">Submit</button>
 <!--         </form>
 -->        <% end %>
 <br>
