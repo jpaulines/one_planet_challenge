@@ -9,7 +9,7 @@ class DashboardsController < ApplicationController
     # greens per challenge
     @earned_greens_arr = [0]
     if current_user.quiz_result.nil?
-      progess = 0
+      progress = 0
     else
       progress = current_user.quiz_result
     end
